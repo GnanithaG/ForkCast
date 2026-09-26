@@ -1,0 +1,31 @@
+location_id,lever,driver,annual_value,type
+L01,Recover walk-away demand,"2,107 parties (89% were 5-6 guests) left without a table",74985.0,Revenue (profit shown)
+L01,Portion & recipe control,Actual food cost runs 3.9 pts above recipe cost,42431.0,Cost
+L01,Re-price plowhorse mains (+$1),"4 popular, low-margin mains: Grouper Sandwich, Wagyu Burger, Chicken Paillard",47200.0,Revenue (profit shown)
+L01,Shift delivery to own channel,$707k third-party delivery sales at 22% commission,24022.0,Cost
+L02,Recover walk-away demand,646 parties (99% were 5-6 guests) left without a table,23875.0,Revenue (profit shown)
+L02,Staff to demand,Hourly-staff SPLH $49 vs peer median $60,432262.0,Cost
+L02,Cut food waste,Waste 4.1% of food spend vs peer median 3.9%,3539.0,Cost
+L02,Portion & recipe control,Actual food cost runs 4.0 pts above recipe cost,34819.0,Cost
+L02,Re-price plowhorse mains (+$1),"4 popular, low-margin mains: Chicken Paillard, Wagyu Burger, Grouper Sandwich",37814.0,Revenue (profit shown)
+L02,Shift delivery to own channel,$541k third-party delivery sales at 22% commission,18399.0,Cost
+L03,Recover walk-away demand,"2,527 parties (95% were 5-6 guests) left without a table",92184.0,Revenue (profit shown)
+L03,Portion & recipe control,Actual food cost runs 3.9 pts above recipe cost,37030.0,Cost
+L03,Re-price plowhorse mains (+$1),"4 popular, low-margin mains: Chicken Paillard, Grouper Sandwich, Wagyu Burger",40648.0,Revenue (profit shown)
+L03,Shift delivery to own channel,$621k third-party delivery sales at 22% commission,21127.0,Cost
+L04,Recover walk-away demand,"1,268 parties (98% were 5-6 guests) left without a table",46690.0,Revenue (profit shown)
+L04,Staff to demand,Hourly-staff SPLH $57 vs peer median $60,76724.0,Cost
+L04,Cut food waste,Waste 8.4% of food spend vs peer median 3.9%,67179.0,Cost
+L04,Portion & recipe control,Actual food cost runs 5.6 pts above recipe cost,27041.0,Cost
+L04,Re-price plowhorse mains (+$1),"4 popular, low-margin mains: Grouper Sandwich, Wagyu Burger, Chicken Paillard",29500.0,Revenue (profit shown)
+L04,Shift delivery to own channel,$447k third-party delivery sales at 22% commission,15194.0,Cost
+L05,Recover walk-away demand,"1,497 parties (93% were 5-6 guests) left without a table",54054.0,Revenue (profit shown)
+L05,Portion & recipe control,Actual food cost runs 3.8 pts above recipe cost,28248.0,Cost
+L05,Re-price plowhorse mains (+$1),"4 popular, low-margin mains: Wagyu Burger, Grouper Sandwich, Blackened Mahi Tacos",30967.0,Revenue (profit shown)
+L05,Shift delivery to own channel,$482k third-party delivery sales at 22% commission,16371.0,Cost
+L06,Recover walk-away demand,755 parties (98% were 5-6 guests) left without a table,28060.0,Revenue (profit shown)
+L06,Staff to demand,Hourly-staff SPLH $56 vs peer median $60,157126.0,Cost
+L06,Cut food waste,Waste 4.9% of food spend vs peer median 3.9%,18763.0,Cost
+L06,Portion & recipe control,Actual food cost runs 4.3 pts above recipe cost,36998.0,Cost
+L06,Re-price plowhorse mains (+$1),"4 popular, low-margin mains: Grouper Sandwich, Wagyu Burger, Chicken Paillard",40361.0,Revenue (profit shown)
+L06,Shift delivery to own channel,$582k third-party delivery sales at 22% commission,19804.0,Cost

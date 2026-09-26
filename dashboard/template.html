@@ -1,0 +1,669 @@
+<title>ForkCast Restaurant Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --page: #f3f6f5;
+  --surface: #ffffff;
+  --surface-2: #eaf0ee;
+  --ink: #13201d;
+  --ink-2: #44534f;
+  --muted: #7a8784;
+  --line: #dce4e1;
+  --grid: #e6ecea;
+  --accent: #0e5e57;
+  --accent-ink: #ffffff;
+  --accent-soft: #d8ebe7;
+  --good: #0a7d0a; --good-bg: #e2f3e2;
+  --warn: #8a5a00; --warn-bg: #fdf0d2;
+  --crit: #b3261e; --crit-bg: #fbe3e1;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --s5: #e87ba4; --s6: #008300; --s7: #4a3aa7; --s8: #e34948;
+  --heat: 42, 120, 214;
+  --shadow: 0 1px 2px rgba(19, 32, 29, .06), 0 4px 16px rgba(19, 32, 29, .05);
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0c1211; --surface: #141c1b; --surface-2: #1b2624; --ink: #e8efed; --ink-2: #b9c6c2; --muted: #84928e;
+    --line: #26332f; --grid: #1f2a28; --accent: #5cc2b3; --accent-ink: #06201c; --accent-soft: #173532;
+    --good: #3cc13c; --good-bg: #13301a; --warn: #f2b33d; --warn-bg: #33280f; --crit: #ff7b72; --crit-bg: #3a1917;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    --heat: 94, 162, 240; --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0c1211; --surface: #141c1b; --surface-2: #1b2624; --ink: #e8efed; --ink-2: #b9c6c2; --muted: #84928e;
+  --line: #26332f; --grid: #1f2a28; --accent: #5cc2b3; --accent-ink: #06201c; --accent-soft: #173532;
+  --good: #3cc13c; --good-bg: #13301a; --warn: #f2b33d; --warn-bg: #33280f; --crit: #ff7b72; --crit-bg: #3a1917;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  --heat: 94, 162, 240; --shadow: none;
+}
+* { box-sizing: border-box; }
+body { background: var(--page); color: var(--ink); font: 14px/1.5 var(--sans); margin: 0; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-inline: 20px; padding-block: 0 48px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+.num, td.n, .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--page);
+  border-bottom: 1px solid var(--line); }
+.top-in { max-width: 1280px; margin: 0 auto; padding: 14px 20px 0; display: grid; gap: 10px; }
+.brand { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.brand h1 { font-size: 22px; font-weight: 700; }
+.brand h1 span { color: var(--accent); }
+.brand .sub { color: var(--muted); font-size: 13px; }
+.locs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; }
+.loc-btn { flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); border-radius: 999px;
+  padding: 5px 12px; font: 500 13px var(--sans); cursor: pointer; white-space: nowrap; }
+.loc-btn small { color: var(--muted); font-weight: 400; margin-left: 4px; }
+.loc-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.loc-btn[aria-pressed="true"] small { color: inherit; opacity: .8; }
+nav.tabs { display: flex; gap: 2px; overflow-x: auto; }
+.tab { border: 0; background: none; color: var(--ink-2); font: 500 14px var(--sans); padding: 10px 12px 11px; cursor: pointer;
+  border-bottom: 2px solid transparent; white-space: nowrap; }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* sections */
+.panel { display: grid; gap: 20px; padding-top: 22px; }
+.sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; }
+.sec-head h2 { font-size: 20px; font-weight: 700; }
+.sec-head p { margin: 0; color: var(--muted); font-size: 13px; }
+.grid { display: grid; gap: 16px; }
+.g2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); }
+.g3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; box-shadow: var(--shadow);
+  min-width: 0; display: grid; gap: 10px; align-content: start; }
+.card h3 { font-size: 15px; font-weight: 500; font-family: var(--sans); }
+.card .hint { color: var(--muted); font-size: 12.5px; margin: -6px 0 0; }
+.chart { position: relative; height: 280px; }
+.chart.tall { height: 340px; }
+.chart.short { height: 210px; }
+
+/* kpi tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 185px), 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 4px; }
+.tile .lbl { color: var(--muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; font-weight: 500; }
+.tile .val { font-family: var(--display); font-size: 26px; font-weight: 700; line-height: 1.15; }
+.tile .foot { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: var(--ink-2); min-height: 20px; }
+.delta.up { color: var(--good); } .delta.down { color: var(--crit); } .delta.flat { color: var(--muted); }
+.chip { display: inline-flex; align-items: center; gap: 4px; border-radius: 999px; padding: 1px 8px; font-size: 11.5px; font-weight: 500; white-space: nowrap; }
+.chip.good { background: var(--good-bg); color: var(--good); }
+.chip.warn { background: var(--warn-bg); color: var(--warn); }
+.chip.crit { background: var(--crit-bg); color: var(--crit); }
+.chip.neutral { background: var(--surface-2); color: var(--ink-2); }
+.chip svg { width: 11px; height: 11px; }
+
+/* tables */
+.tbl-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th { text-align: left; font-weight: 500; color: var(--muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em;
+  padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap; vertical-align: middle; }
+th.n, td.n { text-align: right; }
+tr.sel td { background: var(--accent-soft); }
+tr.click { cursor: pointer; }
+tr.click:hover td { background: var(--surface-2); }
+td.wrap { white-space: normal; min-width: 220px; }
+
+/* insights */
+.insights { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.insights li { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+.insights .tag { font: 500 11px var(--mono); color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; padding: 1px 6px; margin-top: 2px; }
+
+/* dollar split */
+.split { display: flex; height: 44px; border-radius: 6px; overflow: hidden; gap: 2px; background: var(--surface); }
+.split div { display: grid; place-items: center; color: #fff; font: 500 12.5px var(--mono); min-width: 0; overflow: hidden; }
+.split-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--ink-2); }
+.split-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+/* heatmap */
+.heat { display: grid; grid-template-columns: 42px repeat(12, minmax(22px, 1fr)); gap: 3px; min-width: 460px; }
+.heat .hl { font: 11px var(--mono); color: var(--muted); display: grid; place-items: center; }
+.heat .hl.row { justify-items: start; }
+.heat .cell { aspect-ratio: 2.2; border-radius: 3px; display: grid; place-items: center; font: 10.5px var(--mono); cursor: default; position: relative; }
+.heat .cell.na { background: var(--surface-2); }
+.heat .cell:hover { outline: 2px solid var(--ink); outline-offset: 0; }
+.scale { display: flex; align-items: center; gap: 8px; font: 11px var(--mono); color: var(--muted); }
+.scale .bar { width: 160px; height: 8px; border-radius: 2px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; background: var(--surface); color: var(--ink-2); font: 500 12.5px var(--sans); padding: 5px 10px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent-soft); color: var(--ink); }
+.row-between { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
+
+/* scenario + unit cards */
+.scen { display: grid; gap: 4px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.scen .nm { font-weight: 600; } .scen .big { font: 700 22px var(--display); }
+.scen p { margin: 0; color: var(--muted); font-size: 12.5px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px 16px; margin: 0; }
+.facts dt { color: var(--muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; }
+.facts dd { margin: 0; font: 600 17px var(--display); }
+.note { color: var(--muted); font-size: 12.5px; margin: 0; max-width: 80ch; }
+.tip { position: fixed; pointer-events: none; z-index: 50; background: var(--ink); color: var(--page); font: 12px var(--sans);
+  padding: 6px 9px; border-radius: 6px; max-width: 240px; }
+footer { color: var(--muted); font-size: 12.5px; padding-top: 28px; max-width: 90ch; }
+@media (max-width: 560px) {
+  .tile .val { font-size: 22px; }
+  .chart { height: 240px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <h1>Fork<span>Cast</span></h1>
+      <span class="sub" id="subline"></span>
+    </div>
+    <div class="locs" id="locs" role="group" aria-label="Location"></div>
+    <nav class="tabs" role="tablist" id="tabs"></nav>
+  </div>
+</header>
+
+<main class="wrap" id="main"></main>
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const DATA = /*__DATA__*/null;
+const D = DATA;
+const TABS = [
+  ["overview", "Overview"], ["floor", "Floor & capacity"], ["spend", "Spend & costs"],
+  ["labor", "Labor"], ["menu", "Menu engineering"], ["growth", "Projections & growth"],
+];
+const LOCS = D.meta.locations;
+const NAME = Object.fromEntries(LOCS.map(l => [l.location_id, l.name]));
+NAME.ALL = "All locations";
+let scope = "ALL", tab = "overview", heatMode = "util", menuCat = "Main";
+try { scope = localStorage.getItem("fc-scope") || "ALL"; } catch (e) {}
+if (!(scope in NAME)) scope = "ALL";
+const h0 = location.hash.replace("#", "");
+if (TABS.some(t => t[0] === h0)) tab = h0;
+
+/* ---------- format helpers ---------- */
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const money = (v, d) => {
+  if (v == null) return "–";
+  const a = Math.abs(v);
+  if (a >= 1e6) return (v < 0 ? "-$" : "$") + (a / 1e6).toFixed(d ?? 2) + "M";
+  if (a >= 1e3) return (v < 0 ? "-$" : "$") + (a / 1e3).toFixed(d ?? 0) + "k";
+  return (v < 0 ? "-$" : "$") + a.toFixed(d ?? 2);
+};
+const pct = (v, d = 1) => v == null ? "–" : (v * 100).toFixed(d) + "%";
+const int = v => v == null ? "–" : Math.round(v).toLocaleString("en-US");
+const mon = s => { const d = new Date(s.slice(0, 7) + "-15"); return d.toLocaleString("en-US", { month: "short" }) + " " + String(d.getFullYear()).slice(2); };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const series = i => css("--s" + (i + 1));
+
+/* status rules (industry rules of thumb for full-service restaurants) */
+const RULES = {
+  prime_cost_pct: { good: v => v <= .65, warn: v => v <= .68, label: ["On target", "Watch", "Over"] },
+  labor_pct: { good: v => v <= .32, warn: v => v <= .35, label: ["On target", "Watch", "Over"] },
+  food_cost_pct: { good: v => v <= .33, warn: v => v <= .35, label: ["On target", "Watch", "Over"] },
+  waste_pct: { good: v => v <= .045, warn: v => v <= .06, label: ["On target", "Watch", "High"] },
+  ebitda_margin: { good: v => v >= .17, warn: v => v >= .12, label: ["Healthy", "Thin", "Weak"] },
+};
+const ICON = {
+  good: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.2 2.2L9.5 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  warn: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 2.2v4.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="6" cy="9.4" r="1" fill="currentColor"/></svg>',
+  crit: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>',
+};
+function status(key, v) {
+  const r = RULES[key]; if (!r || v == null) return "";
+  const s = r.good(v) ? "good" : r.warn(v) ? "warn" : "crit";
+  const l = r.label[s === "good" ? 0 : s === "warn" ? 1 : 2];
+  return `<span class="chip ${s}">${ICON[s]}${l}</span>`;
+}
+
+/* ---------- chart plumbing ---------- */
+const charts = {};
+function mk(id, cfg) {
+  if (charts[id]) charts[id].destroy();
+  const el = document.getElementById(id); if (!el) return;
+  charts[id] = new Chart(el, cfg);
+}
+function baseOpts(extra = {}) {
+  const muted = css("--muted"), grid = css("--grid"), ink = css("--ink");
+  Chart.defaults.font.family = css("--sans");
+  Chart.defaults.color = muted;
+  return Object.assign({
+    responsive: true, maintainAspectRatio: false, animation: false,
+    interaction: { mode: "index", intersect: false },
+    plugins: {
+      legend: { position: "top", align: "start", labels: { boxWidth: 10, boxHeight: 10, color: css("--ink-2"), font: { size: 12 } } },
+      tooltip: { backgroundColor: ink, titleColor: css("--page"), bodyColor: css("--page"), padding: 9, cornerRadius: 6,
+        boxPadding: 4, titleFont: { weight: "600" } },
+    },
+    scales: {
+      x: { grid: { display: false }, border: { color: css("--line") }, ticks: { color: muted, maxRotation: 0, autoSkipPadding: 10 } },
+      y: { grid: { color: grid }, border: { display: false }, ticks: { color: muted } },
+    },
+  }, extra);
+}
+const moneyTick = v => money(v, Math.abs(v) >= 1e6 ? 1 : 0);
+const pctTick = v => (v * 100).toFixed(0) + "%";
+function bars(color) { return { backgroundColor: color, borderRadius: { topLeft: 4, topRight: 4 }, borderSkipped: "bottom", maxBarThickness: 34 }; }
+
+/* ---------- shell ---------- */
+function renderShell() {
+  const L = LOCS.find(l => l.location_id === scope);
+  document.getElementById("subline").textContent = D.meta.chain + " · " +
+    (L ? `${L.name}, ${L.city} · ${L.seats} seats · opened ${L.open_date.slice(0, 4)}` : `${LOCS.length} South Florida locations · ${LOCS.reduce((a, l) => a + l.seats, 0)} seats`) +
+    " · data Sep 2024 – Aug 2026";
+  const locs = document.getElementById("locs");
+  locs.innerHTML = [["ALL", "All locations", ""], ...LOCS.map(l => [l.location_id, l.name, l.city])]
+    .map(([id, n, c]) => `<button class="loc-btn" data-loc="${id}" aria-pressed="${id === scope}">${esc(n)}${c ? `<small>${esc(c)}</small>` : ""}</button>`).join("");
+  document.getElementById("tabs").innerHTML = TABS.map(([id, n]) =>
+    `<button class="tab" role="tab" data-tab="${id}" aria-selected="${id === tab}">${n}</button>`).join("");
+}
+document.addEventListener("click", e => {
+  const lb = e.target.closest("[data-loc]"); if (lb) { setScope(lb.dataset.loc); return; }
+  const tb = e.target.closest("[data-tab]"); if (tb) { tab = tb.dataset.tab; try { history.replaceState(null, "", "#" + tab); } catch (err) {} render(); window.scrollTo({ top: 0 }); return; }
+  const hm = e.target.closest("[data-heat]"); if (hm) { heatMode = hm.dataset.heat; render(); return; }
+  const mc = e.target.closest("[data-cat]"); if (mc) { menuCat = mc.dataset.cat; render(); return; }
+});
+function setScope(s) { scope = s; try { localStorage.setItem("fc-scope", s); } catch (e) {} render(); }
+
+function render() {
+  renderShell();
+  const m = document.getElementById("main");
+  m.innerHTML = `<div class="panel" id="p-${tab}"></div>` + footerHTML();
+  ({ overview, floor, spend, labor, menu, growth })[tab](document.getElementById("p-" + tab));
+}
+function footerHTML() {
+  return `<footer>Synthetic data for a fictional chain, generated to mirror real operating drivers: Florida tourist seasonality, the Sept 30 minimum-wage steps, 2025 protein inflation, a 4% menu price increase on Jan 15 2026, and a new store (Brickell) ramping up since Mar 2025. Floor metrics come from a table-by-table seating simulation. TTM = trailing twelve months (Sep 2025 – Aug 2026). Status thresholds use common full-service rules of thumb: prime cost ≤ 65%, labor ≤ 32%, food cost ≤ 33%.</footer>`;
+}
+const H = () => D.headline[scope];
+const M = () => D.monthly[scope];
+function secHead(t, p) { return `<div class="sec-head"><h2>${t}</h2><p>${p}</p></div>`; }
+function tile(lbl, val, prior, key, opts = {}) {
+  let delta = "";
+  if (prior != null && val != null) {
+    const d = opts.pts ? (val - prior) : (val / prior - 1);
+    const good = opts.lowerBetter ? d < 0 : d > 0;
+    const cls = Math.abs(d) < (opts.pts ? .001 : .002) ? "flat" : good ? "up" : "down";
+    const txt = opts.pts ? `${d >= 0 ? "+" : ""}${(d * 100).toFixed(1)} pts` : `${d >= 0 ? "+" : ""}${(d * 100).toFixed(1)}%`;
+    delta = `<span class="delta ${cls}">${d >= 0 ? "▲" : "▼"} ${txt}</span><span>vs prior 12 mo</span>`;
+  } else if (opts.note) delta = `<span>${opts.note}</span>`;
+  return `<div class="tile"><div class="lbl">${lbl}</div><div class="val">${opts.fmt ? opts.fmt(val) : val}</div>
+    <div class="foot">${key ? status(key, val) : ""}${delta}</div></div>`;
+}
+
+/* ================= OVERVIEW ================= */
+function overview(el) {
+  const h = H(), t = h.ttm, p = h.prior;
+  const noPrior = !p ? { note: "Opened Mar 2025, no prior year" } : {};
+  el.innerHTML = secHead(scope === "ALL" ? "Chain performance, last 12 months" : `${NAME[scope]}, last 12 months`,
+      "Sep 2025 – Aug 2026 compared with Sep 2024 – Aug 2025") +
+    `<div class="tiles">
+      ${tile("Net sales", t.net_sales, p?.net_sales, null, { fmt: v => money(v), ...noPrior })}
+      ${tile("Covers served", t.covers, p?.covers, null, { fmt: int, ...noPrior })}
+      ${tile("Sales per cover", t.sales_per_cover, p?.sales_per_cover, null, { fmt: v => "$" + v.toFixed(2), ...noPrior })}
+      ${tile("Prime cost", t.prime_cost_pct, p?.prime_cost_pct, "prime_cost_pct", { fmt: pct, pts: 1, lowerBetter: 1 })}
+      ${tile("Four-wall EBITDA", t.ebitda_margin, p?.ebitda_margin, "ebitda_margin", { fmt: pct, pts: 1 })}
+      ${tile("Seat utilization", t.seat_utilization, p?.seat_utilization, null, { fmt: pct, pts: 1, ...noPrior })}
+      ${tile("RevPASH", t.revpash, p?.revpash, null, { fmt: v => "$" + v.toFixed(2), ...noPrior })}
+      ${tile("Covers turned away", t.lost_covers, p?.lost_covers, null, { fmt: int, lowerBetter: 1, ...noPrior })}
+    </div>
+    <div class="grid g2">
+      <div class="card"><h3>Monthly net sales by channel</h3><p class="hint">Winter tourist season drives a 60% swing from September low to March peak.</p><div class="chart"><canvas id="c-channel"></canvas></div></div>
+      <div class="card"><h3>What the numbers say</h3><ul class="insights" id="insights"></ul></div>
+    </div>
+    <div class="card"><div class="row-between"><h3>Location scorecard, trailing 12 months</h3><span class="hint" style="margin:0">Select a row to focus the dashboard on that store</span></div>
+      <div class="tbl-wrap"><table id="scorecard"></table></div></div>`;
+
+  const m = M();
+  mk("c-channel", { type: "bar", data: { labels: m.month.map(mon), datasets: [
+    { label: "Dine-in", data: m.dine_in_sales, ...bars(series(0)), borderRadius: 0 },
+    { label: "Takeout", data: m.takeout_sales, ...bars(series(1)), borderRadius: 0 },
+    { label: "Delivery", data: m.delivery_sales, ...bars(series(2)) },
+  ] }, options: baseOpts({ scales: { x: { stacked: true, grid: { display: false }, ticks: { color: css("--muted"), maxRotation: 0, autoSkipPadding: 8 } },
+      y: { stacked: true, grid: { color: css("--grid") }, border: { display: false }, ticks: { callback: moneyTick, color: css("--muted") } } },
+      plugins: { ...baseOpts().plugins, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${c.dataset.label}: ${money(c.raw)}`,
+        footer: items => "Total: " + money(items.reduce((a, i) => a + i.raw, 0)) } } } }) });
+
+  // insights
+  const ins = [];
+  const opp = D.opportunities.filter(o => scope === "ALL" || o.location_id === scope);
+  const agg = {}; opp.forEach(o => agg[o.lever] = (agg[o.lever] || 0) + o.annual_value);
+  const top = Object.entries(agg).sort((a, b) => b[1] - a[1]).slice(0, 3);
+  const totalOpp = Object.values(agg).reduce((a, b) => a + b, 0);
+  ins.push(["$ / yr", `About <b>${money(totalOpp)}</b> a year in profit is on the table. The biggest levers: ${top.map(([k, v]) => `${k.toLowerCase()} (${money(v)})`).join(", ")}.`]);
+  ins.push(["Food", `Actual food cost is <b>${pct(t.food_cost_pct)}</b> of food sales against a recipe cost of ${pct(t.theo_food_cost_pct)}, a gap of ${((t.food_cost_pct - t.theo_food_cost_pct) * 100).toFixed(1)} pts from protein inflation, waste and over-portioning.`]);
+  const pm = D.floor[scope].party_mix; const big = pm.filter(r => r.party_size >= 5);
+  const bigLost = big.reduce((a, r) => a + r.lost, 0), bigAll = big.reduce((a, r) => a + r.lost + r.seated, 0);
+  ins.push(["Floor", `<b>${pct(bigLost / bigAll, 0)}</b> of parties of 5 or 6 walk away because no large table frees up in time, while average seat utilization is only ${pct(t.seat_utilization, 0)}. The constraint is table mix at peak, not total seats.`]);
+  if (p) ins.push(["Labor", `Labor rose to <b>${pct(t.labor_pct)}</b> of sales (${((t.labor_pct - p.labor_pct) * 100).toFixed(1)} pts), mostly from the $1 Florida minimum-wage step on 30 Sep 2025. Another $1 step lands on 30 Sep 2026.`]);
+  else ins.push(["Labor", `Labor runs at <b>${pct(t.labor_pct)}</b> of sales with sales per labor hour of $${t.splh.toFixed(0)}.`]);
+  const f = D.projections[scope];
+  const next = f.p50.reduce((a, b) => a + b, 0);
+  ins.push(["Next 12", `Projected net sales for Sep 2026 – Aug 2027: <b>${money(next)}</b> (${((next / t.net_sales - 1) * 100).toFixed(1)}% vs the last 12 months), with an 80% range of ${money(f.p10.reduce((a, b) => a + b, 0))} – ${money(f.p90.reduce((a, b) => a + b, 0))}.`]);
+  document.getElementById("insights").innerHTML = ins.map(([t, s]) => `<li><span class="tag">${t}</span><span>${s}</span></li>`).join("");
+
+  // scorecard
+  const rows = LOCS.map(l => ({ id: l.location_id, n: l.name, c: l.city, ...D.headline[l.location_id].ttm }));
+  const tot = { id: "ALL", n: "Chain total", c: "", ...D.headline.ALL.ttm };
+  const tr = r => `<tr class="click ${r.id === scope ? "sel" : ""}" data-loc="${r.id}">
+      <td><b>${esc(r.n)}</b> <span style="color:var(--muted)">${esc(r.c)}</span></td>
+      <td class="n">${money(r.net_sales)}</td><td class="n">$${r.sales_per_cover.toFixed(2)}</td>
+      <td class="n">${pct(r.food_cost_pct)}</td><td class="n">${pct(r.labor_pct)}</td>
+      <td class="n">${pct(r.prime_cost_pct)} ${status("prime_cost_pct", r.prime_cost_pct)}</td>
+      <td class="n">${pct(r.waste_pct)}</td>
+      <td class="n">${pct(r.ebitda_margin)} ${status("ebitda_margin", r.ebitda_margin)}</td>
+      <td class="n">${pct(r.seat_utilization)}</td><td class="n">$${r.revpash.toFixed(2)}</td><td class="n">${int(r.lost_covers)}</td></tr>`;
+  document.getElementById("scorecard").innerHTML = `<thead><tr><th>Location</th><th class="n">Net sales</th><th class="n">Per cover</th>
+    <th class="n">Food cost</th><th class="n">Labor</th><th class="n">Prime cost</th><th class="n">Waste</th><th class="n">EBITDA</th>
+    <th class="n">Seat util.</th><th class="n">RevPASH</th><th class="n">Covers lost</th></tr></thead><tbody>${rows.map(tr).join("")}${tr(tot)}</tbody>`;
+}
+
+/* ================= FLOOR ================= */
+function floor(el) {
+  const t = H().ttm, fl = D.floor[scope];
+  el.innerHTML = secHead("How the floor is used", "Every seated party is placed at a real table; a party that can't be seated within its wait tolerance walks away") +
+    `<div class="tiles">
+      ${tile("Seat utilization", t.seat_utilization, null, null, { fmt: pct, note: "occupied seat-minutes ÷ available" })}
+      ${tile("RevPASH", t.revpash, null, null, { fmt: v => "$" + v.toFixed(2), note: "dine-in revenue per available seat-hour" })}
+      ${tile("Table turns / day", t.table_turns, null, null, { fmt: v => v.toFixed(2), note: "dine-in parties ÷ tables" })}
+      ${tile("Average dwell", t.avg_dwell, null, null, { fmt: v => Math.round(v) + " min", note: "seat to check close" })}
+      ${tile("Covers turned away", t.lost_covers, null, null, { fmt: int, note: "walk-aways, last 12 months" })}
+      ${tile("Off-premise share", t.offprem_share, null, null, { fmt: pct, note: "takeout + delivery of sales" })}
+    </div>
+    <div class="card"><div class="row-between"><h3 id="heat-title"></h3>
+      <div class="seg"><button data-heat="util" aria-pressed="${heatMode === "util"}">Seat utilization</button><button data-heat="revpash" aria-pressed="${heatMode === "revpash"}">RevPASH</button></div></div>
+      <p class="hint" id="heat-hint"></p>
+      <div class="tbl-wrap"><div class="heat" id="heat"></div></div>
+      <div class="scale" id="heat-scale"></div></div>
+    <div class="grid g2">
+      <div class="card"><h3>Share of parties lost, by party size</h3><p class="hint">Large parties are the ones walking out: the floor has few 6-tops and tables can't be joined.</p><div class="chart short"><canvas id="c-lost"></canvas></div></div>
+      <div class="card"><h3>Seat fill at seated tables</h3><p class="hint">Guests ÷ chairs at occupied tables. A party of 3 at a 4-top leaves a chair empty.</p><div class="chart short"><canvas id="c-fit"></canvas></div></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h3>Seat utilization by month</h3><div class="chart short"><canvas id="c-util"></canvas></div></div>
+      <div class="card"><h3>Covers turned away by month</h3><div class="chart short"><canvas id="c-lostm"></canvas></div></div>
+    </div>
+    <div class="card"><h3>Dining zones, last 12 months</h3><p class="hint">Patio seats lose summer afternoons to heat and rain; bar seats earn the most per seat.</p>
+      <div class="tbl-wrap"><table id="zones"></table></div></div>`;
+
+  // heatmap
+  const cells = D.heat[scope];
+  const key = heatMode;
+  const max = Math.max(...cells.map(c => c[key] || 0));
+  const rgb = css("--heat");
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const hrs = [...Array(12)].map((_, i) => 11 + i);
+  let html = `<div></div>` + hrs.map(h => `<div class="hl">${h > 12 ? h - 12 : h}${h >= 12 ? "p" : "a"}</div>`).join("");
+  const peak = cells.reduce((a, c) => (c[key] > (a?.[key] || 0) ? c : a), null);
+  days.forEach((d, i) => {
+    html += `<div class="hl row">${d}</div>`;
+    hrs.forEach(h => {
+      const c = cells.find(x => x.dow === i + 1 && x.hr === h);
+      if (!c) { html += `<div class="cell na" data-t="${d} ${h}:00 · closed"></div>`; return; }
+      const v = c[key], a = Math.max(.06, v / max);
+      const txt = key === "util" ? Math.round(v * 100) : Math.round(v);
+      const lbl = key === "util" ? `${d} ${h}:00 · ${pct(v)} of seats occupied · RevPASH $${c.revpash.toFixed(2)}` : `${d} ${h}:00 · RevPASH $${v.toFixed(2)} · ${pct(c.util)} seats occupied`;
+      html += `<div class="cell" style="background:rgba(${rgb},${a.toFixed(3)});color:${a > .55 ? "#fff" : "var(--ink-2)"}" data-t="${lbl}">${txt}</div>`;
+    });
+  });
+  document.getElementById("heat").innerHTML = html;
+  document.getElementById("heat-title").textContent = key === "util" ? "Seat utilization by day and hour (%)" : "RevPASH by day and hour ($ per seat-hour)";
+  document.getElementById("heat-hint").textContent = `Peak: ${days[peak.dow - 1]} ${peak.hr > 12 ? peak.hr - 12 : peak.hr}pm at ${key === "util" ? pct(peak.util, 0) + " of seats" : "$" + peak.revpash.toFixed(2)}. Afternoons from 3 to 5pm sit mostly empty on weekdays, the window for happy hour or events.`;
+  document.getElementById("heat-scale").innerHTML = `<span>${key === "util" ? "0%" : "$0"}</span><span class="bar" style="background:linear-gradient(90deg,rgba(${rgb},.06),rgba(${rgb},1))"></span><span>${key === "util" ? pct(max, 0) : "$" + max.toFixed(0)}</span>`;
+
+  const pm = fl.party_mix;
+  mk("c-lost", { type: "bar", data: { labels: pm.map(r => r.party_size + (r.party_size === 1 ? " guest" : " guests")),
+    datasets: [{ label: "Parties lost", data: pm.map(r => r.lost / (r.lost + r.seated)), ...bars(series(0)) }] },
+    options: baseOpts({ plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${pct(c.raw)} lost · ${int(pm[c.dataIndex].lost)} of ${int(pm[c.dataIndex].lost + pm[c.dataIndex].seated)} parties` } } },
+      scales: { x: baseOpts().scales.x, y: { ...baseOpts().scales.y, ticks: { callback: pctTick, color: css("--muted") } } } }) });
+  const tf = fl.table_fit;
+  mk("c-fit", { type: "bar", data: { labels: tf.map(r => r.table_size + "-top"),
+    datasets: [{ label: "Seat fill", data: tf.map(r => r.fill_rate), ...bars(series(0)) }] },
+    options: baseOpts({ plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${pct(c.raw)} of chairs filled · ${int(tf[c.dataIndex].parties)} parties` } } },
+      scales: { x: baseOpts().scales.x, y: { ...baseOpts().scales.y, min: 0, max: 1, ticks: { callback: pctTick, color: css("--muted") } } } }) });
+  const m = M();
+  mk("c-util", { type: "line", data: { labels: m.month.map(mon), datasets: [{ label: "Seat utilization", data: m.seat_utilization,
+    borderColor: series(0), backgroundColor: `rgba(${rgb},.12)`, fill: true, borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .25 }] },
+    options: baseOpts({ plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => " " + pct(c.raw) } } },
+      scales: { x: baseOpts().scales.x, y: { ...baseOpts().scales.y, ticks: { callback: pctTick, color: css("--muted") } } } }) });
+  mk("c-lostm", { type: "bar", data: { labels: m.month.map(mon), datasets: [{ label: "Covers lost", data: m.lost_covers, ...bars(series(1)) }] },
+    options: baseOpts({ plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${int(c.raw)} covers` } } } }) });
+  document.getElementById("zones").innerHTML = `<thead><tr><th>Zone</th><th class="n">Seats</th><th class="n">Parties</th><th class="n">Covers</th><th class="n">Net sales</th><th class="n">Sales per seat</th></tr></thead><tbody>` +
+    fl.zones.map(z => `<tr><td style="text-transform:capitalize">${z.zone}</td><td class="n">${int(z.seats)}</td><td class="n">${int(z.parties)}</td><td class="n">${int(z.covers)}</td><td class="n">${money(z.sales)}</td><td class="n">${money(z.sales_per_seat, 1)}</td></tr>`).join("") + "</tbody>";
+}
+
+/* ================= SPEND ================= */
+function spend(el) {
+  const t = H().ttm, s = D.spend[scope];
+  const occ = t.occupancy_pct * t.net_sales;
+  const parts = [
+    ["Food & beverage", t.total_cogs, series(1)], ["Labor", t.labor_cost, series(0)],
+    ["Rent", occ, series(6)], ["Other operating", t.opex - occ, series(3)], ["Four-wall EBITDA", t.ebitda, series(2)],
+  ];
+  el.innerHTML = secHead("Where the money goes", "Purchases, payroll and operating expenses, last 12 months") +
+    `<div class="card"><h3>Every $100 of sales</h3>
+      <div class="split">${parts.map(([n, v, c]) => `<div style="flex:${v};background:${c}" title="${n}: ${money(v)}">$${(v / t.net_sales * 100).toFixed(0)}</div>`).join("")}</div>
+      <div class="split-legend">${parts.map(([n, v, c]) => `<span><i style="background:${c}"></i>${n} <b class="mono">${money(v)}</b></span>`).join("")}</div></div>
+    <div class="tiles">
+      ${tile("Food cost (actual)", t.food_cost_pct, H().prior?.food_cost_pct, "food_cost_pct", { fmt: pct, pts: 1, lowerBetter: 1 })}
+      ${tile("Food cost (recipe)", t.theo_food_cost_pct, H().prior?.theo_food_cost_pct, null, { fmt: pct, pts: 1, lowerBetter: 1 })}
+      ${tile("Beverage cost", t.bev_cost_pct, H().prior?.bev_cost_pct, null, { fmt: pct, pts: 1, lowerBetter: 1 })}
+      ${tile("Food waste", t.waste_pct, H().prior?.waste_pct, "waste_pct", { fmt: pct, pts: 1, lowerBetter: 1 })}
+      ${tile("Delivery commissions", t.delivery_commissions, H().prior?.delivery_commissions, null, { fmt: v => money(v), lowerBetter: 1 })}
+    </div>
+    <div class="card"><h3>Cost ratios by month</h3><p class="hint">Protein prices jumped in June 2025. The January 2026 menu increase pulled recipe cost down, but actual cost stayed above it.</p><div class="chart"><canvas id="c-ratios"></canvas></div></div>
+    <div class="card"><h3>Purchases by category</h3><p class="hint">Vendor invoices by month. Food invoices arrive twice a week, beverage and supplies weekly.</p><div class="chart"><canvas id="c-purch"></canvas></div></div>
+    <div class="grid g2">
+      <div class="card"><h3>Operating expenses, last 12 months</h3><div class="chart"><canvas id="c-opex"></canvas></div></div>
+      <div class="card"><h3>Food waste by reason</h3><p class="hint">${scope === "L04" || scope === "ALL" ? "Atlantic Ave's walk-in cooler failed in July 2025, a one-time spike on top of chronically high waste." : "Logged waste by the reason the kitchen recorded."}</p><div class="chart short"><canvas id="c-waste"></canvas></div></div>
+    </div>`;
+  const m = M();
+  const line = (label, data, i, dash) => ({ label, data, borderColor: series(i), backgroundColor: series(i), borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .2, borderDash: dash || [] });
+  mk("c-ratios", { type: "line", data: { labels: m.month.map(mon), datasets: [
+    line("Prime cost", m.prime_cost_pct, 6), line("Food cost, actual", m.food_cost_pct, 1), line("Food cost, recipe", m.theo_food_cost_pct, 1, [5, 4]), line("Labor", m.labor_pct, 0),
+  ] }, options: baseOpts({ plugins: { ...baseOpts().plugins, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${c.dataset.label}: ${pct(c.raw)}` } } },
+    scales: { x: baseOpts().scales.x, y: { ...baseOpts().scales.y, min: .2, ticks: { callback: pctTick, color: css("--muted") } } } }) });
+  const pt = D.purchase_trend[scope];
+  const order = ["Protein", "Produce", "Dairy", "Dry Goods", "Alcohol", "Beverage", "Packaging"];
+  mk("c-purch", { type: "bar", data: { labels: pt.month.map(mon), datasets: order.map((c, i) => ({ label: c, data: pt.series[c], ...bars(series(i)), borderRadius: i === order.length - 1 ? { topLeft: 4, topRight: 4 } : 0 })) },
+    options: baseOpts({ scales: { x: { ...baseOpts().scales.x, stacked: true }, y: { ...baseOpts().scales.y, stacked: true, ticks: { callback: moneyTick, color: css("--muted") } } },
+      plugins: { ...baseOpts().plugins, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${c.dataset.label}: ${money(c.raw)}`, footer: it => "Total: " + money(it.reduce((a, i) => a + i.raw, 0)) } } } }) });
+  const hbar = (id, rows, color) => mk(id, { type: "bar", data: { labels: rows.map(r => r.cat), datasets: [{ data: rows.map(r => r.amt), backgroundColor: color, borderRadius: { topRight: 4, bottomRight: 4 }, borderSkipped: "left", maxBarThickness: 22 }] },
+    options: baseOpts({ indexAxis: "y", interaction: { mode: "nearest", axis: "y", intersect: false }, plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => " " + money(c.raw) } } },
+      scales: { x: { grid: { color: css("--grid") }, border: { display: false }, ticks: { callback: moneyTick, color: css("--muted") } }, y: { grid: { display: false }, ticks: { color: css("--ink-2") } } } }) });
+  hbar("c-opex", s.opex, series(6));
+  hbar("c-waste", s.waste, series(1));
+}
+
+/* ================= LABOR ================= */
+function labor(el) {
+  const t = H().ttm, p = H().prior, fl = D.floor[scope];
+  el.innerHTML = secHead("Labor productivity", "Hourly staff are scheduled per daypart from expected covers; managers are salaried") +
+    `<div class="tiles">
+      ${tile("Labor cost", t.labor_pct, p?.labor_pct, "labor_pct", { fmt: pct, pts: 1, lowerBetter: 1 })}
+      ${tile("Sales per labor hour", t.splh, p?.splh, null, { fmt: v => "$" + v.toFixed(2) })}
+      ${tile("Covers per labor hour", t.cplh, p?.cplh, null, { fmt: v => v.toFixed(2) })}
+      ${tile("Total labor spend", t.labor_cost, p?.labor_cost, null, { fmt: v => money(v), lowerBetter: 1 })}
+    </div>
+    <div class="card"><h3>Sales per labor hour by month${scope === "ALL" ? ", by location" : ""}</h3><p class="hint">${scope === "ALL" ? "Mizner Park (Boca Raton) schedules about 25% more hours per cover than its peers." : "Seasonal volume moves SPLH more than scheduling does; watch the summer months."}</p><div class="chart"><canvas id="c-splh"></canvas></div></div>
+    <div class="grid g2">
+      <div class="card"><h3>Labor cost by role, last 12 months</h3><div class="chart"><canvas id="c-role"></canvas></div></div>
+      <div class="card"><h3>Lunch vs dinner</h3><p class="hint">Hourly staff only. Lunch carries minimum staffing with smaller checks, so its labor share runs higher.</p>
+        <div class="tbl-wrap"><table>${`<thead><tr><th>Daypart</th><th class="n">Labor hours</th><th class="n">Net sales</th><th class="n">SPLH</th><th class="n">Hourly labor %</th></tr></thead><tbody>` +
+          fl.daypart_labor.slice().reverse().map(r => `<tr><td style="text-transform:capitalize">${r.daypart}</td><td class="n">${int(r.hours)}</td><td class="n">${money(r.net_sales)}</td><td class="n">$${r.splh.toFixed(2)}</td><td class="n">${pct(r.labor_pct)}</td></tr>`).join("") + "</tbody>"}</table></div>
+        <div class="chart short"><canvas id="c-daypart"></canvas></div></div>
+    </div>`;
+  let ds;
+  if (scope === "ALL") {
+    ds = LOCS.map((l, i) => { const m = D.monthly[l.location_id]; const off = D.monthly.ALL.month.length - m.month.length;
+      return { label: l.name, data: Array(off).fill(null).concat(m.splh), borderColor: series(i), backgroundColor: series(i), borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .2 }; });
+  } else ds = [{ label: "SPLH", data: M().splh, borderColor: series(0), backgroundColor: series(0), borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .2 }];
+  mk("c-splh", { type: "line", data: { labels: D.monthly.ALL.month.map(mon), datasets: ds },
+    options: baseOpts({ plugins: { ...baseOpts().plugins, legend: { ...baseOpts().plugins.legend, display: scope === "ALL" }, tooltip: { ...baseOpts().plugins.tooltip, itemSort: (a, b) => b.raw - a.raw, callbacks: { label: c => c.raw == null ? null : ` ${c.dataset.label}: $${c.raw.toFixed(2)}` } } },
+      scales: { x: baseOpts().scales.x, y: { ...baseOpts().scales.y, ticks: { callback: v => "$" + v, color: css("--muted") } } } }) });
+  const roles = D.spend[scope].labor;
+  mk("c-role", { type: "bar", data: { labels: roles.map(r => r.cat), datasets: [{ data: roles.map(r => r.amt), backgroundColor: series(0), borderRadius: { topRight: 4, bottomRight: 4 }, borderSkipped: "left", maxBarThickness: 22 }] },
+    options: baseOpts({ indexAxis: "y", interaction: { mode: "nearest", axis: "y", intersect: false }, plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${money(c.raw)} · ${int(roles[c.dataIndex].hours)} hours` } } },
+      scales: { x: { grid: { color: css("--grid") }, border: { display: false }, ticks: { callback: moneyTick, color: css("--muted") } }, y: { grid: { display: false }, ticks: { color: css("--ink-2") } } } }) });
+  const dl = fl.daypart_labor.slice().reverse();
+  mk("c-daypart", { type: "bar", data: { labels: dl.map(r => r.daypart[0].toUpperCase() + r.daypart.slice(1)), datasets: [{ label: "SPLH", data: dl.map(r => r.splh), ...bars(series(0)) }] },
+    options: baseOpts({ plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` $${c.raw.toFixed(2)} sales per labor hour` } } },
+      scales: { x: baseOpts().scales.x, y: { ...baseOpts().scales.y, ticks: { callback: v => "$" + v, color: css("--muted") } } } }) });
+}
+
+/* ================= MENU ================= */
+const ACTION = { Star: "Protect: keep quality and placement", Plowhorse: "Re-cost the plate or nudge the price", Puzzle: "Promote: better menu position, server pitch", Dog: "Rework or remove" };
+const CLASS_ORDER = ["Star", "Plowhorse", "Puzzle", "Dog"];
+function menu(el) {
+  const items = D.menu[scope];
+  const cats = ["Main", "Starter", "Side", "Dessert", "Bar", "Beverage"];
+  const rows = items.filter(r => r.category === menuCat).sort((a, b) => b.total_cm - a.total_cm);
+  const counts = CLASS_ORDER.map(c => [c, rows.filter(r => r.menu_class === c).length]);
+  el.innerHTML = secHead("Menu engineering", "Kasavana–Smith method: popularity (menu mix) against contribution margin per plate, within each category") +
+    `<div class="row-between"><div class="seg" role="group" aria-label="Menu category">${cats.map(c => `<button data-cat="${c}" aria-pressed="${c === menuCat}">${c}</button>`).join("")}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">${counts.map(([c, n], i) => `<span class="chip neutral"><i style="width:8px;height:8px;border-radius:50%;background:${series(i)};display:inline-block"></i>${n} ${c}${n === 1 ? "" : "s"}</span>`).join("")}</div></div>
+    <div class="grid g2">
+      <div class="card"><h3>${menuCat}: popularity vs margin</h3><p class="hint">Dashed lines: 70% of an even share of the mix (popularity) and the category's average margin.</p><div class="chart tall"><canvas id="c-menu"></canvas></div></div>
+      <div class="card"><h3>${menuCat} items, last 12 months</h3><div class="tbl-wrap"><table>
+        <thead><tr><th>Item</th><th class="n">Mix</th><th class="n">Margin / plate</th><th class="n">Total margin</th><th>Class</th></tr></thead>
+        <tbody>${rows.map(r => `<tr><td title="${int(r.units)} sold">${esc(r.item_name)}</td><td class="n">${pct(r.menu_mix_pct)}</td><td class="n">$${r.cm_per_unit.toFixed(2)}</td><td class="n">${money(r.total_cm)}</td>
+          <td><span class="chip neutral" title="${ACTION[r.menu_class]}"><i style="width:8px;height:8px;border-radius:50%;background:${series(CLASS_ORDER.indexOf(r.menu_class))};display:inline-block"></i>${r.menu_class}</span></td></tr>`).join("")}</tbody></table></div>
+        <ul class="insights">${CLASS_ORDER.map(c => `<li><span class="tag">${c}</span><span>${ACTION[c]}</span></li>`).join("")}</ul></div>
+    </div>`;
+  const thrX = rows[0]?.popularity_threshold, thrY = rows[0]?.avg_cm_category;
+  const guide = { id: "guides", afterDatasetsDraw(ch) {
+    const { ctx, chartArea: a, scales: { x, y } } = ch; ctx.save(); ctx.strokeStyle = css("--muted"); ctx.setLineDash([4, 4]); ctx.lineWidth = 1;
+    const px = x.getPixelForValue(thrX), py = y.getPixelForValue(thrY);
+    ctx.beginPath(); ctx.moveTo(px, a.top); ctx.lineTo(px, a.bottom); ctx.moveTo(a.left, py); ctx.lineTo(a.right, py); ctx.stroke(); ctx.setLineDash([]);
+    ctx.font = `12px ${css("--sans")}`; ctx.fillStyle = css("--ink-2"); ctx.textBaseline = "middle";
+    const pts = [];
+    ch.data.datasets.forEach((d, di) => ch.getDatasetMeta(di).data.forEach((pt, i) => pts.push({ x: pt.x, y: pt.y, nm: d.data[i].name })));
+    pts.sort((p, q) => p.y - q.y);
+    const boxes = [];
+    pts.forEach(p => {
+      const w = ctx.measureText(p.nm).width, left = p.x + 9 + w > a.right;
+      const x0 = left ? p.x - 9 - w : p.x + 9; let y = p.y;
+      const hit = b => x0 < b.x1 && x0 + w > b.x0 && Math.abs(y - b.y) < 14;
+      let guard = 0; while (boxes.some(hit) && guard++ < 6) y += 14;
+      boxes.push({ x0, x1: x0 + w, y });
+      ctx.textAlign = "left"; ctx.fillText(p.nm, x0, y);
+    });
+    ctx.restore(); } };
+  const xs = rows.map(r => r.menu_mix_pct), ys = rows.map(r => r.cm_per_unit);
+  const pad = (lo, hi) => [(lo - (hi - lo) * .12), hi + (hi - lo) * .12];
+  const [x0, x1] = pad(Math.min(...xs, thrX), Math.max(...xs, thrX)), [y0, y1] = pad(Math.min(...ys, thrY), Math.max(...ys, thrY));
+  mk("c-menu", { type: "scatter", plugins: [guide], data: { datasets: CLASS_ORDER.map((c, i) => ({ label: c,
+      data: rows.filter(r => r.menu_class === c).map(r => ({ x: r.menu_mix_pct, y: r.cm_per_unit, name: r.item_name, units: r.units })),
+      backgroundColor: series(i), borderColor: css("--surface"), borderWidth: 2, pointRadius: 7, pointHoverRadius: 9 })) },
+    options: baseOpts({ interaction: { mode: "nearest", intersect: true },
+      plugins: { ...baseOpts().plugins, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { title: it => it[0].raw.name, label: c => [` ${c.dataset.label}`, ` Mix ${pct(c.raw.x)} · margin $${c.raw.y.toFixed(2)}/plate`, ` ${int(c.raw.units)} sold`] } } },
+      scales: { x: { min: Math.max(0, x0), max: x1, title: { display: true, text: "Menu mix (share of category units)", color: css("--muted") }, grid: { color: css("--grid") }, border: { color: css("--line") }, ticks: { callback: v => (v * 100).toFixed(0) + "%", color: css("--muted") } },
+        y: { min: y0, max: y1, title: { display: true, text: "Contribution margin per plate", color: css("--muted") }, grid: { color: css("--grid") }, border: { display: false }, ticks: { callback: v => "$" + v.toFixed(0), color: css("--muted") } } } }) });
+}
+
+/* ================= GROWTH ================= */
+function growth(el) {
+  const f = D.projections[scope], m = M(), t = H().ttm;
+  const sum = a => a.reduce((x, y) => x + (y || 0), 0);
+  const next = sum(f.p50), nextE = sum(f.ebitda);
+  const opp = D.opportunities.filter(o => scope === "ALL" || o.location_id === scope);
+  const agg = {}; opp.forEach(o => agg[o.lever] = (agg[o.lever] || 0) + o.annual_value);
+  const levers = Object.entries(agg).sort((a, b) => b[1] - a[1]);
+  const nu = D.new_unit;
+  const acc = D.accuracy.find(a => a.location_id === (scope === "ALL" ? "CHAIN" : scope));
+  el.innerHTML = secHead("Projections & growth", "12-month outlook from a regression forecast with seasonality, holidays, price effects and new-store ramp") +
+    `<div class="tiles">
+      ${tile("Projected net sales", next, null, null, { fmt: v => money(v), note: `Sep 26 – Aug 27 · ${((next / t.net_sales - 1) * 100).toFixed(1)}% vs last 12 mo` })}
+      ${tile("80% range", null, null, null, { fmt: () => `${money(sum(f.p10), 1)}–${money(sum(f.p90), 1).slice(1)}`, note: "P10 to P90 of 1,000 simulated paths" })}
+      ${tile("Projected four-wall EBITDA", nextE, null, null, { fmt: v => money(v), note: `${pct(nextE / next)} margin after the Sep 2026 wage step` })}
+      ${tile("Forecast error (backtest)", acc.mape_model / 100, null, null, { fmt: v => pct(v), note: `monthly MAPE, Jun–Aug 2026 · naive ${acc.mape_naive.toFixed(1)}%` })}
+    </div>
+    <div class="card"><h3>Net sales: actual and projected</h3><p class="hint">Shaded band is the 80% prediction interval. Seasonality for Brickell is borrowed from the five mature stores because it has only one full season of history.</p><div class="chart tall"><canvas id="c-fc"></canvas></div></div>
+    <div class="grid g2">
+      <div class="card"><h3>Projected P&amp;L by month</h3><p class="hint">Costs projected from recent ratios, a labor-hours model fitted on daily covers (R² ≈ 0.97), and the $15 Florida minimum wage from 30 Sep 2026.</p><div class="chart"><canvas id="c-pnl"></canvas></div></div>
+      <div class="card"><h3>Chain scenarios, next 12 months</h3>
+        <div class="grid" style="gap:10px">${D.scenarios.map(s => `<div class="scen"><div class="row-between"><span class="nm">${s.scenario}</span><span class="mono">${money(s.sales, 1)} sales</span></div>
+          <div class="big">${money(s.ebitda, 2)} <span style="font:500 13px var(--sans);color:var(--muted)">EBITDA · ${pct(s.ebitda / s.sales)}</span></div><p>${esc(s.note)}</p></div>`).join("")}</div></div>
+    </div>
+    <div class="card"><h3>Operating opportunities${scope === "ALL" ? " across the chain" : " at " + esc(NAME[scope])}, annual profit impact</h3>
+      <p class="hint">Each lever is sized against peer stores or a stated assumption. Revenue levers show profit after food and variable labor, not gross sales.</p>
+      <div class="chart short"><canvas id="c-opp"></canvas></div>
+      <div class="tbl-wrap"><table><thead><tr>${scope === "ALL" ? "<th>Location</th>" : ""}<th>Lever</th><th>Evidence</th><th class="n">Annual impact</th></tr></thead><tbody>
+        ${opp.slice().sort((a, b) => b.annual_value - a.annual_value).slice(0, scope === "ALL" ? 12 : 10).map(o => `<tr>${scope === "ALL" ? `<td>${esc(NAME[o.location_id])}</td>` : ""}<td>${esc(o.lever)}</td><td class="wrap">${esc(o.driver)}</td><td class="n">${money(o.annual_value)}</td></tr>`).join("")}
+      </tbody></table></div></div>
+    <div class="grid g2">
+      <div class="card"><h3>Should we open store seven?</h3><p class="hint">A 150-seat unit modeled on the mature stores' sales per seat and Brickell's actual first 18 months.</p>
+        <dl class="facts">
+          <div><dt>Investment</dt><dd>${money(nu.capex + nu.preopening, 2)}</dd></div>
+          <div><dt>Year-1 sales</dt><dd>${money(nu.year1_sales, 1)}</dd></div>
+          <div><dt>Mature sales</dt><dd>${money(nu.mature_annual_sales, 1)}</dd></div>
+          <div><dt>Mature EBITDA</dt><dd>${money(nu.mature_annual_ebitda, 2)}</dd></div>
+          <div><dt>Cash-on-cash</dt><dd>${pct(nu.cash_on_cash_mature, 0)}</dd></div>
+          <div><dt>Payback</dt><dd>${nu.payback_months} months</dd></div>
+        </dl>
+        <div class="chart short"><canvas id="c-cash"></canvas></div></div>
+      <div class="card"><h3>Forecast accuracy by location</h3><p class="hint">Holdout backtest: trained through May 2026, scored on June–August 2026. Naive = same month last year × recent growth.</p>
+        <div class="tbl-wrap"><table><thead><tr><th>Location</th><th class="n">Model MAPE</th><th class="n">Naive MAPE</th><th>Result</th></tr></thead><tbody>
+        ${D.accuracy.map(a => `<tr class="${(a.location_id === scope || (scope === "ALL" && a.location_id === "CHAIN")) ? "sel" : ""}"><td>${a.location_id === "CHAIN" ? "<b>Chain</b>" : esc(NAME[a.location_id])}</td><td class="n">${a.mape_model.toFixed(1)}%</td><td class="n">${a.mape_naive.toFixed(1)}%</td>
+          <td>${a.mape_model < a.mape_naive ? '<span class="chip good">' + ICON.good + 'Beats naive</span>' : '<span class="chip warn">' + ICON.warn + 'Tie or worse</span>'}</td></tr>`).join("")}
+        </tbody></table></div>
+        <p class="note">The model wins at chain level and on four of six stores. At Clematis Street and Atlantic Ave the naive baseline does as well or slightly better. Both stores are stable and seasonal, so last year is already a strong guide there.</p></div>
+    </div>`;
+
+  // forecast chart
+  const hist = m.month.map(mon), fut = f.month.map(mon), labels = hist.concat(fut);
+  const pad = n => Array(n).fill(null);
+  const act = m.net_sales.concat(pad(fut.length));
+  const bridge = pad(hist.length - 1).concat([m.net_sales[m.net_sales.length - 1]]);
+  const rgb = css("--heat");
+  mk("c-fc", { type: "line", data: { labels, datasets: [
+    { label: "P90", data: pad(hist.length).concat(f.p90), borderWidth: 0, pointRadius: 0, fill: "+1", backgroundColor: `rgba(${rgb},.16)` },
+    { label: "P10", data: pad(hist.length).concat(f.p10), borderWidth: 0, pointRadius: 0, fill: false },
+    { label: "Actual", data: act, borderColor: css("--ink-2"), backgroundColor: css("--ink-2"), borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .2 },
+    { label: "Projected (P50)", data: bridge.concat(f.p50), borderColor: series(0), backgroundColor: series(0), borderWidth: 2, borderDash: [6, 4], pointRadius: 0, pointHoverRadius: 4, tension: .2 },
+  ] }, options: baseOpts({ plugins: { ...baseOpts().plugins,
+      legend: { ...baseOpts().plugins.legend, labels: { ...baseOpts().plugins.legend.labels, filter: i => !["P10", "P90"].includes(i.text) } },
+      tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => c.raw == null ? null : ` ${c.dataset.label === "P90" ? "High (P90)" : c.dataset.label === "P10" ? "Low (P10)" : c.dataset.label}: ${money(c.raw)}` },
+        filter: (it) => !(it.dataset.label === "Projected (P50)" && it.dataIndex === hist.length - 1) } },
+    scales: { x: baseOpts().scales.x, y: { ...baseOpts().scales.y, ticks: { callback: moneyTick, color: css("--muted") } } } }) });
+
+  mk("c-pnl", { type: "bar", data: { labels: fut, datasets: [
+    { label: "Food & bev", data: f.cogs, ...bars(series(1)), borderRadius: 0 },
+    { label: "Labor", data: f.labor, ...bars(series(0)), borderRadius: 0 },
+    { label: "Operating", data: f.opex, ...bars(series(6)), borderRadius: 0 },
+    { label: "EBITDA", data: f.ebitda, ...bars(series(2)) },
+  ] }, options: baseOpts({ scales: { x: { ...baseOpts().scales.x, stacked: true }, y: { ...baseOpts().scales.y, stacked: true, ticks: { callback: moneyTick, color: css("--muted") } } },
+    plugins: { ...baseOpts().plugins, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${c.dataset.label}: ${money(c.raw)}`, footer: it => "Sales: " + money(it.reduce((a, i) => a + i.raw, 0)) + " · margin " + pct(it[3] ? it[3].raw / it.reduce((a, i) => a + i.raw, 0) : null) } } } }) });
+
+  mk("c-opp", { type: "bar", data: { labels: levers.map(l => l[0]), datasets: [{ data: levers.map(l => l[1]), backgroundColor: series(2), borderRadius: { topRight: 4, bottomRight: 4 }, borderSkipped: "left", maxBarThickness: 20 }] },
+    options: baseOpts({ indexAxis: "y", interaction: { mode: "nearest", axis: "y", intersect: false }, plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => ` ${money(c.raw)} per year` } } },
+      scales: { x: { grid: { color: css("--grid") }, border: { display: false }, ticks: { callback: moneyTick, color: css("--muted") } }, y: { grid: { display: false }, ticks: { color: css("--ink-2") } } } }) });
+
+  const cc = nu.cash_curve;
+  mk("c-cash", { type: "line", data: { labels: cc.map((_, i) => i === 0 ? "Open" : "M" + i), datasets: [{ label: "Cumulative cash", data: cc,
+      borderColor: series(0), borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .15,
+      fill: { target: { value: 0 }, above: "rgba(10,125,10,.14)", below: `rgba(${rgb},.12)` } }] },
+    options: baseOpts({ plugins: { legend: { display: false }, tooltip: { ...baseOpts().plugins.tooltip, callbacks: { label: c => " " + money(c.raw) } } },
+      scales: { x: { ...baseOpts().scales.x, ticks: { color: css("--muted"), autoSkipPadding: 14, maxRotation: 0 } }, y: { ...baseOpts().scales.y, ticks: { callback: moneyTick, color: css("--muted") } } } }) });
+}
+
+/* ---------- heatmap tooltip ---------- */
+const tip = document.getElementById("tip");
+document.addEventListener("mousemove", e => {
+  const c = e.target.closest(".heat .cell");
+  if (!c) { tip.hidden = true; return; }
+  tip.textContent = c.dataset.t; tip.hidden = false;
+  const x = Math.min(e.clientX + 12, window.innerWidth - 250);
+  tip.style.left = x + "px"; tip.style.top = (e.clientY + 14) + "px";
+});
+
+/* re-render on theme change so canvas colors follow */
+const rerender = () => render();
+try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", rerender); } catch (e) {}
+new MutationObserver(rerender).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+if (window.Chart) render(); else window.addEventListener("load", render);
+</script>

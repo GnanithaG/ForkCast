@@ -1,0 +1,4225 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "en-US",
+    "defaultMode": "directQuery",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Date",
+        "lineageTag": "a5c4dd07-f09f-5ab4-81d8-02ea0b4623e2",
+        "description": "Calendar, one row per day (marked as the date table)",
+        "columns": [
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "lineageTag": "58385cc1-0b97-5c21-bd3d-3aeb5c6f8049",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isKey": true
+          },
+          {
+            "name": "month_start",
+            "dataType": "dateTime",
+            "sourceColumn": "month_start",
+            "lineageTag": "eb257cc4-ab90-5e5e-8ca8-23a334547adb",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "month_label",
+            "dataType": "string",
+            "sourceColumn": "month_label",
+            "lineageTag": "6aad89d2-4921-5a5c-9bf0-3062ed05b965",
+            "summarizeBy": "none",
+            "sortByColumn": "month_start"
+          },
+          {
+            "name": "year",
+            "dataType": "int64",
+            "sourceColumn": "year",
+            "lineageTag": "9418b022-8d71-5f92-87af-66b204c7efad",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quarter_label",
+            "dataType": "string",
+            "sourceColumn": "quarter_label",
+            "lineageTag": "05fc0cc2-a258-50a9-a88a-fed8bbceceda",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month_num",
+            "dataType": "int64",
+            "sourceColumn": "month_num",
+            "lineageTag": "daaa68c6-b1bc-59d9-9c9c-7ef545259074",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "weekday_num",
+            "dataType": "int64",
+            "sourceColumn": "weekday_num",
+            "lineageTag": "f1f556f2-0a4f-555e-b926-e9126147bd24",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "weekday",
+            "dataType": "string",
+            "sourceColumn": "weekday",
+            "lineageTag": "1158c0e3-3520-5351-832a-9132ead759e4",
+            "summarizeBy": "none",
+            "sortByColumn": "weekday_num"
+          },
+          {
+            "name": "week_start",
+            "dataType": "dateTime",
+            "sourceColumn": "week_start",
+            "lineageTag": "50266e21-d073-5bae-a3c9-a89c7b2932dc",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "is_fri_sat",
+            "dataType": "boolean",
+            "sourceColumn": "is_fri_sat",
+            "lineageTag": "d9a8d711-3fc6-5dba-b9eb-90ab4af63120",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fl_season",
+            "dataType": "string",
+            "sourceColumn": "fl_season",
+            "lineageTag": "6c2c2aa3-a92b-519f-b893-adbd0b31d7bc",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "same_weekday_last_year",
+            "dataType": "dateTime",
+            "sourceColumn": "same_weekday_last_year",
+            "lineageTag": "b53efe10-46f6-55bf-836d-7c4f749e43cb",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"dim_date\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "dataCategory": "Time"
+      },
+      {
+        "name": "Month",
+        "lineageTag": "648db658-bfa2-5612-ad2f-058de8bde219",
+        "description": "One row per month",
+        "columns": [
+          {
+            "name": "month_start",
+            "dataType": "dateTime",
+            "sourceColumn": "month_start",
+            "lineageTag": "bc30898b-7359-56fe-bb3b-6bed1e5dde3b",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "month_label",
+            "dataType": "string",
+            "sourceColumn": "month_label",
+            "lineageTag": "23e9d2b3-2ec6-5ea3-b97a-3eea00c67333",
+            "summarizeBy": "none",
+            "sortByColumn": "month_start"
+          },
+          {
+            "name": "year",
+            "dataType": "int64",
+            "sourceColumn": "year",
+            "lineageTag": "e9782e0d-500d-5d1a-8195-9897ae20aad4",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month_num",
+            "dataType": "int64",
+            "sourceColumn": "month_num",
+            "lineageTag": "6d3f874d-37e8-5221-af09-8709df33d16b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fl_season",
+            "dataType": "string",
+            "sourceColumn": "fl_season",
+            "lineageTag": "1f605e60-38b4-5ff9-9915-4e7fbd3b32fd",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Month",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"dim_month\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Hour",
+        "lineageTag": "4fe01054-f9c6-5833-accd-957ad48afdcd",
+        "description": "Opening hours 11 am - 10 pm",
+        "columns": [
+          {
+            "name": "hr",
+            "dataType": "int64",
+            "sourceColumn": "hr",
+            "lineageTag": "740c03bd-5d59-54f5-9633-97b254e0c3c0",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hour_label",
+            "dataType": "string",
+            "sourceColumn": "hour_label",
+            "lineageTag": "7fc2e241-9936-5999-9871-5e87f41ad4c8",
+            "summarizeBy": "none",
+            "sortByColumn": "hr"
+          },
+          {
+            "name": "daypart",
+            "dataType": "string",
+            "sourceColumn": "daypart",
+            "lineageTag": "e2685336-a062-5c01-bc38-1a3d587617b6",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Hour",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"dim_hour\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Location",
+        "lineageTag": "d89bce5c-1054-5853-bf0d-c4706986a5c4",
+        "description": "The six restaurants",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "ba4848d0-75bd-5f4b-9b48-11b8c7e50a16",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "location_name",
+            "dataType": "string",
+            "sourceColumn": "location_name",
+            "lineageTag": "fd53bfc7-d221-5cb4-92af-5230a1f23348",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "city",
+            "dataType": "string",
+            "sourceColumn": "city",
+            "lineageTag": "a00e973d-47f9-52d1-a59b-065fd4a2117e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "county",
+            "dataType": "string",
+            "sourceColumn": "county",
+            "lineageTag": "dfc7efe2-66af-5153-90dc-101e2e87b7ed",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "open_date",
+            "dataType": "dateTime",
+            "sourceColumn": "open_date",
+            "lineageTag": "91ea0604-9c05-5b6f-8a4b-e93f97435dd8",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "seats",
+            "dataType": "int64",
+            "sourceColumn": "seats",
+            "lineageTag": "92ab9608-9d94-58fd-b0fd-399ae92e982d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tables",
+            "dataType": "int64",
+            "sourceColumn": "tables",
+            "lineageTag": "655463e6-5934-5303-91e5-33819f1e3e29",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sqft",
+            "dataType": "int64",
+            "sourceColumn": "sqft",
+            "lineageTag": "6ff2cfa2-cfd6-520b-a82c-870d84a79926",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "monthly_rent",
+            "dataType": "double",
+            "sourceColumn": "monthly_rent",
+            "lineageTag": "06439c48-1d73-5afe-a074-8a131de15858",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "location_label",
+            "dataType": "string",
+            "sourceColumn": "location_label",
+            "lineageTag": "728e132f-5fc4-58af-b12c-91c837496338",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_mature",
+            "dataType": "boolean",
+            "sourceColumn": "is_mature",
+            "lineageTag": "9cad339b-6927-5c1a-83cc-71b88f9cac9e",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Location",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"dim_location\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Scope",
+        "lineageTag": "8db87836-3c74-5066-921f-21d6aff2e4cc",
+        "description": "Chain or single store, for KPI / OKR / menu slicers",
+        "columns": [
+          {
+            "name": "scope",
+            "dataType": "string",
+            "sourceColumn": "scope",
+            "lineageTag": "fe0535df-5df9-55c1-9ae7-2d523e2a729e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope_label",
+            "dataType": "string",
+            "sourceColumn": "scope_label",
+            "lineageTag": "12d0a1fc-3e4d-599d-8087-95846cb35dd8",
+            "summarizeBy": "none",
+            "sortByColumn": "scope_sort"
+          },
+          {
+            "name": "scope_sort",
+            "dataType": "int64",
+            "sourceColumn": "scope_sort",
+            "lineageTag": "f3c6f98f-1423-5f0e-865a-a63a87ad4acb",
+            "summarizeBy": "none",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Scope",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"scope_labels\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Menu Item",
+        "lineageTag": "e37f2934-d7b1-59ab-8758-9fa41869d4a1",
+        "description": "30-item menu with plate cost",
+        "columns": [
+          {
+            "name": "item_id",
+            "dataType": "string",
+            "sourceColumn": "item_id",
+            "lineageTag": "fe3d6ea1-1e39-5ac0-8cd2-657dbeb9ab7a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "item_name",
+            "dataType": "string",
+            "sourceColumn": "item_name",
+            "lineageTag": "cb2d5d07-553b-5aff-8bf3-7a5d05c6671d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category",
+            "lineageTag": "1517ec22-f1cb-5908-b2f8-53c1b8e537aa",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "item_group",
+            "dataType": "string",
+            "sourceColumn": "item_group",
+            "lineageTag": "f3bba7fd-b581-589b-988a-0f434b782295",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "base_price",
+            "dataType": "double",
+            "sourceColumn": "base_price",
+            "lineageTag": "16532594-7a18-547d-af98-2071426f12af",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "plate_cost",
+            "dataType": "double",
+            "sourceColumn": "plate_cost",
+            "lineageTag": "1990d429-3ed4-5f23-9840-04488eee2c8f",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Menu Item",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"dim_menu_item\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Daily Location",
+        "lineageTag": "c6357eb5-4eb6-5d9b-89af-93c5a5a2476f",
+        "description": "Daily sales, floor, labor and cost facts per store",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "33745a1e-5fa0-511a-9e43-5f7c2bed5553",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "business_date",
+            "dataType": "dateTime",
+            "sourceColumn": "business_date",
+            "lineageTag": "4102bd93-b898-5c93-8f20-58ffb6344452",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "net_sales",
+            "dataType": "double",
+            "sourceColumn": "net_sales",
+            "lineageTag": "6971e48d-bc9c-540a-b986-5b4ee0b79660",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "gross_sales",
+            "dataType": "double",
+            "sourceColumn": "gross_sales",
+            "lineageTag": "21095f6a-5fce-58e1-9dc8-da4e08107bce",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "discounts",
+            "dataType": "double",
+            "sourceColumn": "discounts",
+            "lineageTag": "ea411931-aa7f-51d1-93a6-7b9e49a3c575",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tips",
+            "dataType": "double",
+            "sourceColumn": "tips",
+            "lineageTag": "571cd830-6314-52c3-beed-9b1fc6c94c14",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "checks",
+            "dataType": "int64",
+            "sourceColumn": "checks",
+            "lineageTag": "b32315f8-7720-5bb2-8f77-7af89bf04605",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "covers",
+            "dataType": "int64",
+            "sourceColumn": "covers",
+            "lineageTag": "01c96f01-8716-5a68-80a9-d54f0f1fc723",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dine_in_sales",
+            "dataType": "double",
+            "sourceColumn": "dine_in_sales",
+            "lineageTag": "dca37246-a9f7-5cd7-91ea-5bb33c403861",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "takeout_sales",
+            "dataType": "double",
+            "sourceColumn": "takeout_sales",
+            "lineageTag": "4276feb0-3e31-5cb6-ae47-f8f27d1f1301",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_sales",
+            "dataType": "double",
+            "sourceColumn": "delivery_sales",
+            "lineageTag": "c6ee2463-f238-5de2-8daa-23f0c130f51a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dine_in_checks",
+            "dataType": "int64",
+            "sourceColumn": "dine_in_checks",
+            "lineageTag": "a412e743-a82a-50aa-9563-10ec4e4265fe",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "takeout_checks",
+            "dataType": "int64",
+            "sourceColumn": "takeout_checks",
+            "lineageTag": "e545cac9-61af-504a-9bf0-cad518d95313",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_checks",
+            "dataType": "int64",
+            "sourceColumn": "delivery_checks",
+            "lineageTag": "7d4ea275-ae84-51b9-9eaa-9ffb2889690d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dine_in_covers",
+            "dataType": "int64",
+            "sourceColumn": "dine_in_covers",
+            "lineageTag": "6c2459bb-f4f4-5a59-8954-9625e6c9cda9",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dine_large_parties",
+            "dataType": "int64",
+            "sourceColumn": "dine_large_parties",
+            "lineageTag": "8f2dee3b-2acb-5294-bd1e-ee18bcb9ad1b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lunch_sales",
+            "dataType": "double",
+            "sourceColumn": "lunch_sales",
+            "lineageTag": "db8844f8-0538-51b8-96f3-07c18c37af82",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dinner_sales",
+            "dataType": "double",
+            "sourceColumn": "dinner_sales",
+            "lineageTag": "cfb77390-7485-5648-b12e-8d82af0ad8b7",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dwell_min_total",
+            "dataType": "double",
+            "sourceColumn": "dwell_min_total",
+            "lineageTag": "18b17825-4a52-5012-9f43-4ef8b9cfbed0",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "parties_waited",
+            "dataType": "int64",
+            "sourceColumn": "parties_waited",
+            "lineageTag": "126dfedb-d38c-5736-8886-505aae119e8a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wait_min_total",
+            "dataType": "double",
+            "sourceColumn": "wait_min_total",
+            "lineageTag": "93301ba4-3178-5ba6-b7c3-672b1e4133b5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lost_parties",
+            "dataType": "int64",
+            "sourceColumn": "lost_parties",
+            "lineageTag": "ffa8cd91-b952-5803-aeb7-528e765f18d3",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lost_covers",
+            "dataType": "int64",
+            "sourceColumn": "lost_covers",
+            "lineageTag": "e46d1266-9692-55cf-ad0e-cdc389df4c49",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lost_large_parties",
+            "dataType": "int64",
+            "sourceColumn": "lost_large_parties",
+            "lineageTag": "bb9954af-d862-5472-a249-c9d076865145",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "available_seat_min",
+            "dataType": "double",
+            "sourceColumn": "available_seat_min",
+            "lineageTag": "340f0282-ac28-55af-a150-8fc72e6a5814",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "occupied_seat_min",
+            "dataType": "double",
+            "sourceColumn": "occupied_seat_min",
+            "lineageTag": "b6a26c9e-5383-50d8-9775-276fd2dca082",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "open_hours",
+            "dataType": "int64",
+            "sourceColumn": "open_hours",
+            "lineageTag": "b22e4d00-ed21-52ed-ab6e-f81e13d0e46e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seats",
+            "dataType": "int64",
+            "sourceColumn": "seats",
+            "lineageTag": "355a089d-196c-5f80-b515-194caeadb1f0",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tables",
+            "dataType": "int64",
+            "sourceColumn": "tables",
+            "lineageTag": "d16f9236-6ab9-598e-8dea-e8fbfc6150ea",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "labor_hours",
+            "dataType": "double",
+            "sourceColumn": "labor_hours",
+            "lineageTag": "a70b5800-a7c5-5724-8a7b-70f7dd45168d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "labor_cost",
+            "dataType": "double",
+            "sourceColumn": "labor_cost",
+            "lineageTag": "37541922-7f1f-52c0-bda3-31cb393ed699",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hourly_labor_hours",
+            "dataType": "double",
+            "sourceColumn": "hourly_labor_hours",
+            "lineageTag": "b68d3b7f-dcb5-5fce-b2bd-4c1074462ee0",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hourly_labor_cost",
+            "dataType": "double",
+            "sourceColumn": "hourly_labor_cost",
+            "lineageTag": "a174ddf7-95cd-5688-9ba9-3e7193c411ac",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kitchen_labor_cost",
+            "dataType": "double",
+            "sourceColumn": "kitchen_labor_cost",
+            "lineageTag": "c0f3c127-b126-59dd-90bb-19735890243b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "foh_labor_cost",
+            "dataType": "double",
+            "sourceColumn": "foh_labor_cost",
+            "lineageTag": "d28f4e27-c910-5731-93b8-d51e8b59cf93",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "mgmt_labor_cost",
+            "dataType": "double",
+            "sourceColumn": "mgmt_labor_cost",
+            "lineageTag": "71aae78f-ed45-57e7-a8c9-dae9c60f5c1f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "food_sales",
+            "dataType": "double",
+            "sourceColumn": "food_sales",
+            "lineageTag": "c8d72961-028c-584f-92c2-8a88567e77af",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "beverage_sales",
+            "dataType": "double",
+            "sourceColumn": "beverage_sales",
+            "lineageTag": "d9fab17d-80da-55c8-9b82-4e0982c5a667",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "theoretical_food_cost",
+            "dataType": "double",
+            "sourceColumn": "theoretical_food_cost",
+            "lineageTag": "a1fde998-5bb4-5745-8137-9900be5f1d06",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "theoretical_bev_cost",
+            "dataType": "double",
+            "sourceColumn": "theoretical_bev_cost",
+            "lineageTag": "5c4858ff-036d-5f74-a0d4-6f1eb6647245",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "purchases_food",
+            "dataType": "double",
+            "sourceColumn": "purchases_food",
+            "lineageTag": "7c4fe8a6-1b99-5131-ad5f-ae014bcd629f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "purchases_bev",
+            "dataType": "double",
+            "sourceColumn": "purchases_bev",
+            "lineageTag": "39ba5893-b28b-5daa-ada6-51c569bedb6f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "purchases_packaging",
+            "dataType": "double",
+            "sourceColumn": "purchases_packaging",
+            "lineageTag": "188b4492-6d52-5721-96d3-0769ab629e40",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "waste_cost",
+            "dataType": "double",
+            "sourceColumn": "waste_cost",
+            "lineageTag": "5d4c56f5-80ca-5fa8-b14b-8c4df1f8f777",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_commission_est",
+            "dataType": "double",
+            "sourceColumn": "delivery_commission_est",
+            "lineageTag": "c6dcf2d8-19b3-586f-814a-c98f60e34594",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Daily Location",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"daily_location\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Net Sales",
+            "expression": "SUM('Daily Location'[net_sales])",
+            "lineageTag": "144d7311-60f9-5881-be70-da12e7fbd4fc",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Gross Sales",
+            "expression": "SUM('Daily Location'[gross_sales])",
+            "lineageTag": "2e59031f-b9ca-5e32-a683-c3a00cce401e",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Total Covers",
+            "expression": "SUM('Daily Location'[covers])",
+            "lineageTag": "793249ba-2373-5353-8b17-82d4576afcf1",
+            "formatString": "#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Total Checks",
+            "expression": "SUM('Daily Location'[checks])",
+            "lineageTag": "81d273a0-f5cc-5cea-8974-029ece0cbac1",
+            "formatString": "#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Average Check",
+            "expression": "DIVIDE([Net Sales], [Total Checks])",
+            "lineageTag": "9a1982a6-bff5-5ce3-a4df-71112662afd6",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Sales per Cover",
+            "expression": "DIVIDE([Net Sales], [Total Covers])",
+            "lineageTag": "da30d2d6-4cd6-5e56-8746-b0dcdbf375a2",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Dine-in Sales",
+            "expression": "SUM('Daily Location'[dine_in_sales])",
+            "lineageTag": "9f0ae2aa-aa65-5231-bec0-0eb87bccb857",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Takeout Sales",
+            "expression": "SUM('Daily Location'[takeout_sales])",
+            "lineageTag": "b97f4b62-8d96-5f45-afcb-fd48169b9c1b",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Delivery Sales",
+            "expression": "SUM('Daily Location'[delivery_sales])",
+            "lineageTag": "62253fb6-8d9b-5da5-8fb2-6210795db990",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Off-Premise Share",
+            "expression": "DIVIDE([Takeout Sales] + [Delivery Sales], [Net Sales])",
+            "lineageTag": "334435b6-e9e0-5735-b808-79990b4a8e0b",
+            "formatString": "0.0%",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Lunch Sales",
+            "expression": "SUM('Daily Location'[lunch_sales])",
+            "lineageTag": "0c34d42b-ce34-516d-8b63-e94b7cf88aa4",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Dinner Sales",
+            "expression": "SUM('Daily Location'[dinner_sales])",
+            "lineageTag": "7926020e-b930-51ba-a8cd-47a1b4297d7a",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Net Sales LY",
+            "expression": "CALCULATE([Net Sales], DATEADD('Date'[date], -364, DAY))",
+            "lineageTag": "d66b340e-dc26-578e-a8e7-29837147f1d2",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Net Sales vs LY %",
+            "expression": "DIVIDE([Net Sales] - [Net Sales LY], [Net Sales LY])",
+            "lineageTag": "23f18ceb-20ee-5b75-aad5-109c72bde1c9",
+            "formatString": "+0.0%;-0.0%;0.0%",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Covers LY",
+            "expression": "CALCULATE([Total Covers], DATEADD('Date'[date], -364, DAY))",
+            "lineageTag": "eb1bc1dc-9ed5-561a-b50e-390f36d6498e",
+            "formatString": "#,0",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Covers vs LY %",
+            "expression": "DIVIDE([Total Covers] - [Covers LY], [Covers LY])",
+            "lineageTag": "34076ce6-75c4-54bf-b40d-68469187367c",
+            "formatString": "+0.0%;-0.0%;0.0%",
+            "displayFolder": "Revenue"
+          },
+          {
+            "name": "Seat Utilization",
+            "expression": "DIVIDE(SUM('Daily Location'[occupied_seat_min]), SUM('Daily Location'[available_seat_min]))",
+            "lineageTag": "21ef9712-1039-566b-9cf3-668efdcb2b64",
+            "formatString": "0.0%",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "RevPASH",
+            "expression": "DIVIDE([Dine-in Sales], DIVIDE(SUM('Daily Location'[available_seat_min]), 60))",
+            "lineageTag": "3c3435a0-2413-5a6c-8a7a-fcf2ce5bffa3",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "Table Turns per Day",
+            "expression": "DIVIDE(SUM('Daily Location'[dine_in_checks]), SUM('Daily Location'[tables]))",
+            "lineageTag": "2d2bb7b6-9e16-5770-b39c-2c6ba7cfa9ff",
+            "formatString": "#,0.00",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "Avg Dwell (min)",
+            "expression": "DIVIDE(SUM('Daily Location'[dwell_min_total]), SUM('Daily Location'[dine_in_checks]))",
+            "lineageTag": "ea6be5a5-d0da-5a71-87a6-a8f651ee80ae",
+            "formatString": "#,0.0",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "Lost Covers",
+            "expression": "SUM('Daily Location'[lost_covers])",
+            "lineageTag": "d68384a6-31fa-51ef-8434-e34db499d063",
+            "formatString": "#,0",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "Walk-away Rate",
+            "expression": "DIVIDE(SUM('Daily Location'[lost_parties]), SUM('Daily Location'[dine_in_checks]) + SUM('Daily Location'[lost_parties]))",
+            "lineageTag": "e5c41adc-5f23-5a5b-9ecc-84f695a8f022",
+            "formatString": "0.0%",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "Large-Party Walk-away Rate",
+            "expression": "DIVIDE(SUM('Daily Location'[lost_large_parties]), SUM('Daily Location'[dine_large_parties]) + SUM('Daily Location'[lost_large_parties]))",
+            "lineageTag": "0e3ec20d-a89a-5d35-bc86-5e5bd1aa1157",
+            "formatString": "0.0%",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "Lost Sales (est.)",
+            "expression": "[Lost Covers] * [Sales per Cover]",
+            "lineageTag": "ee250b06-3bbd-5099-b635-7c2c0839c6ad",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "Avg Wait (min)",
+            "expression": "DIVIDE(SUM('Daily Location'[wait_min_total]), SUM('Daily Location'[parties_waited]))",
+            "lineageTag": "6a534b86-c1d9-53cc-affa-1352586210e7",
+            "formatString": "#,0.0",
+            "displayFolder": "Floor"
+          },
+          {
+            "name": "Labor Cost",
+            "expression": "SUM('Daily Location'[labor_cost])",
+            "lineageTag": "00596055-deb1-56c3-b18b-897785e33776",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Labor"
+          },
+          {
+            "name": "Labor Hours",
+            "expression": "SUM('Daily Location'[labor_hours])",
+            "lineageTag": "9ae0e5ba-716b-591f-8d09-ba6d41a65b7f",
+            "formatString": "#,0",
+            "displayFolder": "Labor"
+          },
+          {
+            "name": "Labor %",
+            "expression": "DIVIDE([Labor Cost], [Net Sales])",
+            "lineageTag": "e79e5f42-3579-513d-a490-7fc4cca5b9de",
+            "formatString": "0.0%",
+            "displayFolder": "Labor"
+          },
+          {
+            "name": "Labor % LY",
+            "expression": "CALCULATE([Labor %], DATEADD('Date'[date], -364, DAY))",
+            "lineageTag": "101a3ff2-14d3-5799-93d8-73e4ea26858a",
+            "formatString": "0.0%",
+            "displayFolder": "Labor"
+          },
+          {
+            "name": "Sales per Labor Hour",
+            "expression": "DIVIDE([Net Sales], [Labor Hours])",
+            "lineageTag": "a9180617-9b58-54b8-b70f-09dd29737ee0",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Labor"
+          },
+          {
+            "name": "Covers per Labor Hour",
+            "expression": "DIVIDE([Total Covers], [Labor Hours])",
+            "lineageTag": "b7c68cb2-6afc-5968-96bf-2f6bfffcae20",
+            "formatString": "#,0.00",
+            "displayFolder": "Labor"
+          },
+          {
+            "name": "Food Sales",
+            "expression": "SUM('Daily Location'[food_sales])",
+            "lineageTag": "d115a2fd-d293-5e16-86c8-a50b9ec97a1b",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "Food Purchases",
+            "expression": "SUM('Daily Location'[purchases_food])",
+            "lineageTag": "beae0a00-b59d-553d-902a-e4f412af1207",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "Food Cost %",
+            "expression": "DIVIDE([Food Purchases], [Food Sales])",
+            "lineageTag": "bb654fe8-bda2-575f-ba04-fdec62d2ee92",
+            "formatString": "0.0%",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "Recipe Food Cost %",
+            "expression": "DIVIDE(SUM('Daily Location'[theoretical_food_cost]), [Food Sales])",
+            "lineageTag": "8938478d-6782-5ef4-a468-33ea6fc207b7",
+            "formatString": "0.0%",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "Food Cost Variance (pts)",
+            "expression": "([Food Cost %] - [Recipe Food Cost %]) * 100",
+            "lineageTag": "286dc9c4-71ea-536d-bcd8-a833c7bc979e",
+            "formatString": "0.0",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "Beverage Cost %",
+            "expression": "DIVIDE(SUM('Daily Location'[purchases_bev]), SUM('Daily Location'[beverage_sales]))",
+            "lineageTag": "68c5d2aa-9c50-598d-aa84-3dc92c375798",
+            "formatString": "0.0%",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "COGS",
+            "expression": "SUM('Daily Location'[purchases_food]) + SUM('Daily Location'[purchases_bev]) + SUM('Daily Location'[purchases_packaging])",
+            "lineageTag": "a4e73810-856a-57bb-bff2-23f6e6bc3261",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "Waste Cost",
+            "expression": "SUM('Daily Location'[waste_cost])",
+            "lineageTag": "d8744f31-12d7-55d7-8af9-a8e798cd0276",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "Waste %",
+            "expression": "DIVIDE([Waste Cost], [Food Purchases])",
+            "lineageTag": "6a9e4a69-48f9-59ca-a987-e0b2717292bd",
+            "formatString": "0.0%",
+            "displayFolder": "Cost of goods"
+          },
+          {
+            "name": "Prime Cost",
+            "expression": "[COGS] + [Labor Cost]",
+            "lineageTag": "f9d85b09-5f3c-582e-8bc8-6685954c6529",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Profit"
+          },
+          {
+            "name": "Prime Cost %",
+            "expression": "DIVIDE([Prime Cost], [Net Sales])",
+            "lineageTag": "20186688-4352-5fb4-9fc4-cbca10bd463d",
+            "formatString": "0.0%",
+            "displayFolder": "Profit"
+          },
+          {
+            "name": "Prime Cost % LY",
+            "expression": "CALCULATE([Prime Cost %], DATEADD('Date'[date], -364, DAY))",
+            "lineageTag": "2f12528d-1d74-55ee-bc94-626a547bbcd5",
+            "formatString": "0.0%",
+            "displayFolder": "Profit"
+          },
+          {
+            "name": "Discount Rate",
+            "expression": "DIVIDE(SUM('Daily Location'[discounts]), [Gross Sales])",
+            "lineageTag": "7ee1979b-6461-593c-b5cf-7ef271720ef2",
+            "formatString": "0.0%",
+            "displayFolder": "Profit"
+          },
+          {
+            "name": "Delivery Commissions (est.)",
+            "expression": "SUM('Daily Location'[delivery_commission_est])",
+            "lineageTag": "3039b7c4-99f0-5ac4-9d5d-3edf5f100ea0",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Profit"
+          },
+          {
+            "name": "Prime Cost % Status",
+            "expression": "VAR v = [Prime Cost %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.65, \"On target\", v <= 0.68, \"Watch\", \"Over\")",
+            "lineageTag": "f39a1b38-9b1e-53c4-85c5-8e480fdc25ce",
+            "displayFolder": "Status"
+          },
+          {
+            "name": "Prime Cost % Color",
+            "expression": "VAR v = [Prime Cost %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.65, \"#0A7D0A\", v <= 0.68, \"#D98A00\", \"#B3261E\")",
+            "lineageTag": "c07cb1ed-01fd-5fe6-b26b-da4af4600c79",
+            "displayFolder": "Status"
+          },
+          {
+            "name": "Labor % Status",
+            "expression": "VAR v = [Labor %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.32, \"On target\", v <= 0.35, \"Watch\", \"Over\")",
+            "lineageTag": "0d8b4103-e6b2-5ae3-9762-240ea0ceea78",
+            "displayFolder": "Status"
+          },
+          {
+            "name": "Labor % Color",
+            "expression": "VAR v = [Labor %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.32, \"#0A7D0A\", v <= 0.35, \"#D98A00\", \"#B3261E\")",
+            "lineageTag": "2873ab6a-bb98-5e48-bae5-bd9769de1e8b",
+            "displayFolder": "Status"
+          },
+          {
+            "name": "Food Cost % Status",
+            "expression": "VAR v = [Food Cost %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.33, \"On target\", v <= 0.35, \"Watch\", \"Over\")",
+            "lineageTag": "4ffeb1a4-6866-5604-a37d-b7faa9fd3059",
+            "displayFolder": "Status"
+          },
+          {
+            "name": "Food Cost % Color",
+            "expression": "VAR v = [Food Cost %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.33, \"#0A7D0A\", v <= 0.35, \"#D98A00\", \"#B3261E\")",
+            "lineageTag": "598ce6ea-88ad-5af0-9b58-93126a11779f",
+            "displayFolder": "Status"
+          },
+          {
+            "name": "Waste % Status",
+            "expression": "VAR v = [Waste %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.045, \"On target\", v <= 0.06, \"Watch\", \"High\")",
+            "lineageTag": "fa25dbf4-533f-5492-bb70-2c3b59e9e331",
+            "displayFolder": "Status"
+          },
+          {
+            "name": "Waste % Color",
+            "expression": "VAR v = [Waste %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.045, \"#0A7D0A\", v <= 0.06, \"#D98A00\", \"#B3261E\")",
+            "lineageTag": "d695886a-5c4f-53ad-84db-05dd1a44dbc5",
+            "displayFolder": "Status"
+          }
+        ]
+      },
+      {
+        "name": "Hourly Floor",
+        "lineageTag": "8fa4377e-2fdd-5560-8a79-d2fd3bca4d0d",
+        "description": "Seat occupancy, sales and staff hours per store per hour",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "06fc4ca4-8174-5317-9815-39727e4f2d28",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "business_date",
+            "dataType": "dateTime",
+            "sourceColumn": "business_date",
+            "lineageTag": "130b0790-0edf-56ea-bded-cd2ba232cfbf",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "hr",
+            "dataType": "int64",
+            "sourceColumn": "hr",
+            "lineageTag": "3b70b19c-971a-510e-9376-239c556394b3",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "available_seat_min",
+            "dataType": "double",
+            "sourceColumn": "available_seat_min",
+            "lineageTag": "8a6518f8-4a89-58ed-a7f8-445ce1141557",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "occupied_seat_min",
+            "dataType": "double",
+            "sourceColumn": "occupied_seat_min",
+            "lineageTag": "76206065-fcce-540e-8c20-47b4977bb495",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "blocked_seat_min",
+            "dataType": "double",
+            "sourceColumn": "blocked_seat_min",
+            "lineageTag": "26769000-9fd3-5e33-8adb-e9a830e572fa",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "checks",
+            "dataType": "int64",
+            "sourceColumn": "checks",
+            "lineageTag": "3af5cc3e-7aa7-5f6a-8f19-357f98806e18",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "covers",
+            "dataType": "int64",
+            "sourceColumn": "covers",
+            "lineageTag": "73a39be3-eb7f-501f-97a5-11283ec4ebab",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dine_parties",
+            "dataType": "int64",
+            "sourceColumn": "dine_parties",
+            "lineageTag": "b4023a5b-ec81-5aa2-9caf-303cf9bfab4f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "net_sales",
+            "dataType": "double",
+            "sourceColumn": "net_sales",
+            "lineageTag": "de9829bf-6bcc-54b6-86ec-a082416f7795",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dine_sales",
+            "dataType": "double",
+            "sourceColumn": "dine_sales",
+            "lineageTag": "df7e5bf4-ec0f-5ae8-ba0d-a0090b040e55",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lost_parties",
+            "dataType": "int64",
+            "sourceColumn": "lost_parties",
+            "lineageTag": "e175204a-146f-5ce3-be5b-c5bdfe305820",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lost_covers",
+            "dataType": "int64",
+            "sourceColumn": "lost_covers",
+            "lineageTag": "bb82362d-52ae-51ab-bd11-85476a0ab183",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "staff_hours",
+            "dataType": "double",
+            "sourceColumn": "staff_hours",
+            "lineageTag": "a182dbea-e37b-5b8f-98a3-d97fcd97d205",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "labor_cost",
+            "dataType": "double",
+            "sourceColumn": "labor_cost",
+            "lineageTag": "67d5b366-06bc-5551-81fc-61794c78cd92",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Hourly Floor",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"hourly_floor\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Hourly Seat Utilization",
+            "expression": "DIVIDE(SUM('Hourly Floor'[occupied_seat_min]), SUM('Hourly Floor'[available_seat_min]))",
+            "lineageTag": "a1573cf5-3b43-541b-b550-55f03344ee44",
+            "formatString": "0%",
+            "displayFolder": "Floor by hour"
+          },
+          {
+            "name": "Hourly RevPASH",
+            "expression": "DIVIDE(SUM('Hourly Floor'[dine_sales]), DIVIDE(SUM('Hourly Floor'[available_seat_min]), 60))",
+            "lineageTag": "cd8e66b0-5d81-5f63-9bf9-7f9bf11c362a",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "displayFolder": "Floor by hour"
+          },
+          {
+            "name": "Hourly Sales",
+            "expression": "SUM('Hourly Floor'[net_sales])",
+            "lineageTag": "8e7bbebd-4c12-5fc8-8dbc-371032108af2",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Floor by hour"
+          },
+          {
+            "name": "Hourly Covers",
+            "expression": "SUM('Hourly Floor'[covers])",
+            "lineageTag": "25ca0526-a3cc-59c8-acbd-35e14a782249",
+            "formatString": "#,0",
+            "displayFolder": "Floor by hour"
+          },
+          {
+            "name": "Hourly Lost Parties",
+            "expression": "SUM('Hourly Floor'[lost_parties])",
+            "lineageTag": "33eda606-c52e-5970-8eae-11b426494f36",
+            "formatString": "#,0",
+            "displayFolder": "Floor by hour"
+          },
+          {
+            "name": "Staff Hours",
+            "expression": "SUM('Hourly Floor'[staff_hours])",
+            "lineageTag": "d0bca96d-0044-5307-8f9a-674407d73968",
+            "formatString": "#,0.0",
+            "displayFolder": "Floor by hour"
+          },
+          {
+            "name": "Covers per Staff Hour",
+            "expression": "DIVIDE([Hourly Covers], [Staff Hours])",
+            "lineageTag": "56efee4e-4318-5534-a9e5-b59deb108b01",
+            "formatString": "#,0.00",
+            "displayFolder": "Floor by hour"
+          }
+        ]
+      },
+      {
+        "name": "Item Daily",
+        "lineageTag": "e744d94f-3b49-5d79-b542-1e86b127f665",
+        "description": "Units and sales per menu item per day",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "8fae2901-5e0c-50a4-b497-7cbd525c6cb2",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "business_date",
+            "dataType": "dateTime",
+            "sourceColumn": "business_date",
+            "lineageTag": "1925c65d-06e4-5144-9eb4-a96b5dcdbcd9",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "item_id",
+            "dataType": "string",
+            "sourceColumn": "item_id",
+            "lineageTag": "79bef348-f51e-50bc-af75-56aba9c17db4",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "channel",
+            "dataType": "string",
+            "sourceColumn": "channel",
+            "lineageTag": "23b8808b-47da-55e0-8beb-4c1ec7dc8faa",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "daypart",
+            "dataType": "string",
+            "sourceColumn": "daypart",
+            "lineageTag": "c1f89cde-0398-5bed-8e82-359f3493a849",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "units",
+            "dataType": "int64",
+            "sourceColumn": "units",
+            "lineageTag": "0d9693c9-9f5e-5ee0-830d-2630988aeb09",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales",
+            "dataType": "double",
+            "sourceColumn": "sales",
+            "lineageTag": "ff6105fc-bd61-5cc8-b259-535ee36f8fcb",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "theoretical_cost",
+            "dataType": "double",
+            "sourceColumn": "theoretical_cost",
+            "lineageTag": "3a203fcb-4d4b-5b27-ae70-642f083089f5",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Item Daily",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"item_daily\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Item Units",
+            "expression": "SUM('Item Daily'[units])",
+            "lineageTag": "159136eb-f801-53b2-a7c3-7510c513e3a6",
+            "formatString": "#,0",
+            "displayFolder": "Menu"
+          },
+          {
+            "name": "Item Sales",
+            "expression": "SUM('Item Daily'[sales])",
+            "lineageTag": "47c7a81c-9882-5fa9-a071-fad8777043ff",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Menu"
+          },
+          {
+            "name": "Item Margin",
+            "expression": "SUM('Item Daily'[sales]) - SUM('Item Daily'[theoretical_cost])",
+            "lineageTag": "70bb699b-480e-5a2a-a13f-fb4b74cbc25c",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "Menu"
+          }
+        ]
+      },
+      {
+        "name": "Monthly P&L",
+        "lineageTag": "18708af5-be51-5db9-a1ca-8e2b3267d409",
+        "description": "Store P&L per month (opex estimated for the open month)",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "7d793aa8-97b9-58ec-91a2-ff1af929bdeb",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "month_start",
+            "dataType": "dateTime",
+            "sourceColumn": "month_start",
+            "lineageTag": "0f572a9a-2263-552c-a8d3-05a31b9adfcf",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "net_sales",
+            "dataType": "double",
+            "sourceColumn": "net_sales",
+            "lineageTag": "cc00c24c-a0e6-5cef-b16f-66e664115f31",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "covers",
+            "dataType": "int64",
+            "sourceColumn": "covers",
+            "lineageTag": "734c1636-fabb-5110-b7d5-a4865b727fd0",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "checks",
+            "dataType": "int64",
+            "sourceColumn": "checks",
+            "lineageTag": "fb94b2a2-f965-5034-afca-992b7200e2b6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dine_in_sales",
+            "dataType": "double",
+            "sourceColumn": "dine_in_sales",
+            "lineageTag": "37eaf1ba-4181-5f88-9abb-d521783bd8ba",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "takeout_sales",
+            "dataType": "double",
+            "sourceColumn": "takeout_sales",
+            "lineageTag": "8f1d5bdf-f8df-52e8-a171-d9df794a1060",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_sales",
+            "dataType": "double",
+            "sourceColumn": "delivery_sales",
+            "lineageTag": "a7da06af-e1cf-5429-8f2b-fa1f5d5b6151",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "food_sales",
+            "dataType": "double",
+            "sourceColumn": "food_sales",
+            "lineageTag": "ea6faf17-142a-5b1f-9ebd-e875b5ef1d93",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "beverage_sales",
+            "dataType": "double",
+            "sourceColumn": "beverage_sales",
+            "lineageTag": "1bb0d526-5fb7-5489-afd4-05f009a5abf0",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "theoretical_food_cost",
+            "dataType": "double",
+            "sourceColumn": "theoretical_food_cost",
+            "lineageTag": "7427a5e3-b67f-5902-83cd-ca07a99b7d9b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "theoretical_bev_cost",
+            "dataType": "double",
+            "sourceColumn": "theoretical_bev_cost",
+            "lineageTag": "a0da1a8f-5cf7-508c-8266-e5ba692d7663",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "food_cogs",
+            "dataType": "double",
+            "sourceColumn": "food_cogs",
+            "lineageTag": "aeb22422-907b-576f-af39-8d885e4cf800",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "beverage_cogs",
+            "dataType": "double",
+            "sourceColumn": "beverage_cogs",
+            "lineageTag": "734abc14-14c4-55bc-ae23-92fa2c507239",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "packaging_cogs",
+            "dataType": "double",
+            "sourceColumn": "packaging_cogs",
+            "lineageTag": "23047cfb-fb81-5a5b-8860-69607858f164",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_cogs",
+            "dataType": "double",
+            "sourceColumn": "total_cogs",
+            "lineageTag": "7902aff7-42a5-5081-9ee1-bf299d4bcf9c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "labor_cost",
+            "dataType": "double",
+            "sourceColumn": "labor_cost",
+            "lineageTag": "5d9546de-5759-5c24-8f71-2aeac809fadb",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "labor_hours",
+            "dataType": "double",
+            "sourceColumn": "labor_hours",
+            "lineageTag": "b6cf6e50-550d-5a77-b404-a4a9d6377989",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kitchen_labor_cost",
+            "dataType": "double",
+            "sourceColumn": "kitchen_labor_cost",
+            "lineageTag": "29b149b9-5c4e-5683-8ded-00d6d8c2d153",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "foh_labor_cost",
+            "dataType": "double",
+            "sourceColumn": "foh_labor_cost",
+            "lineageTag": "67a10fb2-1f09-56d4-bfb5-091972926752",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "mgmt_labor_cost",
+            "dataType": "double",
+            "sourceColumn": "mgmt_labor_cost",
+            "lineageTag": "5fd39c86-4bc7-5a55-b40f-80dbb7a2f918",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "waste_cost",
+            "dataType": "double",
+            "sourceColumn": "waste_cost",
+            "lineageTag": "9544f027-2043-5ffc-b2bd-d15d5810e8f1",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lost_covers",
+            "dataType": "int64",
+            "sourceColumn": "lost_covers",
+            "lineageTag": "9fdd6364-7259-5e26-b5e5-2b6eeba76c2d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "open_days",
+            "dataType": "int64",
+            "sourceColumn": "open_days",
+            "lineageTag": "b2c81014-c1f0-5e8f-8764-09deebf7d823",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "opex",
+            "dataType": "double",
+            "sourceColumn": "opex",
+            "lineageTag": "1565b465-42b5-5fec-b0c1-a566094d9336",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "rent",
+            "dataType": "double",
+            "sourceColumn": "rent",
+            "lineageTag": "8195f2a3-7c2a-5115-af14-6262bdb5c441",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_commissions",
+            "dataType": "double",
+            "sourceColumn": "delivery_commissions",
+            "lineageTag": "c272ed01-b9a3-5b6e-8999-2444460669ab",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "card_fees",
+            "dataType": "double",
+            "sourceColumn": "card_fees",
+            "lineageTag": "f0ec05f0-d2db-5494-910f-0110159022fe",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "other_opex",
+            "dataType": "double",
+            "sourceColumn": "other_opex",
+            "lineageTag": "090606fe-6a9b-5fd4-8a92-3b8c6e727a6c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "opex_is_estimate",
+            "dataType": "boolean",
+            "sourceColumn": "opex_is_estimate",
+            "lineageTag": "54836eaf-e847-5ad5-955f-1ac88ff408c4",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "four_wall_ebitda",
+            "dataType": "double",
+            "sourceColumn": "four_wall_ebitda",
+            "lineageTag": "a8f9fe84-be7e-5e63-88a2-f1cb1fb6ba4f",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Monthly P&L",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"monthly_pnl\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "P&L Net Sales",
+            "expression": "SUM('Monthly P&L'[net_sales])",
+            "lineageTag": "acbb9e7e-49d4-5032-b139-39c2d1c85049",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "P&L"
+          },
+          {
+            "name": "P&L COGS",
+            "expression": "SUM('Monthly P&L'[total_cogs])",
+            "lineageTag": "b1c2fa5c-4d88-5630-80b5-274b41caa5a1",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "P&L"
+          },
+          {
+            "name": "P&L Labor",
+            "expression": "SUM('Monthly P&L'[labor_cost])",
+            "lineageTag": "b703da6b-c52c-5ea5-ade0-7ef6c9547676",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "P&L"
+          },
+          {
+            "name": "P&L Operating Expenses",
+            "expression": "SUM('Monthly P&L'[opex])",
+            "lineageTag": "aeac2da5-2fe6-5462-9d61-dd590558d74c",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "P&L"
+          },
+          {
+            "name": "Four-Wall EBITDA",
+            "expression": "SUM('Monthly P&L'[four_wall_ebitda])",
+            "lineageTag": "6ee2fc42-b0e4-5a14-8013-7aa57faed20a",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "displayFolder": "P&L"
+          },
+          {
+            "name": "EBITDA Margin",
+            "expression": "DIVIDE([Four-Wall EBITDA], [P&L Net Sales])",
+            "lineageTag": "d29c7d5b-7f1e-5d65-ba2e-90048d001412",
+            "formatString": "0.0%",
+            "displayFolder": "P&L"
+          },
+          {
+            "name": "Occupancy %",
+            "expression": "DIVIDE(SUM('Monthly P&L'[rent]), [P&L Net Sales])",
+            "lineageTag": "7ac7524f-6f07-5855-87b0-3577939ab57d",
+            "formatString": "0.0%",
+            "displayFolder": "P&L"
+          },
+          {
+            "name": "EBITDA Margin Status",
+            "expression": "VAR v = [EBITDA Margin] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v >= 0.17, \"Healthy\", v >= 0.12, \"Thin\", \"Weak\")",
+            "lineageTag": "06938cac-7c21-5f77-8e33-ba37e50bfcef",
+            "displayFolder": "Status"
+          },
+          {
+            "name": "EBITDA Margin Color",
+            "expression": "VAR v = [EBITDA Margin] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v >= 0.17, \"#0A7D0A\", v >= 0.12, \"#D98A00\", \"#B3261E\")",
+            "lineageTag": "b8436666-bdc1-54ae-96c5-4edb5f52d0ee",
+            "displayFolder": "Status"
+          }
+        ]
+      },
+      {
+        "name": "Revenue Flow",
+        "lineageTag": "7a26eeb4-fcaa-5ca8-a1b4-dee71aba61be",
+        "description": "Source -> target dollar flows for a Sankey",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "be89abaf-8388-5d68-b8ba-977d2d8931b0",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "month_start",
+            "dataType": "dateTime",
+            "sourceColumn": "month_start",
+            "lineageTag": "850437cd-5e2b-5c9e-9369-ac677c3444de",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "stage",
+            "dataType": "int64",
+            "sourceColumn": "stage",
+            "lineageTag": "50a9a710-9fbc-57ee-bc9d-681adf48e306",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "source",
+            "dataType": "string",
+            "sourceColumn": "source",
+            "lineageTag": "60ed7862-668a-554a-b18e-2d0bcbf87ed7",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "target",
+            "dataType": "string",
+            "sourceColumn": "target",
+            "lineageTag": "cb557b25-3361-5f70-bd68-a79dcdfa2f28",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "amount",
+            "dataType": "double",
+            "sourceColumn": "amount",
+            "lineageTag": "296540c3-703a-5e99-9dd4-202a6f9f65b1",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Revenue Flow",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"revenue_flow\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Flow Amount",
+            "expression": "SUM('Revenue Flow'[amount])",
+            "lineageTag": "2c0e8a17-25b4-5898-974e-2ee283808e5d",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          }
+        ]
+      },
+      {
+        "name": "P&L Waterfall",
+        "lineageTag": "87e554a6-f393-57e7-9970-6215d328432a",
+        "description": "Steps from net sales to four-wall EBITDA",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "857c7672-ab70-56e5-8ecb-6793e26eb8d1",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "month_start",
+            "dataType": "dateTime",
+            "sourceColumn": "month_start",
+            "lineageTag": "155bbf4e-acfd-5a9e-aa7c-b5cb39ed5110",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "step_order",
+            "dataType": "int64",
+            "sourceColumn": "step_order",
+            "lineageTag": "9acdb10e-08c4-5c39-83c4-5fe57083fda1",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "step",
+            "dataType": "string",
+            "sourceColumn": "step",
+            "lineageTag": "421309ae-8828-5186-93df-325fcb361acc",
+            "summarizeBy": "none",
+            "sortByColumn": "step_order"
+          },
+          {
+            "name": "amount",
+            "dataType": "double",
+            "sourceColumn": "amount",
+            "lineageTag": "5b3be634-4f3d-57fd-bcdb-3d2ee420686c",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "P&L Waterfall",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"pnl_waterfall\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Waterfall Amount",
+            "expression": "SUM('P&L Waterfall'[amount])",
+            "lineageTag": "fbd99da3-4f8a-5a34-b2d8-82319d0043f4",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          }
+        ]
+      },
+      {
+        "name": "Menu Engineering",
+        "lineageTag": "fdecb47c-6093-571b-abf1-4a62f145a2a1",
+        "description": "Kasavana-Smith classification per item, last 90 / 365 days",
+        "columns": [
+          {
+            "name": "period",
+            "dataType": "string",
+            "sourceColumn": "period",
+            "lineageTag": "c120b714-5716-578a-a052-d1945777d637",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "0aae0d00-1fb8-5b7f-9104-fa4f9a8547a9",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "item_id",
+            "dataType": "string",
+            "sourceColumn": "item_id",
+            "lineageTag": "1fc106b9-4f7b-5a4e-9b9e-681cb1d5d0a5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "units",
+            "dataType": "int64",
+            "sourceColumn": "units",
+            "lineageTag": "9ad143cd-3ad4-5ede-a419-50affb8a2a97",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales",
+            "dataType": "double",
+            "sourceColumn": "sales",
+            "lineageTag": "d7071a3f-3e58-5d83-bda3-7cb4e1c21942",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "food_cost",
+            "dataType": "double",
+            "sourceColumn": "food_cost",
+            "lineageTag": "ac47440e-bbeb-59ea-ae10-ddb256d3bef4",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "item_name",
+            "dataType": "string",
+            "sourceColumn": "item_name",
+            "lineageTag": "633f1534-6db7-5925-b267-85cc69ff6508",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category",
+            "lineageTag": "1a3142ec-0cd9-5f69-bf04-6999fe755160",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cm_per_unit",
+            "dataType": "double",
+            "sourceColumn": "cm_per_unit",
+            "lineageTag": "c37d9e64-d539-55f0-9df8-82afaee5447a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_cm",
+            "dataType": "double",
+            "sourceColumn": "total_cm",
+            "lineageTag": "ca0be9ca-b731-5d09-aa74-1009e77a2cab",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "menu_mix",
+            "dataType": "double",
+            "sourceColumn": "menu_mix",
+            "lineageTag": "50ec0e5d-d535-551a-a5e6-1280817d7714",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "items_in_category",
+            "dataType": "int64",
+            "sourceColumn": "items_in_category",
+            "lineageTag": "5668f158-019a-517d-af88-120fbd2a552b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_cm_category",
+            "dataType": "double",
+            "sourceColumn": "avg_cm_category",
+            "lineageTag": "b1855ece-9622-5fa0-89a4-7e5221c21f38",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "popularity_threshold",
+            "dataType": "double",
+            "sourceColumn": "popularity_threshold",
+            "lineageTag": "65ed9277-da36-5c6e-9a4d-ea89cf574b26",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "menu_class",
+            "dataType": "string",
+            "sourceColumn": "menu_class",
+            "lineageTag": "1dcaeb38-f715-54a9-a37a-f82e65397dab",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope_label",
+            "dataType": "string",
+            "sourceColumn": "scope_label",
+            "lineageTag": "0c41d3e8-613a-57a1-99dd-50b8c7f21ea2",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Menu Engineering",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"menu_board\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Units Sold",
+            "expression": "SUM('Menu Engineering'[units])",
+            "lineageTag": "a501775c-692c-5af7-a571-b8a3141d3408",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Menu Mix",
+            "expression": "SUM('Menu Engineering'[menu_mix])",
+            "lineageTag": "34bd7429-259e-5c44-92bf-54db084ba37c",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Margin per Plate",
+            "expression": "DIVIDE(SUM('Menu Engineering'[total_cm]), SUM('Menu Engineering'[units]))",
+            "lineageTag": "3828418c-ed1f-58ef-91de-2a12f70329ed",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
+          },
+          {
+            "name": "Total Margin",
+            "expression": "SUM('Menu Engineering'[total_cm])",
+            "lineageTag": "5c571786-efbd-50dc-b40d-da988fee1ec6",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Popularity Threshold",
+            "expression": "MAX('Menu Engineering'[popularity_threshold])",
+            "lineageTag": "df542902-075d-57a0-8a52-b9137900ad40",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Category Avg Margin",
+            "expression": "MAX('Menu Engineering'[avg_cm_category])",
+            "lineageTag": "4dbdb2e5-9a6e-5db7-87b1-f4e917a7327a",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
+          }
+        ]
+      },
+      {
+        "name": "KPI Scorecard",
+        "lineageTag": "4d4be66d-f7d7-5822-9248-d3ae84756c49",
+        "description": "Every KPI x period x scope with last year and status (Python evaluator)",
+        "columns": [
+          {
+            "name": "snapshot_ts",
+            "dataType": "dateTime",
+            "sourceColumn": "snapshot_ts",
+            "lineageTag": "d298ce14-0157-5c91-9510-4f80a957cc33",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope",
+            "dataType": "string",
+            "sourceColumn": "scope",
+            "lineageTag": "cd333b8b-b463-59b3-bb91-2ec45b40a46e",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "period",
+            "dataType": "string",
+            "sourceColumn": "period",
+            "lineageTag": "e16e3431-282c-54f6-b4a1-777a50328684",
+            "summarizeBy": "none",
+            "sortByColumn": "period_sort"
+          },
+          {
+            "name": "period_sort",
+            "dataType": "int64",
+            "sourceColumn": "period_sort",
+            "lineageTag": "e79eb363-cc8e-5db2-98df-2b7a9debd24b",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "period_start",
+            "dataType": "dateTime",
+            "sourceColumn": "period_start",
+            "lineageTag": "2f263ab9-f435-5ecf-8910-d1b648a8664b",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "period_end",
+            "dataType": "dateTime",
+            "sourceColumn": "period_end",
+            "lineageTag": "ea846966-b0c0-5246-a839-6395361b472c",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "kpi_id",
+            "dataType": "string",
+            "sourceColumn": "kpi_id",
+            "lineageTag": "e588b4d0-dfb1-58b0-a41a-914c5c8239e6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "value",
+            "dataType": "double",
+            "sourceColumn": "value",
+            "lineageTag": "56d798e0-be6a-5504-8889-b1450e997ebd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "last_year_value",
+            "dataType": "double",
+            "sourceColumn": "last_year_value",
+            "lineageTag": "5df2a85b-b21e-589b-8c19-24ee1e8e786c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "change_vs_ly",
+            "dataType": "double",
+            "sourceColumn": "change_vs_ly",
+            "lineageTag": "3d8e8e49-160f-5138-b3ca-424aca532cc4",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "target",
+            "dataType": "double",
+            "sourceColumn": "target",
+            "lineageTag": "937bd253-8a8b-5a5b-a69f-99d7f825528f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "lineageTag": "0f98c024-c2f1-5c7a-90a7-de19b4eafe33",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status_sort",
+            "dataType": "int64",
+            "sourceColumn": "status_sort",
+            "lineageTag": "6d7ec3d9-4cea-570b-b26f-85c8b46d5716",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "kpi_name",
+            "dataType": "string",
+            "sourceColumn": "kpi_name",
+            "lineageTag": "bfbb173c-743d-5c68-9ceb-556bc2701c91",
+            "summarizeBy": "none",
+            "sortByColumn": "sort_order"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category",
+            "lineageTag": "718a3e2f-6fb1-5025-8d3f-d1e3b4ffd72c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit",
+            "dataType": "string",
+            "sourceColumn": "unit",
+            "lineageTag": "2bce4138-94de-5bfa-9ae0-4b7abcbd6321",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "direction",
+            "dataType": "string",
+            "sourceColumn": "direction",
+            "lineageTag": "a70ac90b-9b6c-5b39-a248-b7ee9333d7a7",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sort_order",
+            "dataType": "int64",
+            "sourceColumn": "sort_order",
+            "lineageTag": "71e1883c-c3b2-507b-8bfd-4ad466537e7b",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "formula",
+            "dataType": "string",
+            "sourceColumn": "formula",
+            "lineageTag": "ee25a9f3-280b-53af-a758-779da1bf2402",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope_label",
+            "dataType": "string",
+            "sourceColumn": "scope_label",
+            "lineageTag": "a0952f33-e5dc-51c3-b4d4-9ee7ba1df3ee",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope_sort",
+            "dataType": "int64",
+            "sourceColumn": "scope_sort",
+            "lineageTag": "2420cc74-8957-5557-965e-cfcd08302022",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "status_icon",
+            "dataType": "string",
+            "sourceColumn": "status_icon",
+            "lineageTag": "a2d524f8-e860-567a-a41c-925871e611af",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "KPI Scorecard",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"kpi_scorecard\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "KPI Value",
+            "expression": "MAX('KPI Scorecard'[value])",
+            "lineageTag": "d928d22c-f41a-5674-82e9-a9d7ca26c816",
+            "formatString": "#,0.####"
+          },
+          {
+            "name": "KPI Display",
+            "expression": [
+              "VAR v = [KPI Value]",
+              "VAR u = SELECTEDVALUE('KPI Scorecard'[unit])",
+              "VAR txt = SWITCH(u, \"%\", FORMAT(v, \"0.0%\"), \"pts\", FORMAT(v * 100, \"0.0\") & \" pts\",",
+              "    \"$\", IF(v >= 10000, FORMAT(v, \"$#,0\"), FORMAT(v, \"$#,0.00\")), \"min\", FORMAT(v, \"0.0\") & \" min\",",
+              "    \"x\", FORMAT(v, \"0.00\") & \"x\", FORMAT(v, \"#,0\"))",
+              "RETURN IF(ISBLANK(v), BLANK(), txt & \"  \" & SELECTEDVALUE('KPI Scorecard'[status_icon]))"
+            ],
+            "lineageTag": "62c74222-1686-51b5-99b7-41dce2509436"
+          },
+          {
+            "name": "KPI Change vs LY",
+            "expression": [
+              "VAR c = MAX('KPI Scorecard'[change_vs_ly])",
+              "VAR u = SELECTEDVALUE('KPI Scorecard'[unit])",
+              "RETURN IF(ISBLANK(c), BLANK(), IF(u IN {\"%\", \"pts\"}, FORMAT(c * 100, \"+0.0;-0.0\") & \" pts\", FORMAT(c, \"+0.0%;-0.0%\")))"
+            ],
+            "lineageTag": "44fc7c0e-89c0-56c7-9de9-8a042a0dd77d"
+          },
+          {
+            "name": "KPI Status Color",
+            "expression": "SWITCH(SELECTEDVALUE('KPI Scorecard'[status]), \"good\", \"#0A7D0A\", \"warning\", \"#D98A00\", \"critical\", \"#B3261E\", \"#7A8784\")",
+            "lineageTag": "228a1d10-2c22-515d-ae57-1331df35515e"
+          },
+          {
+            "name": "Critical KPIs",
+            "expression": "CALCULATE(COUNTROWS('KPI Scorecard'), 'KPI Scorecard'[status] = \"critical\")",
+            "lineageTag": "8e1bf6f6-b92f-5854-8fb0-6501ebe1b068",
+            "formatString": "#,0"
+          },
+          {
+            "name": "KPIs on Target",
+            "expression": "CALCULATE(COUNTROWS('KPI Scorecard'), 'KPI Scorecard'[status] = \"good\")",
+            "lineageTag": "cbba5f14-6096-5094-a0ae-f1997fd01bcd",
+            "formatString": "#,0"
+          }
+        ]
+      },
+      {
+        "name": "OKR Board",
+        "lineageTag": "d70025e2-5e51-533b-b0e8-f24221b9b86a",
+        "description": "Latest OKR key-result progress (Python evaluator)",
+        "columns": [
+          {
+            "name": "evaluated_at",
+            "dataType": "dateTime",
+            "sourceColumn": "evaluated_at",
+            "lineageTag": "e0126b03-422c-53a9-950b-d5f5e6b23573",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "eval_date",
+            "dataType": "dateTime",
+            "sourceColumn": "eval_date",
+            "lineageTag": "298315ac-c86d-500d-ba5a-5eae313d33e1",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "kr_id",
+            "dataType": "string",
+            "sourceColumn": "kr_id",
+            "lineageTag": "b9753f8d-0b0c-546e-bfa4-a99427592310",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope",
+            "dataType": "string",
+            "sourceColumn": "scope",
+            "lineageTag": "5fb97654-ced5-5742-a517-aa4f7f94b721",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "baseline",
+            "dataType": "double",
+            "sourceColumn": "baseline",
+            "lineageTag": "aa882267-ce34-5974-9e4b-04ac72c9a791",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "target",
+            "dataType": "double",
+            "sourceColumn": "target",
+            "lineageTag": "634431dd-d809-56ae-ae48-c62f4a54cc6c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "current_value",
+            "dataType": "double",
+            "sourceColumn": "current_value",
+            "lineageTag": "524b7b8b-240d-5f0f-94cf-083fcec9903d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "progress",
+            "dataType": "double",
+            "sourceColumn": "progress",
+            "lineageTag": "bef20ca4-9ea5-555b-bb39-52e0a3214f63",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "expected_progress",
+            "dataType": "double",
+            "sourceColumn": "expected_progress",
+            "lineageTag": "740dbbe4-a187-5a42-8503-8f71f0f0b6fe",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "lineageTag": "622fa9f8-55c7-5ae6-ba42-c32463cb873e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status_sort",
+            "dataType": "int64",
+            "sourceColumn": "status_sort",
+            "lineageTag": "02afcae8-f5bd-51b1-9928-2e39a5c89a9e",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "note",
+            "dataType": "string",
+            "sourceColumn": "note",
+            "lineageTag": "ffbcd996-18c0-5339-be8c-32a5e0764124",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "objective_id",
+            "dataType": "string",
+            "sourceColumn": "objective_id",
+            "lineageTag": "9f9f2ed9-f73a-5293-89c0-35b92faa09be",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "key_result",
+            "dataType": "string",
+            "sourceColumn": "key_result",
+            "lineageTag": "01a71b8a-18fa-553f-aa1b-9639d4f1d399",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kpi_id",
+            "dataType": "string",
+            "sourceColumn": "kpi_id",
+            "lineageTag": "c18a2419-bfff-501e-a4c9-753071394f6c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "owner",
+            "dataType": "string",
+            "sourceColumn": "owner",
+            "lineageTag": "3ea7260e-757f-5d52-b1a9-be2bb82a8f84",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "objective",
+            "dataType": "string",
+            "sourceColumn": "objective",
+            "lineageTag": "bc5df630-60fa-5df5-9046-ba654012aa38",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit",
+            "dataType": "string",
+            "sourceColumn": "unit",
+            "lineageTag": "4a119c35-1498-5b59-b75a-3d2629384fb8",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "direction",
+            "dataType": "string",
+            "sourceColumn": "direction",
+            "lineageTag": "9afbf4a1-0f26-5188-bfc6-cc80760646fe",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope_label",
+            "dataType": "string",
+            "sourceColumn": "scope_label",
+            "lineageTag": "18f59c63-9476-5c8b-a151-e5dd5b16cded",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope_sort",
+            "dataType": "int64",
+            "sourceColumn": "scope_sort",
+            "lineageTag": "16db061c-1a4a-5542-91cc-bf9f381e587d",
+            "summarizeBy": "none",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "OKR Board",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"okr_board\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "KR Progress",
+            "expression": "MAX('OKR Board'[progress])",
+            "lineageTag": "c03bbadb-2d40-5693-a2f7-b9f51aa8b2b0",
+            "formatString": "0%"
+          },
+          {
+            "name": "KR Progress (0-100%)",
+            "expression": "MAX(0, MIN(1, [KR Progress]))",
+            "lineageTag": "7c7d03a7-82b7-5db1-ab4b-b3405f675847",
+            "formatString": "0%"
+          },
+          {
+            "name": "Objective Progress",
+            "expression": "AVERAGEX(VALUES('OKR Board'[kr_id]), MAX(0, MIN(1, CALCULATE(MAX('OKR Board'[progress])))))",
+            "lineageTag": "c7b03208-eff8-5b88-897e-a91809f85455",
+            "formatString": "0%"
+          },
+          {
+            "name": "KRs On Track",
+            "expression": "CALCULATE(DISTINCTCOUNT('OKR Board'[kr_id]), 'OKR Board'[status] = \"on track\")",
+            "lineageTag": "4423a3f5-4a0e-526c-80f2-f0f89b320243",
+            "formatString": "#,0"
+          },
+          {
+            "name": "KRs At Risk",
+            "expression": "CALCULATE(DISTINCTCOUNT('OKR Board'[kr_id]), 'OKR Board'[status] = \"at risk\")",
+            "lineageTag": "e553b08c-66db-5d90-b3ea-cdbb908b8e51",
+            "formatString": "#,0"
+          },
+          {
+            "name": "KRs Off Track",
+            "expression": "CALCULATE(DISTINCTCOUNT('OKR Board'[kr_id]), 'OKR Board'[status] = \"off track\")",
+            "lineageTag": "4ab85cc1-ab18-57dd-b319-9eacff20fea5",
+            "formatString": "#,0"
+          },
+          {
+            "name": "KR Baseline",
+            "expression": [
+              "VAR v = MAX('OKR Board'[baseline]) VAR u = SELECTEDVALUE('OKR Board'[unit])",
+              "RETURN IF(ISBLANK(v), BLANK(), SWITCH(u, \"%\", FORMAT(v, \"0.0%\"), \"pts\", FORMAT(v * 100, \"0.0\") & \" pts\", \"$\", FORMAT(v, \"$#,0.00\"), \"min\", FORMAT(v, \"0.0\") & \" min\", FORMAT(v, \"#,0.00\")))"
+            ],
+            "lineageTag": "75a14745-0a83-534d-894e-c5f83b614d4f"
+          },
+          {
+            "name": "KR Target",
+            "expression": [
+              "VAR v = MAX('OKR Board'[target]) VAR u = SELECTEDVALUE('OKR Board'[unit])",
+              "RETURN IF(ISBLANK(v), BLANK(), SWITCH(u, \"%\", FORMAT(v, \"0.0%\"), \"pts\", FORMAT(v * 100, \"0.0\") & \" pts\", \"$\", FORMAT(v, \"$#,0.00\"), \"min\", FORMAT(v, \"0.0\") & \" min\", FORMAT(v, \"#,0.00\")))"
+            ],
+            "lineageTag": "455d4a7b-4f87-54f9-a5a7-2acf51104ec8"
+          },
+          {
+            "name": "KR Current",
+            "expression": [
+              "VAR v = MAX('OKR Board'[current_value]) VAR u = SELECTEDVALUE('OKR Board'[unit])",
+              "RETURN IF(ISBLANK(v), BLANK(), SWITCH(u, \"%\", FORMAT(v, \"0.0%\"), \"pts\", FORMAT(v * 100, \"0.0\") & \" pts\", \"$\", FORMAT(v, \"$#,0.00\"), \"min\", FORMAT(v, \"0.0\") & \" min\", FORMAT(v, \"#,0.00\")))"
+            ],
+            "lineageTag": "8c9e57b8-333f-58f8-a713-1691441d84d6"
+          },
+          {
+            "name": "KR Status Color",
+            "expression": "SWITCH(SELECTEDVALUE('OKR Board'[status]), \"on track\", \"#0A7D0A\", \"at risk\", \"#D98A00\", \"off track\", \"#B3261E\", \"#7A8784\")",
+            "lineageTag": "00867e64-6e01-5d95-b81b-02d8f02afa37"
+          }
+        ]
+      },
+      {
+        "name": "OKR History",
+        "lineageTag": "e82cf218-d1e0-5eed-8d8d-e1f803f1c0ae",
+        "description": "Key-result progress per evaluation day",
+        "columns": [
+          {
+            "name": "eval_date",
+            "dataType": "dateTime",
+            "sourceColumn": "eval_date",
+            "lineageTag": "58d84634-ee27-5bcc-b744-c59fd63f265d",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "kr_id",
+            "dataType": "string",
+            "sourceColumn": "kr_id",
+            "lineageTag": "3c38ccb9-4f0c-557c-ac9f-55aac2054e5d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "scope",
+            "dataType": "string",
+            "sourceColumn": "scope",
+            "lineageTag": "e961ce29-f914-534c-87d3-f1682900dee2",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "scope_label",
+            "dataType": "string",
+            "sourceColumn": "scope_label",
+            "lineageTag": "41dfccd2-a938-5083-bd9f-e4b67b844209",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "key_result",
+            "dataType": "string",
+            "sourceColumn": "key_result",
+            "lineageTag": "a07b271d-796a-5168-a3be-6ee41589a23b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "objective_id",
+            "dataType": "string",
+            "sourceColumn": "objective_id",
+            "lineageTag": "3256a631-3a80-5350-a60b-9349acb6dbbc",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "progress",
+            "dataType": "double",
+            "sourceColumn": "progress",
+            "lineageTag": "b51f1a24-3ad2-54c1-a923-00b0e94116da",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "lineageTag": "8da32220-8a40-59ce-a1f8-3200fb183833",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "OKR History",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"okr_history\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "KR Progress Trend",
+            "expression": "AVERAGE('OKR History'[progress])",
+            "lineageTag": "2c39fba5-2d2b-58be-ba4b-2416bd543ccf",
+            "formatString": "0%"
+          }
+        ]
+      },
+      {
+        "name": "Pain Points",
+        "lineageTag": "f6f39475-07da-5950-95d7-c7c7db81632b",
+        "description": "Open pain points with estimated annual $ impact",
+        "columns": [
+          {
+            "name": "alert_key",
+            "dataType": "string",
+            "sourceColumn": "alert_key",
+            "lineageTag": "317f3b99-ce68-58a9-942e-84b420635416",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "rule_id",
+            "dataType": "string",
+            "sourceColumn": "rule_id",
+            "lineageTag": "efbe23dd-2a23-53a8-a8cc-06fc6472297f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "63891816-a950-5ce5-b34f-b1a0501ea09f",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category",
+            "lineageTag": "b8bd7577-0d69-5d87-874a-ab434171f251",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "severity",
+            "dataType": "string",
+            "sourceColumn": "severity",
+            "lineageTag": "b1cfe0e1-d9b2-5279-9831-4cdef49685e7",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "severity_sort",
+            "dataType": "int64",
+            "sourceColumn": "severity_sort",
+            "lineageTag": "031351ba-a6d5-57ab-8e44-9267759fcc60",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "title",
+            "dataType": "string",
+            "sourceColumn": "title",
+            "lineageTag": "9e995e4d-3cd5-562c-a8d3-a4bf167ce9ed",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "metric",
+            "dataType": "string",
+            "sourceColumn": "metric",
+            "lineageTag": "9f50bef6-3a67-54f4-b6d7-78d1ec48853b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "value",
+            "dataType": "double",
+            "sourceColumn": "value",
+            "lineageTag": "23044dc1-2889-5140-a3db-0de08c1f2a12",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "benchmark",
+            "dataType": "double",
+            "sourceColumn": "benchmark",
+            "lineageTag": "1a969a2b-a57e-5035-9b12-53ec62a240a6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "est_annual_impact",
+            "dataType": "double",
+            "sourceColumn": "est_annual_impact",
+            "lineageTag": "9a3e7b31-fd68-577e-a472-2896104669f6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "evidence",
+            "dataType": "string",
+            "sourceColumn": "evidence",
+            "lineageTag": "c4778478-264e-5957-89cc-c52a6f14d822",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "recommended_action",
+            "dataType": "string",
+            "sourceColumn": "recommended_action",
+            "lineageTag": "8a98c770-9fc3-50e5-a635-8a9679fa958a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "horizon",
+            "dataType": "string",
+            "sourceColumn": "horizon",
+            "lineageTag": "2ad078b3-8a44-51b7-a097-2450aa0ea3cf",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "first_seen",
+            "dataType": "dateTime",
+            "sourceColumn": "first_seen",
+            "lineageTag": "978fba54-1977-5e0f-8cc5-8814256aae17",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "last_seen",
+            "dataType": "dateTime",
+            "sourceColumn": "last_seen",
+            "lineageTag": "af723ae2-48f2-5d8a-aa31-80feabea5ca8",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "lineageTag": "fd35fa17-4404-5bda-9317-2423703e582e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "location_name",
+            "dataType": "string",
+            "sourceColumn": "location_name",
+            "lineageTag": "d688cd18-f4fd-5e0c-a0e9-ec932936fbc0",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Pain Points",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"alerts_open\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Open Pain Points",
+            "expression": "COUNTROWS('Pain Points')",
+            "lineageTag": "eb95f176-977a-5110-8877-5d79685f7bbd",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Critical Pain Points",
+            "expression": "CALCULATE(COUNTROWS('Pain Points'), 'Pain Points'[severity] = \"critical\")",
+            "lineageTag": "4f672a95-fc4e-5ed2-b4f5-34e9fe10bc80",
+            "formatString": "#,0"
+          },
+          {
+            "name": "$ at Stake (annual)",
+            "expression": "SUM('Pain Points'[est_annual_impact])",
+            "lineageTag": "2185ac70-4c1f-5f59-b595-87c7234f5647",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Severity Color",
+            "expression": "SWITCH(SELECTEDVALUE('Pain Points'[severity]), \"critical\", \"#B3261E\", \"warning\", \"#D98A00\", \"#2A78D6\")",
+            "lineageTag": "5881118d-ad09-5ec2-abfb-bacabc7a6258"
+          }
+        ]
+      },
+      {
+        "name": "Live Alerts",
+        "lineageTag": "8bec3cd1-5e5e-5071-aa97-7a102d23a732",
+        "description": "Pain points detected today / this hour",
+        "columns": [
+          {
+            "name": "alert_key",
+            "dataType": "string",
+            "sourceColumn": "alert_key",
+            "lineageTag": "7e926462-697c-5b5d-a0d0-0828cafbef00",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "rule_id",
+            "dataType": "string",
+            "sourceColumn": "rule_id",
+            "lineageTag": "e0d861bd-6ce5-5f6a-8f2f-120ce7481c14",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "2719eddd-3cd7-51c3-a62a-49f094f1e87b",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category",
+            "lineageTag": "3005aa5d-47f6-5b61-b6d2-c105430a2c54",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "severity",
+            "dataType": "string",
+            "sourceColumn": "severity",
+            "lineageTag": "7fc16849-4988-5b2c-ac0b-ff166528ec4e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "severity_sort",
+            "dataType": "int64",
+            "sourceColumn": "severity_sort",
+            "lineageTag": "5fc92dbc-f352-50e8-95ce-59bf0d883962",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "title",
+            "dataType": "string",
+            "sourceColumn": "title",
+            "lineageTag": "04790d31-070e-557c-8265-0f33e5ffb9b8",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "metric",
+            "dataType": "string",
+            "sourceColumn": "metric",
+            "lineageTag": "c37efc0e-951c-5028-a50e-3e42600dd2d6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "value",
+            "dataType": "double",
+            "sourceColumn": "value",
+            "lineageTag": "f75cf276-974d-5903-a91e-60dabd571f27",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "benchmark",
+            "dataType": "double",
+            "sourceColumn": "benchmark",
+            "lineageTag": "8a3cc88d-cc8e-56ba-ab71-a9ea2eb6a6c9",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "est_annual_impact",
+            "dataType": "double",
+            "sourceColumn": "est_annual_impact",
+            "lineageTag": "d204ba43-6549-58de-9cd5-5153fe0e192e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "evidence",
+            "dataType": "string",
+            "sourceColumn": "evidence",
+            "lineageTag": "fd5fb150-22a1-50b9-a679-cddc80cab352",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "recommended_action",
+            "dataType": "string",
+            "sourceColumn": "recommended_action",
+            "lineageTag": "9a2964fc-c3a0-5b38-a37d-93ffe0215317",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "horizon",
+            "dataType": "string",
+            "sourceColumn": "horizon",
+            "lineageTag": "682199e6-3ae2-5aa1-9051-b571660b2f66",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "first_seen",
+            "dataType": "dateTime",
+            "sourceColumn": "first_seen",
+            "lineageTag": "3e1155b6-43d6-5b37-b81d-2b9fd754b8f5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "last_seen",
+            "dataType": "dateTime",
+            "sourceColumn": "last_seen",
+            "lineageTag": "bf0bd216-e5b4-5e9c-8729-8daeddc40142",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "lineageTag": "464a84a5-8c86-56aa-a291-35c9861eb46c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "location_name",
+            "dataType": "string",
+            "sourceColumn": "location_name",
+            "lineageTag": "a171e303-e238-50df-86fd-45d9d4925083",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Live Alerts",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"alerts_live\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Forecast",
+        "lineageTag": "39867f87-c089-50ce-b948-22c609828a32",
+        "description": "Latest daily sales forecast with P10 / P90 band",
+        "columns": [
+          {
+            "name": "run_date",
+            "dataType": "dateTime",
+            "sourceColumn": "run_date",
+            "lineageTag": "4b4802a0-bc8f-5a09-a423-786861f48528",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "2c08ea6b-b8bf-5cc6-88ed-ebbd36e1c7dd",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "lineageTag": "2b846726-97f1-5449-bca2-8d3305dad17f",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "sales_p10",
+            "dataType": "double",
+            "sourceColumn": "sales_p10",
+            "lineageTag": "bccd4a7a-51ca-5a65-aec0-8286445b2ee6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales_p50",
+            "dataType": "double",
+            "sourceColumn": "sales_p50",
+            "lineageTag": "01201c00-58e5-5777-8471-1a17447036f6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales_p90",
+            "dataType": "double",
+            "sourceColumn": "sales_p90",
+            "lineageTag": "d95bd029-05da-50f4-a80a-db4c877c0c0a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "covers_p50",
+            "dataType": "double",
+            "sourceColumn": "covers_p50",
+            "lineageTag": "137d96b7-17cf-5b24-9156-89c10510e93a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month_start",
+            "dataType": "dateTime",
+            "sourceColumn": "month_start",
+            "lineageTag": "80521648-9393-53a8-b39a-13e1744b5ac7",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Forecast",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"forecast_latest\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Forecast Sales",
+            "expression": "SUM('Forecast'[sales_p50])",
+            "lineageTag": "d03cab02-bd54-5c77-832e-9c844f5ad069",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Forecast Low (P10)",
+            "expression": "SUM('Forecast'[sales_p10])",
+            "lineageTag": "dab5931d-09d0-5fc9-8c38-da147769b6ca",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Forecast High (P90)",
+            "expression": "SUM('Forecast'[sales_p90])",
+            "lineageTag": "48363db3-2784-5287-852d-1c9ead2d5bc7",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Forecast Covers",
+            "expression": "SUM('Forecast'[covers_p50])",
+            "lineageTag": "5b4c8d25-1885-5d0f-8ba6-d312081e1bb1",
+            "formatString": "#,0"
+          }
+        ]
+      },
+      {
+        "name": "Forecast vs Actual",
+        "lineageTag": "95b8e6cc-b341-522b-a23c-ec0862efd3ef",
+        "description": "Past forecasts scored against actual sales",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "8fc23cee-0b31-532d-927e-dc3646e377fc",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "lineageTag": "d45fc2b3-d713-5719-949b-a6c8b6bfd7d2",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "run_date",
+            "dataType": "dateTime",
+            "sourceColumn": "run_date",
+            "lineageTag": "f9bfb68f-5e7e-55d2-9af9-1a0ca507615f",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "forecast",
+            "dataType": "double",
+            "sourceColumn": "forecast",
+            "lineageTag": "c3ecb55a-bb55-5896-8034-fff28705c49a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales_p10",
+            "dataType": "double",
+            "sourceColumn": "sales_p10",
+            "lineageTag": "ba004f38-8e5f-5ea8-b2f0-6823daf9da7d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales_p90",
+            "dataType": "double",
+            "sourceColumn": "sales_p90",
+            "lineageTag": "c797b6b4-9b16-585a-82bd-4f461226ad66",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "actual",
+            "dataType": "double",
+            "sourceColumn": "actual",
+            "lineageTag": "2d272296-97c2-510b-8391-974a583ab1bd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "abs_pct_error",
+            "dataType": "double",
+            "sourceColumn": "abs_pct_error",
+            "lineageTag": "43eb90f0-1b95-5108-a975-55d8850a8b23",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "within_band",
+            "dataType": "boolean",
+            "sourceColumn": "within_band",
+            "lineageTag": "2dddb0d2-5d41-5551-8c0a-d5f855e953ea",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Forecast vs Actual",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"forecast_vs_actual\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Forecast MAPE",
+            "expression": "AVERAGE('Forecast vs Actual'[abs_pct_error])",
+            "lineageTag": "210b4c1d-df3f-53ce-a9d9-eab7c9c77362",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Within Band %",
+            "expression": "DIVIDE(CALCULATE(COUNTROWS('Forecast vs Actual'), 'Forecast vs Actual'[within_band] = TRUE()), COUNTROWS('Forecast vs Actual'))",
+            "lineageTag": "42f1fb6b-336f-5ad9-b2b5-2c8c110bc6c9",
+            "formatString": "0%"
+          }
+        ]
+      },
+      {
+        "name": "Live Today",
+        "lineageTag": "666ee2ca-e34f-5892-9441-16c13c0f3e2e",
+        "description": "Right-now totals per store (straight from POS tables)",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "b050c488-fa6d-5a32-ac20-9b04fcedadab",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "business_date",
+            "dataType": "dateTime",
+            "sourceColumn": "business_date",
+            "lineageTag": "cd59e52b-c39e-5e40-a93b-6d61139f2c9f",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "now_local",
+            "dataType": "dateTime",
+            "sourceColumn": "now_local",
+            "lineageTag": "0d0e5b5e-0de7-599d-9c8f-c3f5598b93d6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales_today",
+            "dataType": "double",
+            "sourceColumn": "sales_today",
+            "lineageTag": "17d12afd-e82d-5272-a753-0622975ea391",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "checks_today",
+            "dataType": "int64",
+            "sourceColumn": "checks_today",
+            "lineageTag": "b059e298-796c-573c-82e2-4d6b4de8bdab",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "covers_today",
+            "dataType": "int64",
+            "sourceColumn": "covers_today",
+            "lineageTag": "ff59b128-66ce-5e6f-8680-7fed2f2bedc6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "open_checks",
+            "dataType": "int64",
+            "sourceColumn": "open_checks",
+            "lineageTag": "22f4dfef-8e1c-51e8-8caf-f75224d5bef5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_wait_min",
+            "dataType": "double",
+            "sourceColumn": "avg_wait_min",
+            "lineageTag": "6f4abe3d-e3c9-574b-a1d3-321fc477063a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "parties_waited",
+            "dataType": "int64",
+            "sourceColumn": "parties_waited",
+            "lineageTag": "d9133c6a-75c7-549d-a711-f11a5dedbcc8",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "last_order_ts",
+            "dataType": "dateTime",
+            "sourceColumn": "last_order_ts",
+            "lineageTag": "a492fcad-2193-5181-b88a-647ae71effd9",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tables_occupied",
+            "dataType": "int64",
+            "sourceColumn": "tables_occupied",
+            "lineageTag": "30e3b828-26b7-5c0d-b5e7-f0d8be89b8b1",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tables_total",
+            "dataType": "int64",
+            "sourceColumn": "tables_total",
+            "lineageTag": "942554e5-7974-5ee4-b457-3d7bbcde0515",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "guests_seated",
+            "dataType": "int64",
+            "sourceColumn": "guests_seated",
+            "lineageTag": "1f8d955a-c258-544c-8748-3f90093deae5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seats_total",
+            "dataType": "int64",
+            "sourceColumn": "seats_total",
+            "lineageTag": "26ecfad3-632d-5e87-964f-f69decfe66d9",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seats_blocked",
+            "dataType": "int64",
+            "sourceColumn": "seats_blocked",
+            "lineageTag": "3c9b24d7-9829-5df7-a2d7-556213820eaa",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lost_parties_today",
+            "dataType": "int64",
+            "sourceColumn": "lost_parties_today",
+            "lineageTag": "3b867be3-f260-5bee-bb92-c7bbf91dc994",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lost_covers_today",
+            "dataType": "int64",
+            "sourceColumn": "lost_covers_today",
+            "lineageTag": "eed5a8af-6da5-54d8-8aca-51494b57158a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "staff_on_clock",
+            "dataType": "int64",
+            "sourceColumn": "staff_on_clock",
+            "lineageTag": "47227fa0-c6d5-5eba-9c3f-7938e4176e2e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "labor_cost_today",
+            "dataType": "double",
+            "sourceColumn": "labor_cost_today",
+            "lineageTag": "a6afb6e8-5530-5fe1-98e1-3be0d0a38911",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "labor_hours_today",
+            "dataType": "double",
+            "sourceColumn": "labor_hours_today",
+            "lineageTag": "6c1e9dbb-7ba2-5df8-bfd0-d81d63fa8c07",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Live Today",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"live_today\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Sales Today",
+            "expression": "SUM('Live Today'[sales_today])",
+            "lineageTag": "0e80c223-1dc8-5cc4-99f2-3977bb2c36ff",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Covers Today",
+            "expression": "SUM('Live Today'[covers_today])",
+            "lineageTag": "d543497f-1590-52dd-9a24-7e27e82bb7c4",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Open Checks",
+            "expression": "SUM('Live Today'[open_checks])",
+            "lineageTag": "79333f76-3eb0-5104-a6f9-a4a7457db04c",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Tables Occupied",
+            "expression": "SUM('Live Today'[tables_occupied])",
+            "lineageTag": "b6344fc5-05b8-585c-b9db-991db390b8eb",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Guests Seated Now",
+            "expression": "SUM('Live Today'[guests_seated])",
+            "lineageTag": "1bdb0edc-706c-5d90-a748-10749edf9b4d",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Occupancy Now %",
+            "expression": "DIVIDE(SUM('Live Today'[seats_blocked]), SUM('Live Today'[seats_total]))",
+            "lineageTag": "48f90b2e-3c10-5e84-a917-b9d594a8783a",
+            "formatString": "0%"
+          },
+          {
+            "name": "Staff on Clock",
+            "expression": "SUM('Live Today'[staff_on_clock])",
+            "lineageTag": "eebc577e-48b7-5178-88b2-4eb1bfc03215",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Labor Cost Today",
+            "expression": "SUM('Live Today'[labor_cost_today])",
+            "lineageTag": "01193b85-a474-57cf-83c6-225792eb2037",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Labor % Today",
+            "expression": "DIVIDE([Labor Cost Today], [Sales Today])",
+            "lineageTag": "f0dcc507-cb7a-5ae8-9adc-8d1f3ef5f340",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Walk-aways Today",
+            "expression": "SUM('Live Today'[lost_parties_today])",
+            "lineageTag": "de326175-7b7a-54eb-ad5c-1c95dd4ece13",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Avg Wait Today (min)",
+            "expression": "AVERAGE('Live Today'[avg_wait_min])",
+            "lineageTag": "a92fed53-a91d-5083-8f68-88c35461abe7",
+            "formatString": "#,0.0"
+          }
+        ]
+      },
+      {
+        "name": "Live Hourly",
+        "lineageTag": "acd93b99-6714-53fe-9817-b9b34fd0b6d4",
+        "description": "Today's sales by hour next to the expected curve",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "a4f915ff-45bb-521c-9f56-34b886d87301",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "hr",
+            "dataType": "int64",
+            "sourceColumn": "hr",
+            "lineageTag": "861706f6-139a-5436-b877-8062b92d7b32",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "hour_label",
+            "dataType": "string",
+            "sourceColumn": "hour_label",
+            "lineageTag": "feb2d52c-fd6d-5f8f-aef0-0019522b1c73",
+            "summarizeBy": "none",
+            "sortByColumn": "hr"
+          },
+          {
+            "name": "sales",
+            "dataType": "double",
+            "sourceColumn": "sales",
+            "lineageTag": "fdff6698-1278-5527-acfb-53c7068d35c6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "covers",
+            "dataType": "int64",
+            "sourceColumn": "covers",
+            "lineageTag": "8d4d6b42-b531-5bbe-9100-f91ead5c53b3",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "expected_sales",
+            "dataType": "double",
+            "sourceColumn": "expected_sales",
+            "lineageTag": "eb74db20-83c6-54cb-b99a-4cf96e58cf40",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "expected_covers",
+            "dataType": "double",
+            "sourceColumn": "expected_covers",
+            "lineageTag": "fd5f33a0-3743-5be1-9667-2c3e135f0ebd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cum_sales",
+            "dataType": "double",
+            "sourceColumn": "cum_sales",
+            "lineageTag": "43040bb7-5ac7-5960-9aa2-79c41880da4e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "expected_cum_sales",
+            "dataType": "double",
+            "sourceColumn": "expected_cum_sales",
+            "lineageTag": "93d7cb05-59d6-5b7e-8ffd-beb885987cf2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_elapsed",
+            "dataType": "boolean",
+            "sourceColumn": "is_elapsed",
+            "lineageTag": "3f94bf49-5979-5174-8a99-d3e1640e5ccc",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_settled",
+            "dataType": "boolean",
+            "sourceColumn": "is_settled",
+            "lineageTag": "6ca50704-7062-564f-b28e-dffc1c9b1994",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Live Hourly",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"live_hourly_today\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Hourly Actual Sales",
+            "expression": "SUM('Live Hourly'[sales])",
+            "lineageTag": "995c6ed0-f5d0-59e6-92dc-857b932cb438",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Hourly Expected Sales",
+            "expression": "SUM('Live Hourly'[expected_sales])",
+            "lineageTag": "0ccb6e1b-1e4f-5e9e-ac73-c1c166d2046d",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Expected Sales Today",
+            "expression": "SUM('Live Hourly'[expected_sales])",
+            "lineageTag": "d61c7f24-c7b3-558f-bb87-0a58bad5bb11",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0"
+          },
+          {
+            "name": "Sales vs Pace %",
+            "expression": [
+              "VAR a = CALCULATE(SUM('Live Hourly'[sales]), 'Live Hourly'[is_settled] = TRUE())",
+              "VAR e = CALCULATE(SUM('Live Hourly'[expected_sales]), 'Live Hourly'[is_settled] = TRUE())",
+              "RETURN DIVIDE(a - e, e)"
+            ],
+            "lineageTag": "ea2168a4-eb68-5266-bf93-204743376141",
+            "formatString": "+0%;-0%;0%"
+          }
+        ]
+      },
+      {
+        "name": "Live Floor",
+        "lineageTag": "19613f24-59a9-54c6-82aa-e7a238628a13",
+        "description": "Every table and whether it is occupied now",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "0efc2ce7-1d20-5004-af2d-decf53a060a7",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "table_id",
+            "dataType": "string",
+            "sourceColumn": "table_id",
+            "lineageTag": "5e932407-05ae-57d2-92f2-bbd0f604b2bd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "zone",
+            "dataType": "string",
+            "sourceColumn": "zone",
+            "lineageTag": "6af6a4ac-2823-5613-8568-954d061c3b0c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seats",
+            "dataType": "int64",
+            "sourceColumn": "seats",
+            "lineageTag": "9955e244-d810-58fd-bb98-0d440f6ae61b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "lineageTag": "2658af6a-a816-59a3-80dc-a483676652c5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "party_size",
+            "dataType": "int64",
+            "sourceColumn": "party_size",
+            "lineageTag": "2ac3f12c-47e6-5a6e-aff0-badf6170aa98",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seated_at",
+            "dataType": "dateTime",
+            "sourceColumn": "seated_at",
+            "lineageTag": "e3f07d1c-914e-5f32-8c79-bb3df0040361",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "minutes_seated",
+            "dataType": "int64",
+            "sourceColumn": "minutes_seated",
+            "lineageTag": "0947d759-dd0b-511b-88d6-bd69dbe7e270",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "minutes_to_turn",
+            "dataType": "int64",
+            "sourceColumn": "minutes_to_turn",
+            "lineageTag": "940405d7-b11b-5316-86cd-3d30aca5a306",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seat_fill",
+            "dataType": "double",
+            "sourceColumn": "seat_fill",
+            "lineageTag": "dc8536c2-199b-5f57-b6ad-6f22b892d844",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "table_no",
+            "dataType": "int64",
+            "sourceColumn": "table_no",
+            "lineageTag": "d317881a-0480-5a1b-8ad1-c1d3170a4013",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Live Floor",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"live_floor\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Table Label",
+            "expression": [
+              "IF(SELECTEDVALUE('Live Floor'[status]) = \"occupied\",",
+              "    SELECTEDVALUE('Live Floor'[party_size]) & \"/\" & SELECTEDVALUE('Live Floor'[seats]), \"·\")"
+            ],
+            "lineageTag": "ec84052e-abbb-5371-82da-47a4abec36dd"
+          },
+          {
+            "name": "Table Color",
+            "expression": "IF(SELECTEDVALUE('Live Floor'[status]) = \"occupied\", \"#2A78D6\", \"#DCE4E1\")",
+            "lineageTag": "542c8dc2-a0b0-59cb-bab3-d0a2452e0cdd"
+          },
+          {
+            "name": "Occupied Tables Now",
+            "expression": "CALCULATE(COUNTROWS('Live Floor'), 'Live Floor'[status] = \"occupied\")",
+            "lineageTag": "039fc1a2-e64b-56ae-8f22-f94ced35355b",
+            "formatString": "#,0"
+          }
+        ]
+      },
+      {
+        "name": "Live Staffing",
+        "lineageTag": "51b95130-7008-5b81-8b65-65ddf53f9cee",
+        "description": "Staff on the clock now by role",
+        "columns": [
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "9f5fdb2f-8f29-53ba-a6da-39c82eb3956c",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "role",
+            "dataType": "string",
+            "sourceColumn": "role",
+            "lineageTag": "75a0442a-27fc-5f13-957b-d402b4fe1881",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "on_clock",
+            "dataType": "int64",
+            "sourceColumn": "on_clock",
+            "lineageTag": "71fa7b58-198a-566b-9843-fc83e8bd3634",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "still_scheduled",
+            "dataType": "int64",
+            "sourceColumn": "still_scheduled",
+            "lineageTag": "19b10b12-c47b-5b99-8617-c8b0b183181d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "completed",
+            "dataType": "int64",
+            "sourceColumn": "completed",
+            "lineageTag": "9be62ca0-b350-5db3-a5d5-f3e639872f86",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Live Staffing",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"live_staffing\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Staff On Clock by Role",
+            "expression": "SUM('Live Staffing'[on_clock])",
+            "lineageTag": "c6db8353-6293-5412-acdd-c1cc3c54bbcf",
+            "formatString": "#,0"
+          }
+        ]
+      },
+      {
+        "name": "Data Freshness",
+        "lineageTag": "f2d11717-42bd-5d41-8d9d-cd7d437a6c95",
+        "description": "Stream heartbeat",
+        "columns": [
+          {
+            "name": "now_local",
+            "dataType": "dateTime",
+            "sourceColumn": "now_local",
+            "lineageTag": "103351e0-e652-519f-af6a-c468f2b14796",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "business_date",
+            "dataType": "dateTime",
+            "sourceColumn": "business_date",
+            "lineageTag": "e93d4ae5-bc98-57d8-8f38-7b6a5a017bb2",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "last_tick_at",
+            "dataType": "dateTime",
+            "sourceColumn": "last_tick_at",
+            "lineageTag": "063edf62-5eee-55b9-9c1f-ad151a4b6ac5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "seconds_since_last_write",
+            "dataType": "int64",
+            "sourceColumn": "seconds_since_last_write",
+            "lineageTag": "d16155a4-c270-54d9-893a-daa51bf2aefb",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "mode",
+            "dataType": "string",
+            "sourceColumn": "mode",
+            "lineageTag": "bef9abf6-d958-5a51-ba9b-b98e29e3c57e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "speed",
+            "dataType": "double",
+            "sourceColumn": "speed",
+            "lineageTag": "4b18f98a-27e7-5f2c-b473-2be1b4119ef5",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Data Freshness",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"v_clock\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Seconds Since Last Update",
+            "expression": "MAX('Data Freshness'[seconds_since_last_write])",
+            "lineageTag": "4c07be50-02ec-55b4-b518-550921b1220b",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Restaurant Clock",
+            "expression": "FORMAT(MAX('Data Freshness'[now_local]), \"ddd h:mm AM/PM\")",
+            "lineageTag": "d2ecdb3b-41dc-587b-b157-6e7261bc0f28"
+          }
+        ]
+      },
+      {
+        "name": "Orders",
+        "lineageTag": "50d878a8-110c-570d-aa5d-619bc9518516",
+        "description": "Closed guest checks (row level, for drill-through)",
+        "columns": [
+          {
+            "name": "check_id",
+            "dataType": "string",
+            "sourceColumn": "check_id",
+            "lineageTag": "36d3dcfa-e972-571b-a223-f566b5c2812f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "location_id",
+            "dataType": "string",
+            "sourceColumn": "location_id",
+            "lineageTag": "419264c5-b926-5135-b321-318a4e9787b3",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "business_date",
+            "dataType": "dateTime",
+            "sourceColumn": "business_date",
+            "lineageTag": "76794df7-40ad-5bb1-b03f-e5a9afc06ae0",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "channel",
+            "dataType": "string",
+            "sourceColumn": "channel",
+            "lineageTag": "857a8997-c279-5dd8-aa0e-270b8cf9c87a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delivery_platform",
+            "dataType": "string",
+            "sourceColumn": "delivery_platform",
+            "lineageTag": "ffb37202-ac93-55f5-a498-c91ec889727f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "table_id",
+            "dataType": "string",
+            "sourceColumn": "table_id",
+            "lineageTag": "21b81863-f86b-5b38-9c2d-5188a2b346a5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "zone",
+            "dataType": "string",
+            "sourceColumn": "zone",
+            "lineageTag": "4f960f45-6153-5bed-afe1-6f7a32df544f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "covers",
+            "dataType": "int64",
+            "sourceColumn": "covers",
+            "lineageTag": "9da36d25-b721-549a-88d0-9b67f4e09f50",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "daypart",
+            "dataType": "string",
+            "sourceColumn": "daypart",
+            "lineageTag": "b5d87e5b-cf85-54ba-8a3c-b8d26b721678",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hr",
+            "dataType": "int64",
+            "sourceColumn": "hr",
+            "lineageTag": "a37e3da2-eab8-51f0-88bd-a54096907666",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "open_ts",
+            "dataType": "dateTime",
+            "sourceColumn": "open_ts",
+            "lineageTag": "2667d2bf-a499-5557-a8bc-223c3b35b244",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "close_ts",
+            "dataType": "dateTime",
+            "sourceColumn": "close_ts",
+            "lineageTag": "19bb6c1f-9a9f-5e3a-be39-e53fa5e7bef5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dwell_min",
+            "dataType": "int64",
+            "sourceColumn": "dwell_min",
+            "lineageTag": "ec6efeaa-2b75-59ce-9d89-9aed612a92cd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wait_min",
+            "dataType": "double",
+            "sourceColumn": "wait_min",
+            "lineageTag": "acaa4f4a-d845-5f17-923e-94d4a60e1d75",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "subtotal",
+            "dataType": "double",
+            "sourceColumn": "subtotal",
+            "lineageTag": "b1b68e39-7406-5edd-aa2d-e63095f01467",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "discount",
+            "dataType": "double",
+            "sourceColumn": "discount",
+            "lineageTag": "76476f52-a1ed-52c9-8a5d-c57d5350bb81",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "net_sales",
+            "dataType": "double",
+            "sourceColumn": "net_sales",
+            "lineageTag": "6c5360d7-cab4-522f-a082-40e2f99e4967",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "tip",
+            "dataType": "double",
+            "sourceColumn": "tip",
+            "lineageTag": "8da97e71-fa8a-5867-9282-dd6b16252c02",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_type",
+            "dataType": "string",
+            "sourceColumn": "payment_type",
+            "lineageTag": "4d236431-7e4d-5138-ac51-30e80d5bf7dc",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Orders",
+            "mode": "directQuery",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(Server, Database),",
+                "    Data = Source{[Schema=\"analytics\",Item=\"fact_orders\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Order Count",
+            "expression": "COUNTROWS('Orders')",
+            "lineageTag": "94ed705d-8f36-584e-a807-2392ef7fbca1",
+            "formatString": "#,0"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "9a09abef-e086-5cb8-aa0f-c48bbdd018d0",
+        "fromTable": "Daily Location",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "65795c27-1fbf-5321-8c2f-bd93aa6ee82c",
+        "fromTable": "Daily Location",
+        "fromColumn": "business_date",
+        "toTable": "Date",
+        "toColumn": "date"
+      },
+      {
+        "name": "6a4f9922-01c3-5cf9-b50c-c29f94123908",
+        "fromTable": "Hourly Floor",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "2046df04-4eb2-5aec-bcb7-a5d41f6318af",
+        "fromTable": "Hourly Floor",
+        "fromColumn": "business_date",
+        "toTable": "Date",
+        "toColumn": "date"
+      },
+      {
+        "name": "90e6cdbb-a147-57f0-8744-1e05e440a3de",
+        "fromTable": "Hourly Floor",
+        "fromColumn": "hr",
+        "toTable": "Hour",
+        "toColumn": "hr"
+      },
+      {
+        "name": "9ca54e3b-4152-5901-b3d8-6b7f83eec15e",
+        "fromTable": "Item Daily",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "c8ae02f2-4082-5901-8a88-c0f776bda83f",
+        "fromTable": "Item Daily",
+        "fromColumn": "business_date",
+        "toTable": "Date",
+        "toColumn": "date"
+      },
+      {
+        "name": "6babd0e3-cd24-5a85-bc2d-817068e60c6e",
+        "fromTable": "Item Daily",
+        "fromColumn": "item_id",
+        "toTable": "Menu Item",
+        "toColumn": "item_id"
+      },
+      {
+        "name": "c58d355a-02f3-5675-a5ca-e70162a3c28f",
+        "fromTable": "Date",
+        "fromColumn": "month_start",
+        "toTable": "Month",
+        "toColumn": "month_start"
+      },
+      {
+        "name": "0602b6d8-bf88-5c1e-a657-3d6451d15b30",
+        "fromTable": "Monthly P&L",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "65556f53-51a9-59e1-83bb-c82e66c1abf3",
+        "fromTable": "Monthly P&L",
+        "fromColumn": "month_start",
+        "toTable": "Month",
+        "toColumn": "month_start"
+      },
+      {
+        "name": "503b619d-ec55-5030-8bc3-a1e447c5150c",
+        "fromTable": "Revenue Flow",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "313e2586-9d18-5d9b-b587-559a5dd8cab5",
+        "fromTable": "Revenue Flow",
+        "fromColumn": "month_start",
+        "toTable": "Month",
+        "toColumn": "month_start"
+      },
+      {
+        "name": "3b56c28f-5056-5a80-91e5-0e39b9d2a9b5",
+        "fromTable": "P&L Waterfall",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "390355ad-e740-56bf-ab6a-7f44c1220ba4",
+        "fromTable": "P&L Waterfall",
+        "fromColumn": "month_start",
+        "toTable": "Month",
+        "toColumn": "month_start"
+      },
+      {
+        "name": "e7d34179-63a4-5054-8bf8-a779de5a4ecb",
+        "fromTable": "Menu Engineering",
+        "fromColumn": "location_id",
+        "toTable": "Scope",
+        "toColumn": "scope"
+      },
+      {
+        "name": "2f5cbaac-7678-50b8-8c88-f4fa3d344656",
+        "fromTable": "KPI Scorecard",
+        "fromColumn": "scope",
+        "toTable": "Scope",
+        "toColumn": "scope"
+      },
+      {
+        "name": "49117d3e-52b2-578d-8592-48014af8ac71",
+        "fromTable": "OKR Board",
+        "fromColumn": "scope",
+        "toTable": "Scope",
+        "toColumn": "scope"
+      },
+      {
+        "name": "308ef278-9b98-52df-a551-2265c805b1eb",
+        "fromTable": "OKR History",
+        "fromColumn": "scope",
+        "toTable": "Scope",
+        "toColumn": "scope"
+      },
+      {
+        "name": "35213dc9-cf14-5079-8c15-481b2897a1cd",
+        "fromTable": "Pain Points",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "ecf6b86c-ae0c-5447-9c94-1cbc59886761",
+        "fromTable": "Live Alerts",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "8352d60c-9337-5929-b621-934b4171fd2c",
+        "fromTable": "Forecast",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "0b6cae3e-cbde-5079-a36d-0d5c03c86cb4",
+        "fromTable": "Forecast",
+        "fromColumn": "date",
+        "toTable": "Date",
+        "toColumn": "date"
+      },
+      {
+        "name": "5f3805ad-f431-5e9f-a89d-1a2a39d6cb27",
+        "fromTable": "Forecast vs Actual",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "a3ee19c4-23e0-5167-b0c2-f290899e250a",
+        "fromTable": "Forecast vs Actual",
+        "fromColumn": "date",
+        "toTable": "Date",
+        "toColumn": "date"
+      },
+      {
+        "name": "592957db-1fa1-5fb8-8018-21f6bfaa2ab1",
+        "fromTable": "Live Today",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "6188410e-332e-5877-b5a3-dfa3c4bc6e1a",
+        "fromTable": "Live Hourly",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "a2549177-19cd-5ca3-85bb-856f664cb115",
+        "fromTable": "Live Hourly",
+        "fromColumn": "hr",
+        "toTable": "Hour",
+        "toColumn": "hr"
+      },
+      {
+        "name": "59e1ffa0-3811-5064-aaf0-b71f74bcf41c",
+        "fromTable": "Live Floor",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "a3273fb8-035f-5811-aa2f-3da7d6fcaada",
+        "fromTable": "Live Staffing",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "dc0d66ea-ee8f-5501-a164-faec028e2b48",
+        "fromTable": "Orders",
+        "fromColumn": "location_id",
+        "toTable": "Location",
+        "toColumn": "location_id"
+      },
+      {
+        "name": "b96f03f8-4dc3-5724-bb0c-7afc52077f8f",
+        "fromTable": "Orders",
+        "fromColumn": "business_date",
+        "toTable": "Date",
+        "toColumn": "date"
+      }
+    ],
+    "expressions": [
+      {
+        "name": "Server",
+        "kind": "m",
+        "lineageTag": "4ebd9298-4ebc-5d41-a0f8-400e5c5696a6",
+        "expression": "\"localhost:5432\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      },
+      {
+        "name": "Database",
+        "kind": "m",
+        "lineageTag": "8748eeeb-32e2-57d5-b84a-17ec83eac053",
+        "expression": "\"forkcast\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Date\", \"Month\", \"Hour\", \"Location\", \"Scope\", \"Menu Item\", \"Daily Location\", \"Hourly Floor\", \"Item Daily\", \"Monthly P&L\", \"Revenue Flow\", \"P&L Waterfall\", \"Menu Engineering\", \"KPI Scorecard\", \"OKR Board\", \"OKR History\", \"Pain Points\", \"Live Alerts\", \"Forecast\", \"Forecast vs Actual\", \"Live Today\", \"Live Hourly\", \"Live Floor\", \"Live Staffing\", \"Data Freshness\", \"Orders\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      }
+    ]
+  }
+}

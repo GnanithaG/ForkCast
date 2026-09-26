@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: forkcast
+      POSTGRES_DB: forkcast
+    ports:
+      - "5432:5432"          # Power BI Desktop connects to localhost:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d forkcast"]
+      interval: 5s
+      retries: 20
+
+  # one-off: loads history, builds the analytics layer, runs the first evaluation
+  setup:
+    build: .
+    command: python realtime/setup.py
+    environment:
+      FORKCAST_DSN: postgresql://postgres:forkcast@postgres:5432/forkcast
+    volumes:
+      - ./powerbi:/app/powerbi   # the generated Power BI project lands on your machine
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  streamer:
+    build: .
+    command: python realtime/streamer.py
+    environment:
+      FORKCAST_DSN: postgresql://postgres:forkcast@postgres:5432/forkcast
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  evaluator:
+    build: .
+    command: python realtime/evaluator.py --interval 120
+    environment:
+      FORKCAST_DSN: postgresql://postgres:forkcast@postgres:5432/forkcast
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  pgdata:

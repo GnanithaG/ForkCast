@@ -1,0 +1,7 @@
+location_id,r2,annual_trend_pct,sat_uplift_pct,price_step_pct,borrowed_seasonality,n_days
+L01,0.865,4.3,89.4,2.1,False,724
+L02,0.849,5.0,95.4,-0.7,False,724
+L03,0.877,6.6,92.2,1.5,False,724
+L04,0.826,2.9,83.4,0.9,False,724
+L05,0.816,7.4,88.8,-1.8,False,724
+L06,0.738,5.2,90.9,0.4,True,547

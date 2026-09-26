@@ -1,0 +1,548 @@
+// ForkCast DAX measures. Paste each into Modeling > New measure on the named table.
+
+
+// ===== Daily Location =====
+
+Net Sales =
+SUM('Daily Location'[net_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Gross Sales =
+SUM('Daily Location'[gross_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Total Covers =
+SUM('Daily Location'[covers])
+// format: #,0
+
+Total Checks =
+SUM('Daily Location'[checks])
+// format: #,0
+
+Average Check =
+DIVIDE([Net Sales], [Total Checks])
+// format: \$#,0.00;(\$#,0.00);\$#,0.00
+
+Sales per Cover =
+DIVIDE([Net Sales], [Total Covers])
+// format: \$#,0.00;(\$#,0.00);\$#,0.00
+
+Dine-in Sales =
+SUM('Daily Location'[dine_in_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Takeout Sales =
+SUM('Daily Location'[takeout_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Delivery Sales =
+SUM('Daily Location'[delivery_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Off-Premise Share =
+DIVIDE([Takeout Sales] + [Delivery Sales], [Net Sales])
+// format: 0.0%
+
+Lunch Sales =
+SUM('Daily Location'[lunch_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Dinner Sales =
+SUM('Daily Location'[dinner_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Net Sales LY =
+CALCULATE([Net Sales], DATEADD('Date'[date], -364, DAY))
+// format: \$#,0;(\$#,0);\$#,0
+
+Net Sales vs LY % =
+DIVIDE([Net Sales] - [Net Sales LY], [Net Sales LY])
+// format: +0.0%;-0.0%;0.0%
+
+Covers LY =
+CALCULATE([Total Covers], DATEADD('Date'[date], -364, DAY))
+// format: #,0
+
+Covers vs LY % =
+DIVIDE([Total Covers] - [Covers LY], [Covers LY])
+// format: +0.0%;-0.0%;0.0%
+
+Seat Utilization =
+DIVIDE(SUM('Daily Location'[occupied_seat_min]), SUM('Daily Location'[available_seat_min]))
+// format: 0.0%
+
+RevPASH =
+DIVIDE([Dine-in Sales], DIVIDE(SUM('Daily Location'[available_seat_min]), 60))
+// format: \$#,0.00;(\$#,0.00);\$#,0.00
+
+Table Turns per Day =
+DIVIDE(SUM('Daily Location'[dine_in_checks]), SUM('Daily Location'[tables]))
+// format: #,0.00
+
+Avg Dwell (min) =
+DIVIDE(SUM('Daily Location'[dwell_min_total]), SUM('Daily Location'[dine_in_checks]))
+// format: #,0.0
+
+Lost Covers =
+SUM('Daily Location'[lost_covers])
+// format: #,0
+
+Walk-away Rate =
+DIVIDE(SUM('Daily Location'[lost_parties]), SUM('Daily Location'[dine_in_checks]) + SUM('Daily Location'[lost_parties]))
+// format: 0.0%
+
+Large-Party Walk-away Rate =
+DIVIDE(SUM('Daily Location'[lost_large_parties]), SUM('Daily Location'[dine_large_parties]) + SUM('Daily Location'[lost_large_parties]))
+// format: 0.0%
+
+Lost Sales (est.) =
+[Lost Covers] * [Sales per Cover]
+// format: \$#,0;(\$#,0);\$#,0
+
+Avg Wait (min) =
+DIVIDE(SUM('Daily Location'[wait_min_total]), SUM('Daily Location'[parties_waited]))
+// format: #,0.0
+
+Labor Cost =
+SUM('Daily Location'[labor_cost])
+// format: \$#,0;(\$#,0);\$#,0
+
+Labor Hours =
+SUM('Daily Location'[labor_hours])
+// format: #,0
+
+Labor % =
+DIVIDE([Labor Cost], [Net Sales])
+// format: 0.0%
+
+Labor % LY =
+CALCULATE([Labor %], DATEADD('Date'[date], -364, DAY))
+// format: 0.0%
+
+Sales per Labor Hour =
+DIVIDE([Net Sales], [Labor Hours])
+// format: \$#,0.00;(\$#,0.00);\$#,0.00
+
+Covers per Labor Hour =
+DIVIDE([Total Covers], [Labor Hours])
+// format: #,0.00
+
+Food Sales =
+SUM('Daily Location'[food_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Food Purchases =
+SUM('Daily Location'[purchases_food])
+// format: \$#,0;(\$#,0);\$#,0
+
+Food Cost % =
+DIVIDE([Food Purchases], [Food Sales])
+// format: 0.0%
+
+Recipe Food Cost % =
+DIVIDE(SUM('Daily Location'[theoretical_food_cost]), [Food Sales])
+// format: 0.0%
+
+Food Cost Variance (pts) =
+([Food Cost %] - [Recipe Food Cost %]) * 100
+// format: 0.0
+
+Beverage Cost % =
+DIVIDE(SUM('Daily Location'[purchases_bev]), SUM('Daily Location'[beverage_sales]))
+// format: 0.0%
+
+COGS =
+SUM('Daily Location'[purchases_food]) + SUM('Daily Location'[purchases_bev]) + SUM('Daily Location'[purchases_packaging])
+// format: \$#,0;(\$#,0);\$#,0
+
+Waste Cost =
+SUM('Daily Location'[waste_cost])
+// format: \$#,0;(\$#,0);\$#,0
+
+Waste % =
+DIVIDE([Waste Cost], [Food Purchases])
+// format: 0.0%
+
+Prime Cost =
+[COGS] + [Labor Cost]
+// format: \$#,0;(\$#,0);\$#,0
+
+Prime Cost % =
+DIVIDE([Prime Cost], [Net Sales])
+// format: 0.0%
+
+Prime Cost % LY =
+CALCULATE([Prime Cost %], DATEADD('Date'[date], -364, DAY))
+// format: 0.0%
+
+Discount Rate =
+DIVIDE(SUM('Daily Location'[discounts]), [Gross Sales])
+// format: 0.0%
+
+Delivery Commissions (est.) =
+SUM('Daily Location'[delivery_commission_est])
+// format: \$#,0;(\$#,0);\$#,0
+
+Prime Cost % Status =
+VAR v = [Prime Cost %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.65, "On target", v <= 0.68, "Watch", "Over")
+
+Prime Cost % Color =
+VAR v = [Prime Cost %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.65, "#0A7D0A", v <= 0.68, "#D98A00", "#B3261E")
+
+Labor % Status =
+VAR v = [Labor %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.32, "On target", v <= 0.35, "Watch", "Over")
+
+Labor % Color =
+VAR v = [Labor %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.32, "#0A7D0A", v <= 0.35, "#D98A00", "#B3261E")
+
+Food Cost % Status =
+VAR v = [Food Cost %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.33, "On target", v <= 0.35, "Watch", "Over")
+
+Food Cost % Color =
+VAR v = [Food Cost %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.33, "#0A7D0A", v <= 0.35, "#D98A00", "#B3261E")
+
+Waste % Status =
+VAR v = [Waste %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.045, "On target", v <= 0.06, "Watch", "High")
+
+Waste % Color =
+VAR v = [Waste %] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v <= 0.045, "#0A7D0A", v <= 0.06, "#D98A00", "#B3261E")
+
+// ===== Hourly Floor =====
+
+Hourly Seat Utilization =
+DIVIDE(SUM('Hourly Floor'[occupied_seat_min]), SUM('Hourly Floor'[available_seat_min]))
+// format: 0%
+
+Hourly RevPASH =
+DIVIDE(SUM('Hourly Floor'[dine_sales]), DIVIDE(SUM('Hourly Floor'[available_seat_min]), 60))
+// format: \$#,0.00;(\$#,0.00);\$#,0.00
+
+Hourly Sales =
+SUM('Hourly Floor'[net_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Hourly Covers =
+SUM('Hourly Floor'[covers])
+// format: #,0
+
+Hourly Lost Parties =
+SUM('Hourly Floor'[lost_parties])
+// format: #,0
+
+Staff Hours =
+SUM('Hourly Floor'[staff_hours])
+// format: #,0.0
+
+Covers per Staff Hour =
+DIVIDE([Hourly Covers], [Staff Hours])
+// format: #,0.00
+
+// ===== Item Daily =====
+
+Item Units =
+SUM('Item Daily'[units])
+// format: #,0
+
+Item Sales =
+SUM('Item Daily'[sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Item Margin =
+SUM('Item Daily'[sales]) - SUM('Item Daily'[theoretical_cost])
+// format: \$#,0;(\$#,0);\$#,0
+
+// ===== Monthly P&L =====
+
+P&L Net Sales =
+SUM('Monthly P&L'[net_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+P&L COGS =
+SUM('Monthly P&L'[total_cogs])
+// format: \$#,0;(\$#,0);\$#,0
+
+P&L Labor =
+SUM('Monthly P&L'[labor_cost])
+// format: \$#,0;(\$#,0);\$#,0
+
+P&L Operating Expenses =
+SUM('Monthly P&L'[opex])
+// format: \$#,0;(\$#,0);\$#,0
+
+Four-Wall EBITDA =
+SUM('Monthly P&L'[four_wall_ebitda])
+// format: \$#,0;(\$#,0);\$#,0
+
+EBITDA Margin =
+DIVIDE([Four-Wall EBITDA], [P&L Net Sales])
+// format: 0.0%
+
+Occupancy % =
+DIVIDE(SUM('Monthly P&L'[rent]), [P&L Net Sales])
+// format: 0.0%
+
+EBITDA Margin Status =
+VAR v = [EBITDA Margin] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v >= 0.17, "Healthy", v >= 0.12, "Thin", "Weak")
+
+EBITDA Margin Color =
+VAR v = [EBITDA Margin] RETURN SWITCH(TRUE(), ISBLANK(v), BLANK(), v >= 0.17, "#0A7D0A", v >= 0.12, "#D98A00", "#B3261E")
+
+// ===== Revenue Flow =====
+
+Flow Amount =
+SUM('Revenue Flow'[amount])
+// format: \$#,0;(\$#,0);\$#,0
+
+// ===== P&L Waterfall =====
+
+Waterfall Amount =
+SUM('P&L Waterfall'[amount])
+// format: \$#,0;(\$#,0);\$#,0
+
+// ===== Menu Engineering =====
+
+Units Sold =
+SUM('Menu Engineering'[units])
+// format: #,0
+
+Menu Mix =
+SUM('Menu Engineering'[menu_mix])
+// format: 0.0%
+
+Margin per Plate =
+DIVIDE(SUM('Menu Engineering'[total_cm]), SUM('Menu Engineering'[units]))
+// format: \$#,0.00;(\$#,0.00);\$#,0.00
+
+Total Margin =
+SUM('Menu Engineering'[total_cm])
+// format: \$#,0;(\$#,0);\$#,0
+
+Popularity Threshold =
+MAX('Menu Engineering'[popularity_threshold])
+// format: 0.0%
+
+Category Avg Margin =
+MAX('Menu Engineering'[avg_cm_category])
+// format: \$#,0.00;(\$#,0.00);\$#,0.00
+
+// ===== KPI Scorecard =====
+
+KPI Value =
+MAX('KPI Scorecard'[value])
+// format: #,0.####
+
+KPI Display =
+VAR v = [KPI Value]
+VAR u = SELECTEDVALUE('KPI Scorecard'[unit])
+VAR txt = SWITCH(u, "%", FORMAT(v, "0.0%"), "pts", FORMAT(v * 100, "0.0") & " pts",
+    "$", IF(v >= 10000, FORMAT(v, "$#,0"), FORMAT(v, "$#,0.00")), "min", FORMAT(v, "0.0") & " min",
+    "x", FORMAT(v, "0.00") & "x", FORMAT(v, "#,0"))
+RETURN IF(ISBLANK(v), BLANK(), txt & "  " & SELECTEDVALUE('KPI Scorecard'[status_icon]))
+
+KPI Change vs LY =
+VAR c = MAX('KPI Scorecard'[change_vs_ly])
+VAR u = SELECTEDVALUE('KPI Scorecard'[unit])
+RETURN IF(ISBLANK(c), BLANK(), IF(u IN {"%", "pts"}, FORMAT(c * 100, "+0.0;-0.0") & " pts", FORMAT(c, "+0.0%;-0.0%")))
+
+KPI Status Color =
+SWITCH(SELECTEDVALUE('KPI Scorecard'[status]), "good", "#0A7D0A", "warning", "#D98A00", "critical", "#B3261E", "#7A8784")
+
+Critical KPIs =
+CALCULATE(COUNTROWS('KPI Scorecard'), 'KPI Scorecard'[status] = "critical")
+// format: #,0
+
+KPIs on Target =
+CALCULATE(COUNTROWS('KPI Scorecard'), 'KPI Scorecard'[status] = "good")
+// format: #,0
+
+// ===== OKR Board =====
+
+KR Progress =
+MAX('OKR Board'[progress])
+// format: 0%
+
+KR Progress (0-100%) =
+MAX(0, MIN(1, [KR Progress]))
+// format: 0%
+
+Objective Progress =
+AVERAGEX(VALUES('OKR Board'[kr_id]), MAX(0, MIN(1, CALCULATE(MAX('OKR Board'[progress])))))
+// format: 0%
+
+KRs On Track =
+CALCULATE(DISTINCTCOUNT('OKR Board'[kr_id]), 'OKR Board'[status] = "on track")
+// format: #,0
+
+KRs At Risk =
+CALCULATE(DISTINCTCOUNT('OKR Board'[kr_id]), 'OKR Board'[status] = "at risk")
+// format: #,0
+
+KRs Off Track =
+CALCULATE(DISTINCTCOUNT('OKR Board'[kr_id]), 'OKR Board'[status] = "off track")
+// format: #,0
+
+KR Baseline =
+VAR v = MAX('OKR Board'[baseline]) VAR u = SELECTEDVALUE('OKR Board'[unit])
+RETURN IF(ISBLANK(v), BLANK(), SWITCH(u, "%", FORMAT(v, "0.0%"), "pts", FORMAT(v * 100, "0.0") & " pts", "$", FORMAT(v, "$#,0.00"), "min", FORMAT(v, "0.0") & " min", FORMAT(v, "#,0.00")))
+
+KR Target =
+VAR v = MAX('OKR Board'[target]) VAR u = SELECTEDVALUE('OKR Board'[unit])
+RETURN IF(ISBLANK(v), BLANK(), SWITCH(u, "%", FORMAT(v, "0.0%"), "pts", FORMAT(v * 100, "0.0") & " pts", "$", FORMAT(v, "$#,0.00"), "min", FORMAT(v, "0.0") & " min", FORMAT(v, "#,0.00")))
+
+KR Current =
+VAR v = MAX('OKR Board'[current_value]) VAR u = SELECTEDVALUE('OKR Board'[unit])
+RETURN IF(ISBLANK(v), BLANK(), SWITCH(u, "%", FORMAT(v, "0.0%"), "pts", FORMAT(v * 100, "0.0") & " pts", "$", FORMAT(v, "$#,0.00"), "min", FORMAT(v, "0.0") & " min", FORMAT(v, "#,0.00")))
+
+KR Status Color =
+SWITCH(SELECTEDVALUE('OKR Board'[status]), "on track", "#0A7D0A", "at risk", "#D98A00", "off track", "#B3261E", "#7A8784")
+
+// ===== OKR History =====
+
+KR Progress Trend =
+AVERAGE('OKR History'[progress])
+// format: 0%
+
+// ===== Pain Points =====
+
+Open Pain Points =
+COUNTROWS('Pain Points')
+// format: #,0
+
+Critical Pain Points =
+CALCULATE(COUNTROWS('Pain Points'), 'Pain Points'[severity] = "critical")
+// format: #,0
+
+$ at Stake (annual) =
+SUM('Pain Points'[est_annual_impact])
+// format: \$#,0;(\$#,0);\$#,0
+
+Severity Color =
+SWITCH(SELECTEDVALUE('Pain Points'[severity]), "critical", "#B3261E", "warning", "#D98A00", "#2A78D6")
+
+// ===== Forecast =====
+
+Forecast Sales =
+SUM('Forecast'[sales_p50])
+// format: \$#,0;(\$#,0);\$#,0
+
+Forecast Low (P10) =
+SUM('Forecast'[sales_p10])
+// format: \$#,0;(\$#,0);\$#,0
+
+Forecast High (P90) =
+SUM('Forecast'[sales_p90])
+// format: \$#,0;(\$#,0);\$#,0
+
+Forecast Covers =
+SUM('Forecast'[covers_p50])
+// format: #,0
+
+// ===== Forecast vs Actual =====
+
+Forecast MAPE =
+AVERAGE('Forecast vs Actual'[abs_pct_error])
+// format: 0.0%
+
+Within Band % =
+DIVIDE(CALCULATE(COUNTROWS('Forecast vs Actual'), 'Forecast vs Actual'[within_band] = TRUE()), COUNTROWS('Forecast vs Actual'))
+// format: 0%
+
+// ===== Live Today =====
+
+Sales Today =
+SUM('Live Today'[sales_today])
+// format: \$#,0;(\$#,0);\$#,0
+
+Covers Today =
+SUM('Live Today'[covers_today])
+// format: #,0
+
+Open Checks =
+SUM('Live Today'[open_checks])
+// format: #,0
+
+Tables Occupied =
+SUM('Live Today'[tables_occupied])
+// format: #,0
+
+Guests Seated Now =
+SUM('Live Today'[guests_seated])
+// format: #,0
+
+Occupancy Now % =
+DIVIDE(SUM('Live Today'[seats_blocked]), SUM('Live Today'[seats_total]))
+// format: 0%
+
+Staff on Clock =
+SUM('Live Today'[staff_on_clock])
+// format: #,0
+
+Labor Cost Today =
+SUM('Live Today'[labor_cost_today])
+// format: \$#,0;(\$#,0);\$#,0
+
+Labor % Today =
+DIVIDE([Labor Cost Today], [Sales Today])
+// format: 0.0%
+
+Walk-aways Today =
+SUM('Live Today'[lost_parties_today])
+// format: #,0
+
+Avg Wait Today (min) =
+AVERAGE('Live Today'[avg_wait_min])
+// format: #,0.0
+
+// ===== Live Hourly =====
+
+Hourly Actual Sales =
+SUM('Live Hourly'[sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Hourly Expected Sales =
+SUM('Live Hourly'[expected_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Expected Sales Today =
+SUM('Live Hourly'[expected_sales])
+// format: \$#,0;(\$#,0);\$#,0
+
+Sales vs Pace % =
+VAR a = CALCULATE(SUM('Live Hourly'[sales]), 'Live Hourly'[is_settled] = TRUE())
+VAR e = CALCULATE(SUM('Live Hourly'[expected_sales]), 'Live Hourly'[is_settled] = TRUE())
+RETURN DIVIDE(a - e, e)
+// format: +0%;-0%;0%
+
+// ===== Live Floor =====
+
+Table Label =
+IF(SELECTEDVALUE('Live Floor'[status]) = "occupied",
+    SELECTEDVALUE('Live Floor'[party_size]) & "/" & SELECTEDVALUE('Live Floor'[seats]), "·")
+
+Table Color =
+IF(SELECTEDVALUE('Live Floor'[status]) = "occupied", "#2A78D6", "#DCE4E1")
+
+Occupied Tables Now =
+CALCULATE(COUNTROWS('Live Floor'), 'Live Floor'[status] = "occupied")
+// format: #,0
+
+// ===== Live Staffing =====
+
+Staff On Clock by Role =
+SUM('Live Staffing'[on_clock])
+// format: #,0
+
+// ===== Data Freshness =====
+
+Seconds Since Last Update =
+MAX('Data Freshness'[seconds_since_last_write])
+// format: #,0
+
+Restaurant Clock =
+FORMAT(MAX('Data Freshness'[now_local]), "ddd h:mm AM/PM")
+
+// ===== Orders =====
+
+Order Count =
+COUNTROWS('Orders')
+// format: #,0

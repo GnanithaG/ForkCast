@@ -1,0 +1,1009 @@
+{
+  "config": "{\"version\": \"5.43\", \"activeSectionIndex\": 0, \"linguisticSchemaSyncVersion\": 0, \"objects\": {\"outspacePane\": [{\"properties\": {\"expanded\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Live Service",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectiona1be11c0c2375af6",
+      "ordinal": 0,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"78ca633ca65f56a9a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Live service\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"DirectQuery on the POS stream \\u00b7 set Page refresh to 30 seconds (Format > Page refresh)\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 2000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"176d3a23135d5e50b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 2000, \"width\": 224, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Location.location_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Location'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 3000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"622c49d3946f5155b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 3000, \"width\": 149, \"height\": 84, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Live Today.Sales Today\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Today\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Sales Today\"}, \"Name\": \"Live Today.Sales Today\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 173,
+          "y": 64,
+          "z": 4000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"cc95852ae84b597ca\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 173, \"y\": 64, \"z\": 4000, \"width\": 149, \"height\": 84, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Live Hourly.Sales vs Pace %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Hourly\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Sales vs Pace %\"}, \"Name\": \"Live Hourly.Sales vs Pace %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 330,
+          "y": 64,
+          "z": 5000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"f32f18bcb2b75ae7a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 330, \"y\": 64, \"z\": 5000, \"width\": 149, \"height\": 84, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Live Today.Covers Today\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Today\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Covers Today\"}, \"Name\": \"Live Today.Covers Today\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 487,
+          "y": 64,
+          "z": 6000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"a0ddc85bcc5757399\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 487, \"y\": 64, \"z\": 6000, \"width\": 149, \"height\": 84, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Live Today.Occupancy Now %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Today\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Occupancy Now %\"}, \"Name\": \"Live Today.Occupancy Now %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 644,
+          "y": 64,
+          "z": 7000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"1fbbbd66655e52379\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 644, \"y\": 64, \"z\": 7000, \"width\": 149, \"height\": 84, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Live Today.Staff on Clock\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Today\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Staff on Clock\"}, \"Name\": \"Live Today.Staff on Clock\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 801,
+          "y": 64,
+          "z": 8000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"c33cc0bb6d0d5a188\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 801, \"y\": 64, \"z\": 8000, \"width\": 149, \"height\": 84, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Live Today.Labor % Today\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Today\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Labor % Today\"}, \"Name\": \"Live Today.Labor % Today\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 958,
+          "y": 64,
+          "z": 9000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"f82853e8fa195d4bb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 958, \"y\": 64, \"z\": 9000, \"width\": 149, \"height\": 84, \"tabOrder\": 9000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Live Today.Walk-aways Today\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Today\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Walk-aways Today\"}, \"Name\": \"Live Today.Walk-aways Today\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1115,
+          "y": 64,
+          "z": 10000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"2adf243361c35e759\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1115, \"y\": 64, \"z\": 10000, \"width\": 149, \"height\": 84, \"tabOrder\": 10000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Data Freshness.Seconds Since Last Update\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Data Freshness\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Seconds Since Last Update\"}, \"Name\": \"Data Freshness.Seconds Since Last Update\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 158,
+          "z": 11000,
+          "width": 620,
+          "height": 280,
+          "config": "{\"name\": \"e84a34963abd5ea9b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 158, \"z\": 11000, \"width\": 620, \"height\": 280, \"tabOrder\": 11000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Hour.hour_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Live Hourly.Hourly Actual Sales\"}, {\"queryRef\": \"Live Hourly.Hourly Expected Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Hour\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Live Hourly\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"hour_label\"}, \"Name\": \"Hour.hour_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Hourly Actual Sales\"}, \"Name\": \"Live Hourly.Hourly Actual Sales\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Hourly Expected Sales\"}, \"Name\": \"Live Hourly.Hourly Expected Sales\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Sales by hour: actual vs expected'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 652,
+          "y": 158,
+          "z": 12000,
+          "width": 612,
+          "height": 280,
+          "config": "{\"name\": \"9d6b1e8765095b4f9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 652, \"y\": 158, \"z\": 12000, \"width\": 612, \"height\": 280, \"tabOrder\": 12000}}], \"singleVisual\": {\"visualType\": \"pivotTable\", \"projections\": {\"Rows\": [{\"queryRef\": \"Live Floor.zone\", \"active\": true}], \"Columns\": [{\"queryRef\": \"Live Floor.table_no\"}], \"Values\": [{\"queryRef\": \"Live Floor.Table Label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Floor\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"zone\"}, \"Name\": \"Live Floor.zone\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"table_no\"}, \"Name\": \"Live Floor.table_no\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Table Label\"}, \"Name\": \"Live Floor.Table Label\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Floor now (guests / seats)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 448,
+          "z": 13000,
+          "width": 1248,
+          "height": 256,
+          "config": "{\"name\": \"cac954d09b655fc9a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 448, \"z\": 13000, \"width\": 1248, \"height\": 256, \"tabOrder\": 13000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"Live Alerts.severity\"}, {\"queryRef\": \"Live Alerts.location_name\"}, {\"queryRef\": \"Live Alerts.title\"}, {\"queryRef\": \"Live Alerts.evidence\"}, {\"queryRef\": \"Live Alerts.recommended_action\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Live Alerts\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"severity\"}, \"Name\": \"Live Alerts.severity\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Live Alerts.location_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"title\"}, \"Name\": \"Live Alerts.title\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"evidence\"}, \"Name\": \"Live Alerts.evidence\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"recommended_action\"}, \"Name\": \"Live Alerts.recommended_action\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Needs attention now'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Executive Overview",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSection8066d59ae47c5a1d",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"32c7b5b4461d5bc38\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Executive overview\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Sales, profit and guest KPIs vs last year \\u00b7 filter by month and store\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 820,
+          "y": 8,
+          "z": 2000,
+          "width": 210,
+          "height": 50,
+          "config": "{\"name\": \"4937c05220855e61b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 820, \"y\": 8, \"z\": 2000, \"width\": 210, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Month.month_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 3000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"4ac00e6fc9ef53929\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 3000, \"width\": 224, \"height\": 50, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Location.location_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Location'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 4000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"837fb5ce828b5deab\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 4000, \"width\": 149, \"height\": 84, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Net Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"Daily Location.Net Sales\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 173,
+          "y": 64,
+          "z": 5000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"5d0316ab92fd5efc9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 173, \"y\": 64, \"z\": 5000, \"width\": 149, \"height\": 84, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Net Sales vs LY %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Net Sales vs LY %\"}, \"Name\": \"Daily Location.Net Sales vs LY %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 330,
+          "y": 64,
+          "z": 6000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"38e884b79f285259a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 330, \"y\": 64, \"z\": 6000, \"width\": 149, \"height\": 84, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Total Covers\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Total Covers\"}, \"Name\": \"Daily Location.Total Covers\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 487,
+          "y": 64,
+          "z": 7000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"208460c5b15957cab\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 487, \"y\": 64, \"z\": 7000, \"width\": 149, \"height\": 84, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Sales per Cover\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Sales per Cover\"}, \"Name\": \"Daily Location.Sales per Cover\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 644,
+          "y": 64,
+          "z": 8000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"1e9676ce505956539\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 644, \"y\": 64, \"z\": 8000, \"width\": 149, \"height\": 84, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Prime Cost %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Prime Cost %\"}, \"Name\": \"Daily Location.Prime Cost %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 801,
+          "y": 64,
+          "z": 9000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"73bb5cf2c39c57469\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 801, \"y\": 64, \"z\": 9000, \"width\": 149, \"height\": 84, \"tabOrder\": 9000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Monthly P&L.EBITDA Margin\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Monthly P&L\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"EBITDA Margin\"}, \"Name\": \"Monthly P&L.EBITDA Margin\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 958,
+          "y": 64,
+          "z": 10000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"65231540dc69539fb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 958, \"y\": 64, \"z\": 10000, \"width\": 149, \"height\": 84, \"tabOrder\": 10000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Seat Utilization\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Seat Utilization\"}, \"Name\": \"Daily Location.Seat Utilization\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1115,
+          "y": 64,
+          "z": 11000,
+          "width": 149,
+          "height": 84,
+          "config": "{\"name\": \"6aabab3a7ee25e20a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1115, \"y\": 64, \"z\": 11000, \"width\": 149, \"height\": 84, \"tabOrder\": 11000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Lost Sales (est.)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Lost Sales (est.)\"}, \"Name\": \"Daily Location.Lost Sales (est.)\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 158,
+          "z": 12000,
+          "width": 620,
+          "height": 270,
+          "config": "{\"name\": \"dd98679773635e4a9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 158, \"z\": 12000, \"width\": 620, \"height\": 270, \"tabOrder\": 12000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Month.month_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Net Sales\"}, {\"queryRef\": \"Daily Location.Net Sales LY\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"Daily Location.Net Sales\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Sales LY\"}, \"Name\": \"Daily Location.Net Sales LY\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net sales vs same weeks last year'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 652,
+          "y": 158,
+          "z": 13000,
+          "width": 612,
+          "height": 270,
+          "config": "{\"name\": \"36011cd2e35c5cd1a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 652, \"y\": 158, \"z\": 13000, \"width\": 612, \"height\": 270, \"tabOrder\": 13000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Month.month_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Prime Cost %\"}, {\"queryRef\": \"Daily Location.Labor %\"}, {\"queryRef\": \"Daily Location.Food Cost %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Prime Cost %\"}, \"Name\": \"Daily Location.Prime Cost %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Labor %\"}, \"Name\": \"Daily Location.Labor %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Food Cost %\"}, \"Name\": \"Daily Location.Food Cost %\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Cost ratios by month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 438,
+          "z": 14000,
+          "width": 1248,
+          "height": 266,
+          "config": "{\"name\": \"5e9fa81afc6d58c08\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 438, \"z\": 14000, \"width\": 1248, \"height\": 266, \"tabOrder\": 14000}}], \"singleVisual\": {\"visualType\": \"pivotTable\", \"projections\": {\"Rows\": [{\"queryRef\": \"Location.location_name\", \"active\": true}], \"Values\": [{\"queryRef\": \"Daily Location.Net Sales\"}, {\"queryRef\": \"Daily Location.Net Sales vs LY %\"}, {\"queryRef\": \"Daily Location.Sales per Cover\"}, {\"queryRef\": \"Daily Location.Food Cost %\"}, {\"queryRef\": \"Daily Location.Labor %\"}, {\"queryRef\": \"Daily Location.Prime Cost %\"}, {\"queryRef\": \"Monthly P&L.EBITDA Margin\"}, {\"queryRef\": \"Daily Location.Seat Utilization\"}, {\"queryRef\": \"Daily Location.Walk-away Rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"Monthly P&L\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"Daily Location.Net Sales\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Sales vs LY %\"}, \"Name\": \"Daily Location.Net Sales vs LY %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Sales per Cover\"}, \"Name\": \"Daily Location.Sales per Cover\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Food Cost %\"}, \"Name\": \"Daily Location.Food Cost %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Labor %\"}, \"Name\": \"Daily Location.Labor %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Prime Cost %\"}, \"Name\": \"Daily Location.Prime Cost %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"EBITDA Margin\"}, \"Name\": \"Monthly P&L.EBITDA Margin\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Seat Utilization\"}, \"Name\": \"Daily Location.Seat Utilization\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Walk-away Rate\"}, \"Name\": \"Daily Location.Walk-away Rate\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Store scorecard'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "KPI Scorecard",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionf15dbf9aada151a5",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"cad0c1ae8a7854239\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"KPI scorecard\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Computed by the Python evaluator every few minutes \\u00b7 \\u25cf on target  \\u25b2 watch  \\u25a0 off target\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 2000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"1fc8d0d9c097593eb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 2000, \"width\": 224, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Scope.scope_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Scope\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"scope_label\"}, \"Name\": \"Scope.scope_label\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Chain or store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 3000,
+          "width": 228,
+          "height": 84,
+          "config": "{\"name\": \"19c37f72083a5c228\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 3000, \"width\": 228, \"height\": 84, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"KPI Scorecard.KPIs on Target\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"KPI Scorecard\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KPIs on Target\"}, \"Name\": \"KPI Scorecard.KPIs on Target\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 252,
+          "y": 64,
+          "z": 4000,
+          "width": 228,
+          "height": 84,
+          "config": "{\"name\": \"5b9fb93ea6be5060b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 252, \"y\": 64, \"z\": 4000, \"width\": 228, \"height\": 84, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"KPI Scorecard.Critical KPIs\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"KPI Scorecard\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Critical KPIs\"}, \"Name\": \"KPI Scorecard.Critical KPIs\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 488,
+          "y": 64,
+          "z": 5000,
+          "width": 228,
+          "height": 84,
+          "config": "{\"name\": \"d11bc66131f7583d8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 488, \"y\": 64, \"z\": 5000, \"width\": 228, \"height\": 84, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Data Freshness.Restaurant Clock\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Data Freshness\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Restaurant Clock\"}, \"Name\": \"Data Freshness.Restaurant Clock\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 158,
+          "z": 6000,
+          "width": 1248,
+          "height": 546,
+          "config": "{\"name\": \"68b6788a23235463b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 158, \"z\": 6000, \"width\": 1248, \"height\": 546, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"pivotTable\", \"projections\": {\"Rows\": [{\"queryRef\": \"KPI Scorecard.category\", \"active\": true}, {\"queryRef\": \"KPI Scorecard.kpi_name\"}], \"Columns\": [{\"queryRef\": \"KPI Scorecard.period\"}], \"Values\": [{\"queryRef\": \"KPI Scorecard.KPI Display\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"KPI Scorecard\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"category\"}, \"Name\": \"KPI Scorecard.category\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"kpi_name\"}, \"Name\": \"KPI Scorecard.kpi_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"period\"}, \"Name\": \"KPI Scorecard.period\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KPI Display\"}, \"Name\": \"KPI Scorecard.KPI Display\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Every KPI by period'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "OKR Tracker",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionc9ca26343f7d53c7",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"75d9f61099175924a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"OKRs: Fall-Holiday 2026\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Key results measured against the same dates last year \\u00b7 progress 100% = target met\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 2000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"10b78780e84c5b5fa\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 2000, \"width\": 224, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Scope.scope_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Scope\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"scope_label\"}, \"Name\": \"Scope.scope_label\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Chain or store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 3000,
+          "width": 306,
+          "height": 84,
+          "config": "{\"name\": \"e71d3b32d47455f68\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 3000, \"width\": 306, \"height\": 84, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"OKR Board.Objective Progress\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"OKR Board\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Objective Progress\"}, \"Name\": \"OKR Board.Objective Progress\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 330,
+          "y": 64,
+          "z": 4000,
+          "width": 306,
+          "height": 84,
+          "config": "{\"name\": \"cbc693385d6c5c6ca\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 330, \"y\": 64, \"z\": 4000, \"width\": 306, \"height\": 84, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"OKR Board.KRs On Track\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"OKR Board\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KRs On Track\"}, \"Name\": \"OKR Board.KRs On Track\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 644,
+          "y": 64,
+          "z": 5000,
+          "width": 306,
+          "height": 84,
+          "config": "{\"name\": \"cf43232b298259e88\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 644, \"y\": 64, \"z\": 5000, \"width\": 306, \"height\": 84, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"OKR Board.KRs At Risk\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"OKR Board\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KRs At Risk\"}, \"Name\": \"OKR Board.KRs At Risk\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 958,
+          "y": 64,
+          "z": 6000,
+          "width": 306,
+          "height": 84,
+          "config": "{\"name\": \"a13c74ffa9f35430b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 958, \"y\": 64, \"z\": 6000, \"width\": 306, \"height\": 84, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"OKR Board.KRs Off Track\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"OKR Board\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KRs Off Track\"}, \"Name\": \"OKR Board.KRs Off Track\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 158,
+          "z": 7000,
+          "width": 500,
+          "height": 250,
+          "config": "{\"name\": \"9fc29c3a99ae56fbb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 158, \"z\": 7000, \"width\": 500, \"height\": 250, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"OKR Board.objective\", \"active\": true}], \"Y\": [{\"queryRef\": \"OKR Board.Objective Progress\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"OKR Board\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"objective\"}, \"Name\": \"OKR Board.objective\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Objective Progress\"}, \"Name\": \"OKR Board.Objective Progress\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Progress by objective'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 532,
+          "y": 158,
+          "z": 8000,
+          "width": 732,
+          "height": 250,
+          "config": "{\"name\": \"35d76e67bf6a5caaa\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 532, \"y\": 158, \"z\": 8000, \"width\": 732, \"height\": 250, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"OKR History.eval_date\", \"active\": true}], \"Y\": [{\"queryRef\": \"OKR History.KR Progress Trend\"}], \"Series\": [{\"queryRef\": \"OKR History.kr_id\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"OKR History\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"eval_date\"}, \"Name\": \"OKR History.eval_date\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KR Progress Trend\"}, \"Name\": \"OKR History.KR Progress Trend\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"kr_id\"}, \"Name\": \"OKR History.kr_id\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Key-result progress over time'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 418,
+          "z": 9000,
+          "width": 1248,
+          "height": 286,
+          "config": "{\"name\": \"3a0262b6a8075285b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 418, \"z\": 9000, \"width\": 1248, \"height\": 286, \"tabOrder\": 9000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"OKR Board.kr_id\"}, {\"queryRef\": \"OKR Board.key_result\"}, {\"queryRef\": \"OKR Board.owner\"}, {\"queryRef\": \"OKR Board.KR Baseline\"}, {\"queryRef\": \"OKR Board.KR Target\"}, {\"queryRef\": \"OKR Board.KR Current\"}, {\"queryRef\": \"OKR Board.KR Progress (0-100%)\"}, {\"queryRef\": \"OKR Board.status\"}, {\"queryRef\": \"OKR Board.note\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"OKR Board\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"kr_id\"}, \"Name\": \"OKR Board.kr_id\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"key_result\"}, \"Name\": \"OKR Board.key_result\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"owner\"}, \"Name\": \"OKR Board.owner\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KR Baseline\"}, \"Name\": \"OKR Board.KR Baseline\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KR Target\"}, \"Name\": \"OKR Board.KR Target\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KR Current\"}, \"Name\": \"OKR Board.KR Current\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"KR Progress (0-100%)\"}, \"Name\": \"OKR Board.KR Progress (0-100%)\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"status\"}, \"Name\": \"OKR Board.status\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"note\"}, \"Name\": \"OKR Board.note\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Key results'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Pain Points",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSection2dd4e79dd0735b02",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"020b4a84376d5756b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Pain points\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Detected by rules and baselines in the evaluator \\u00b7 $ = estimated annual profit impact\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 2000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"3c664afcd8fc57e4a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 2000, \"width\": 224, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Location.location_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Location'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 3000,
+          "width": 295,
+          "height": 84,
+          "config": "{\"name\": \"851785c508115e669\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 3000, \"width\": 295, \"height\": 84, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Pain Points.Open Pain Points\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Pain Points\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Open Pain Points\"}, \"Name\": \"Pain Points.Open Pain Points\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 319,
+          "y": 64,
+          "z": 4000,
+          "width": 295,
+          "height": 84,
+          "config": "{\"name\": \"e2a2937d674f5f75b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 319, \"y\": 64, \"z\": 4000, \"width\": 295, \"height\": 84, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Pain Points.Critical Pain Points\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Pain Points\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Critical Pain Points\"}, \"Name\": \"Pain Points.Critical Pain Points\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 621,
+          "y": 64,
+          "z": 5000,
+          "width": 295,
+          "height": 84,
+          "config": "{\"name\": \"32d91d30549253b8b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 621, \"y\": 64, \"z\": 5000, \"width\": 295, \"height\": 84, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Pain Points.$ at Stake (annual)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Pain Points\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"$ at Stake (annual)\"}, \"Name\": \"Pain Points.$ at Stake (annual)\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 158,
+          "z": 6000,
+          "width": 400,
+          "height": 250,
+          "config": "{\"name\": \"c3d504046ba85dfbb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 158, \"z\": 6000, \"width\": 400, \"height\": 250, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Pain Points.category\", \"active\": true}], \"Y\": [{\"queryRef\": \"Pain Points.$ at Stake (annual)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Pain Points\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"category\"}, \"Name\": \"Pain Points.category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"$ at Stake (annual)\"}, \"Name\": \"Pain Points.$ at Stake (annual)\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'$ at stake by area'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 432,
+          "y": 158,
+          "z": 7000,
+          "width": 400,
+          "height": 250,
+          "config": "{\"name\": \"57125f9abe135a3a8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 432, \"y\": 158, \"z\": 7000, \"width\": 400, \"height\": 250, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Pain Points.location_name\", \"active\": true}], \"Y\": [{\"queryRef\": \"Pain Points.$ at Stake (annual)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Pain Points\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Pain Points.location_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"$ at Stake (annual)\"}, \"Name\": \"Pain Points.$ at Stake (annual)\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'$ at stake by store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 848,
+          "y": 158,
+          "z": 8000,
+          "width": 416,
+          "height": 250,
+          "config": "{\"name\": \"59ed478186c3590d8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 848, \"y\": 158, \"z\": 8000, \"width\": 416, \"height\": 250, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Pain Points.severity\", \"active\": true}], \"Y\": [{\"queryRef\": \"Pain Points.Open Pain Points\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Pain Points\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"severity\"}, \"Name\": \"Pain Points.severity\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Open Pain Points\"}, \"Name\": \"Pain Points.Open Pain Points\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Open pain points by severity'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 418,
+          "z": 9000,
+          "width": 1248,
+          "height": 286,
+          "config": "{\"name\": \"26c4daaa75a0578da\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 418, \"z\": 9000, \"width\": 1248, \"height\": 286, \"tabOrder\": 9000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"Pain Points.severity\"}, {\"queryRef\": \"Pain Points.location_name\"}, {\"queryRef\": \"Pain Points.title\"}, {\"queryRef\": \"Pain Points.evidence\"}, {\"queryRef\": \"Pain Points.recommended_action\"}, {\"queryRef\": \"Pain Points.$ at Stake (annual)\"}, {\"queryRef\": \"Pain Points.first_seen\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Pain Points\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"severity\"}, \"Name\": \"Pain Points.severity\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Pain Points.location_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"title\"}, \"Name\": \"Pain Points.title\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"evidence\"}, \"Name\": \"Pain Points.evidence\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"recommended_action\"}, \"Name\": \"Pain Points.recommended_action\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"$ at Stake (annual)\"}, \"Name\": \"Pain Points.$ at Stake (annual)\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"first_seen\"}, \"Name\": \"Pain Points.first_seen\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'What to fix, biggest first'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Revenue Flow",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionf518c1a3fc7f5c4b",
+      "ordinal": 5,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"5eea62aec8a3518eb\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Revenue flow & P&L\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Where every sales dollar goes, from channel to four-wall EBITDA\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 820,
+          "y": 8,
+          "z": 2000,
+          "width": 210,
+          "height": 50,
+          "config": "{\"name\": \"17992482e9d257bc8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 820, \"y\": 8, \"z\": 2000, \"width\": 210, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Month.month_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 3000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"1a67de49b24d51a7b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 3000, \"width\": 224, \"height\": 50, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Location.location_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Location'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 4000,
+          "width": 620,
+          "height": 320,
+          "config": "{\"name\": \"1e73b9dd840156b6b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 4000, \"width\": 620, \"height\": 320, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"waterfallChart\", \"projections\": {\"Category\": [{\"queryRef\": \"P&L Waterfall.step\", \"active\": true}], \"Y\": [{\"queryRef\": \"P&L Waterfall.Waterfall Amount\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"P&L Waterfall\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"step\"}, \"Name\": \"P&L Waterfall.step\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Waterfall Amount\"}, \"Name\": \"P&L Waterfall.Waterfall Amount\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net sales to four-wall EBITDA'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 652,
+          "y": 64,
+          "z": 5000,
+          "width": 612,
+          "height": 320,
+          "config": "{\"name\": \"d210d9eaca9054588\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 652, \"y\": 64, \"z\": 5000, \"width\": 612, \"height\": 320, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"columnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Month.month_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Monthly P&L.P&L COGS\"}, {\"queryRef\": \"Monthly P&L.P&L Labor\"}, {\"queryRef\": \"Monthly P&L.P&L Operating Expenses\"}, {\"queryRef\": \"Monthly P&L.Four-Wall EBITDA\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Monthly P&L\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"P&L COGS\"}, \"Name\": \"Monthly P&L.P&L COGS\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"P&L Labor\"}, \"Name\": \"Monthly P&L.P&L Labor\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"P&L Operating Expenses\"}, \"Name\": \"Monthly P&L.P&L Operating Expenses\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Four-Wall EBITDA\"}, \"Name\": \"Monthly P&L.Four-Wall EBITDA\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Monthly cost structure'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 394,
+          "z": 6000,
+          "width": 620,
+          "height": 310,
+          "config": "{\"name\": \"3c5afb4f6e445f4c9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 394, \"z\": 6000, \"width\": 620, \"height\": 310, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"Revenue Flow.stage\"}, {\"queryRef\": \"Revenue Flow.source\"}, {\"queryRef\": \"Revenue Flow.target\"}, {\"queryRef\": \"Revenue Flow.Flow Amount\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Revenue Flow\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"stage\"}, \"Name\": \"Revenue Flow.stage\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"source\"}, \"Name\": \"Revenue Flow.source\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"target\"}, \"Name\": \"Revenue Flow.target\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Flow Amount\"}, \"Name\": \"Revenue Flow.Flow Amount\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Revenue flow (feeds the Sankey visual)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 652,
+          "y": 394,
+          "z": 7000,
+          "width": 612,
+          "height": 310,
+          "config": "{\"name\": \"56a696c56722529b9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 652, \"y\": 394, \"z\": 7000, \"width\": 612, \"height\": 310, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Location.location_name\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Dine-in Sales\"}, {\"queryRef\": \"Daily Location.Takeout Sales\"}, {\"queryRef\": \"Daily Location.Delivery Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Dine-in Sales\"}, \"Name\": \"Daily Location.Dine-in Sales\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Takeout Sales\"}, \"Name\": \"Daily Location.Takeout Sales\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Delivery Sales\"}, \"Name\": \"Daily Location.Delivery Sales\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Sales by channel'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Floor & Capacity",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionaea303b5c35b5225",
+      "ordinal": 6,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"195eb6a266ff50fab\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Floor & capacity\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Seat utilization by day and hour, walk-aways and staffing against demand\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 820,
+          "y": 8,
+          "z": 2000,
+          "width": 210,
+          "height": 50,
+          "config": "{\"name\": \"b749763975105ed3a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 820, \"y\": 8, \"z\": 2000, \"width\": 210, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Month.month_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 3000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"9c2b692c5d92554c8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 3000, \"width\": 224, \"height\": 50, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Location.location_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Location'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 4000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"6b755a6931445d95a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 4000, \"width\": 201, \"height\": 84, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Seat Utilization\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Seat Utilization\"}, \"Name\": \"Daily Location.Seat Utilization\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 225,
+          "y": 64,
+          "z": 5000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"3bda35a68c115bfc9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 225, \"y\": 64, \"z\": 5000, \"width\": 201, \"height\": 84, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.RevPASH\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"RevPASH\"}, \"Name\": \"Daily Location.RevPASH\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 435,
+          "y": 64,
+          "z": 6000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"4315b97366a8511ca\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 435, \"y\": 64, \"z\": 6000, \"width\": 201, \"height\": 84, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Table Turns per Day\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Table Turns per Day\"}, \"Name\": \"Daily Location.Table Turns per Day\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 644,
+          "y": 64,
+          "z": 7000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"77878872e5c459b18\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 644, \"y\": 64, \"z\": 7000, \"width\": 201, \"height\": 84, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Avg Dwell (min)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Avg Dwell (min)\"}, \"Name\": \"Daily Location.Avg Dwell (min)\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 853,
+          "y": 64,
+          "z": 8000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"74d469ab76ef5518a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 853, \"y\": 64, \"z\": 8000, \"width\": 201, \"height\": 84, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Walk-away Rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Walk-away Rate\"}, \"Name\": \"Daily Location.Walk-away Rate\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1063,
+          "y": 64,
+          "z": 9000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"14e6f4818fda51a38\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1063, \"y\": 64, \"z\": 9000, \"width\": 201, \"height\": 84, \"tabOrder\": 9000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Large-Party Walk-away Rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Large-Party Walk-away Rate\"}, \"Name\": \"Daily Location.Large-Party Walk-away Rate\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 158,
+          "z": 10000,
+          "width": 760,
+          "height": 300,
+          "config": "{\"name\": \"e47e6680d3fe5849a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 158, \"z\": 10000, \"width\": 760, \"height\": 300, \"tabOrder\": 10000}}], \"singleVisual\": {\"visualType\": \"pivotTable\", \"projections\": {\"Rows\": [{\"queryRef\": \"Date.weekday\", \"active\": true}], \"Columns\": [{\"queryRef\": \"Hour.hour_label\"}], \"Values\": [{\"queryRef\": \"Hourly Floor.Hourly Seat Utilization\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Hour\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"Hourly Floor\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"weekday\"}, \"Name\": \"Date.weekday\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"hour_label\"}, \"Name\": \"Hour.hour_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Hourly Seat Utilization\"}, \"Name\": \"Hourly Floor.Hourly Seat Utilization\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Seat utilization by weekday and hour'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 792,
+          "y": 158,
+          "z": 11000,
+          "width": 472,
+          "height": 300,
+          "config": "{\"name\": \"d04990692ff55e84b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 792, \"y\": 158, \"z\": 11000, \"width\": 472, \"height\": 300, \"tabOrder\": 11000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Location.location_name\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Lost Covers\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Lost Covers\"}, \"Name\": \"Daily Location.Lost Covers\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Guests turned away'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 468,
+          "z": 12000,
+          "width": 760,
+          "height": 236,
+          "config": "{\"name\": \"ce499afeed57561db\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 468, \"z\": 12000, \"width\": 760, \"height\": 236, \"tabOrder\": 12000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Month.month_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Seat Utilization\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Seat Utilization\"}, \"Name\": \"Daily Location.Seat Utilization\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Seat utilization by month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 792,
+          "y": 468,
+          "z": 13000,
+          "width": 472,
+          "height": 236,
+          "config": "{\"name\": \"2522c54feb585a718\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 792, \"y\": 468, \"z\": 13000, \"width\": 472, \"height\": 236, \"tabOrder\": 13000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Hour.hour_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Hourly Floor.Covers per Staff Hour\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Hour\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Hourly Floor\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"hour_label\"}, \"Name\": \"Hour.hour_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Covers per Staff Hour\"}, \"Name\": \"Hourly Floor.Covers per Staff Hour\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Covers per staff hour, by hour'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Labor & Costs",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSection326bb16c1ad65719",
+      "ordinal": 7,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"76405a5f3c265c31a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Labor & cost of goods\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Scheduling efficiency, food cost against recipe cost, and waste\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 820,
+          "y": 8,
+          "z": 2000,
+          "width": 210,
+          "height": 50,
+          "config": "{\"name\": \"011a2299bb0555568\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 820, \"y\": 8, \"z\": 2000, \"width\": 210, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Month.month_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 3000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"5ec9135138a256ec9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 3000, \"width\": 224, \"height\": 50, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Location.location_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Location'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 4000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"2232e2ef6da85573a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 4000, \"width\": 201, \"height\": 84, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Labor %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Labor %\"}, \"Name\": \"Daily Location.Labor %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 225,
+          "y": 64,
+          "z": 5000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"01ac67fe182653f89\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 225, \"y\": 64, \"z\": 5000, \"width\": 201, \"height\": 84, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Sales per Labor Hour\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Sales per Labor Hour\"}, \"Name\": \"Daily Location.Sales per Labor Hour\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 435,
+          "y": 64,
+          "z": 6000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"0018e27c635a51bab\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 435, \"y\": 64, \"z\": 6000, \"width\": 201, \"height\": 84, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Food Cost %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Food Cost %\"}, \"Name\": \"Daily Location.Food Cost %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 644,
+          "y": 64,
+          "z": 7000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"215f69ea0a9458f1b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 644, \"y\": 64, \"z\": 7000, \"width\": 201, \"height\": 84, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Food Cost Variance (pts)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Food Cost Variance (pts)\"}, \"Name\": \"Daily Location.Food Cost Variance (pts)\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 853,
+          "y": 64,
+          "z": 8000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"62895c1716c059ab9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 853, \"y\": 64, \"z\": 8000, \"width\": 201, \"height\": 84, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Waste %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Waste %\"}, \"Name\": \"Daily Location.Waste %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1063,
+          "y": 64,
+          "z": 9000,
+          "width": 201,
+          "height": 84,
+          "config": "{\"name\": \"97eb93aba2035f849\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1063, \"y\": 64, \"z\": 9000, \"width\": 201, \"height\": 84, \"tabOrder\": 9000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Daily Location.Prime Cost %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Prime Cost %\"}, \"Name\": \"Daily Location.Prime Cost %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 158,
+          "z": 10000,
+          "width": 620,
+          "height": 270,
+          "config": "{\"name\": \"88ba4c5630b65097b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 158, \"z\": 10000, \"width\": 620, \"height\": 270, \"tabOrder\": 10000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Month.month_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Sales per Labor Hour\"}], \"Series\": [{\"queryRef\": \"Location.location_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Sales per Labor Hour\"}, \"Name\": \"Daily Location.Sales per Labor Hour\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Sales per labor hour by store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 652,
+          "y": 158,
+          "z": 11000,
+          "width": 612,
+          "height": 270,
+          "config": "{\"name\": \"342466bafa2e5e44b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 652, \"y\": 158, \"z\": 11000, \"width\": 612, \"height\": 270, \"tabOrder\": 11000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Location.location_name\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Labor %\"}, {\"queryRef\": \"Daily Location.Food Cost %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Labor %\"}, \"Name\": \"Daily Location.Labor %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Food Cost %\"}, \"Name\": \"Daily Location.Food Cost %\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Labor and food cost by store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 438,
+          "z": 12000,
+          "width": 620,
+          "height": 266,
+          "config": "{\"name\": \"0b79cbede997524fa\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 438, \"z\": 12000, \"width\": 620, \"height\": 266, \"tabOrder\": 12000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Month.month_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Food Cost %\"}, {\"queryRef\": \"Daily Location.Recipe Food Cost %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Food Cost %\"}, \"Name\": \"Daily Location.Food Cost %\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Recipe Food Cost %\"}, \"Name\": \"Daily Location.Recipe Food Cost %\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Actual vs recipe food cost'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 652,
+          "y": 438,
+          "z": 13000,
+          "width": 612,
+          "height": 266,
+          "config": "{\"name\": \"e77b46e3fd215938b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 652, \"y\": 438, \"z\": 13000, \"width\": 612, \"height\": 266, \"tabOrder\": 13000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Location.location_name\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Waste %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Waste %\"}, \"Name\": \"Daily Location.Waste %\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Food waste by store'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Menu Engineering",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionedfc40879f075b5d",
+      "ordinal": 8,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"a03d3c024e625acc9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Menu engineering\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Popularity vs margin per plate \\u00b7 Stars, Plowhorses, Puzzles and Dogs\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 600,
+          "y": 8,
+          "z": 2000,
+          "width": 200,
+          "height": 50,
+          "config": "{\"name\": \"449a57c059e75783a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 600, \"y\": 8, \"z\": 2000, \"width\": 200, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Menu Engineering.period\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Menu Engineering\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"period\"}, \"Name\": \"Menu Engineering.period\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Period'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 816,
+          "y": 8,
+          "z": 3000,
+          "width": 210,
+          "height": 50,
+          "config": "{\"name\": \"c5075dc321535f09b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 816, \"y\": 8, \"z\": 3000, \"width\": 210, \"height\": 50, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Menu Engineering.category\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Menu Engineering\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"category\"}, \"Name\": \"Menu Engineering.category\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Category'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 4000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"a76d2c17a5cd5682b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 4000, \"width\": 224, \"height\": 50, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Scope.scope_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Scope\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"scope_label\"}, \"Name\": \"Scope.scope_label\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Chain or store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 5000,
+          "width": 760,
+          "height": 640,
+          "config": "{\"name\": \"cad04a7987f955d2b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 5000, \"width\": 760, \"height\": 640, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"scatterChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Menu Engineering.item_name\", \"active\": true}], \"Series\": [{\"queryRef\": \"Menu Engineering.menu_class\"}], \"X\": [{\"queryRef\": \"Menu Engineering.Menu Mix\"}], \"Y\": [{\"queryRef\": \"Menu Engineering.Margin per Plate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Menu Engineering\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"item_name\"}, \"Name\": \"Menu Engineering.item_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"menu_class\"}, \"Name\": \"Menu Engineering.menu_class\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Menu Mix\"}, \"Name\": \"Menu Engineering.Menu Mix\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Margin per Plate\"}, \"Name\": \"Menu Engineering.Margin per Plate\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Menu mix vs margin per plate'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 792,
+          "y": 64,
+          "z": 6000,
+          "width": 472,
+          "height": 640,
+          "config": "{\"name\": \"27f8a42265515ce0a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 792, \"y\": 64, \"z\": 6000, \"width\": 472, \"height\": 640, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"Menu Engineering.item_name\"}, {\"queryRef\": \"Menu Engineering.menu_class\"}, {\"queryRef\": \"Menu Engineering.Units Sold\"}, {\"queryRef\": \"Menu Engineering.Menu Mix\"}, {\"queryRef\": \"Menu Engineering.Margin per Plate\"}, {\"queryRef\": \"Menu Engineering.Total Margin\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Menu Engineering\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"item_name\"}, \"Name\": \"Menu Engineering.item_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"menu_class\"}, \"Name\": \"Menu Engineering.menu_class\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Units Sold\"}, \"Name\": \"Menu Engineering.Units Sold\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Menu Mix\"}, \"Name\": \"Menu Engineering.Menu Mix\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Margin per Plate\"}, \"Name\": \"Menu Engineering.Margin per Plate\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Total Margin\"}, \"Name\": \"Menu Engineering.Total Margin\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Items'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Forecast",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSection5bb024281be35269",
+      "ordinal": 9,
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 1000,
+          "width": 900,
+          "height": 44,
+          "config": "{\"name\": \"64646779c7e552409\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 1000, \"width\": 900, \"height\": 44, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Forecast & accuracy\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}, {\"textRuns\": [{\"value\": \"Seasonal regression per store, refreshed daily \\u00b7 shaded range = P10 to P90\", \"textStyle\": {\"fontSize\": \"10pt\", \"color\": \"#5B6B67\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1040,
+          "y": 8,
+          "z": 2000,
+          "width": 224,
+          "height": 50,
+          "config": "{\"name\": \"bbf1fabd07b951a1b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1040, \"y\": 8, \"z\": 2000, \"width\": 224, \"height\": 50, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Location.location_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Location'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 3000,
+          "width": 244,
+          "height": 84,
+          "config": "{\"name\": \"b7dd42f3cf8e5c428\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 3000, \"width\": 244, \"height\": 84, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Forecast.Forecast Sales\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Forecast\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Forecast Sales\"}, \"Name\": \"Forecast.Forecast Sales\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 268,
+          "y": 64,
+          "z": 4000,
+          "width": 244,
+          "height": 84,
+          "config": "{\"name\": \"a086f674f16e50238\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 268, \"y\": 64, \"z\": 4000, \"width\": 244, \"height\": 84, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Forecast.Forecast Covers\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Forecast\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Forecast Covers\"}, \"Name\": \"Forecast.Forecast Covers\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 520,
+          "y": 64,
+          "z": 5000,
+          "width": 244,
+          "height": 84,
+          "config": "{\"name\": \"8e6a6dbfb24958809\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 520, \"y\": 64, \"z\": 5000, \"width\": 244, \"height\": 84, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Forecast vs Actual.Forecast MAPE\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Forecast vs Actual\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Forecast MAPE\"}, \"Name\": \"Forecast vs Actual.Forecast MAPE\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 772,
+          "y": 64,
+          "z": 6000,
+          "width": 244,
+          "height": 84,
+          "config": "{\"name\": \"4698ef80dd135553a\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 772, \"y\": 64, \"z\": 6000, \"width\": 244, \"height\": 84, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"Forecast vs Actual.Within Band %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Forecast vs Actual\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Within Band %\"}, \"Name\": \"Forecast vs Actual.Within Band %\"}]}, \"drillFilterOtherVisuals\": true}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 158,
+          "z": 7000,
+          "width": 1248,
+          "height": 300,
+          "config": "{\"name\": \"6dc4204418a250349\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 158, \"z\": 7000, \"width\": 1248, \"height\": 300, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Month.month_label\", \"active\": true}], \"Y\": [{\"queryRef\": \"Daily Location.Net Sales\"}, {\"queryRef\": \"Forecast.Forecast Sales\"}, {\"queryRef\": \"Forecast.Forecast Low (P10)\"}, {\"queryRef\": \"Forecast.Forecast High (P90)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Month\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Daily Location\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"Forecast\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"month_label\"}, \"Name\": \"Month.month_label\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Sales\"}, \"Name\": \"Daily Location.Net Sales\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Forecast Sales\"}, \"Name\": \"Forecast.Forecast Sales\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Forecast Low (P10)\"}, \"Name\": \"Forecast.Forecast Low (P10)\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Forecast High (P90)\"}, \"Name\": \"Forecast.Forecast High (P90)\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Actual and forecast net sales by month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 468,
+          "z": 8000,
+          "width": 1248,
+          "height": 236,
+          "config": "{\"name\": \"a8e88b177e725c3a9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 468, \"z\": 8000, \"width\": 1248, \"height\": 236, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"Forecast vs Actual.date\"}, {\"queryRef\": \"Location.location_name\"}, {\"queryRef\": \"Forecast vs Actual.forecast\"}, {\"queryRef\": \"Forecast vs Actual.actual\"}, {\"queryRef\": \"Forecast vs Actual.abs_pct_error\"}, {\"queryRef\": \"Forecast vs Actual.within_band\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Forecast vs Actual\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Location\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"date\"}, \"Name\": \"Forecast vs Actual.date\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"location_name\"}, \"Name\": \"Location.location_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"forecast\"}, \"Name\": \"Forecast vs Actual.forecast\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"actual\"}, \"Name\": \"Forecast vs Actual.actual\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"abs_pct_error\"}, \"Name\": \"Forecast vs Actual.abs_pct_error\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"within_band\"}, \"Name\": \"Forecast vs Actual.within_band\"}]}, \"drillFilterOtherVisuals\": true, \"hasDefaultSort\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Recent days: forecast vs actual'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "width": 1280
+    }
+  ]
+}

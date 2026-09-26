@@ -1,0 +1,4 @@
+data/raw/*.parquet
+data/forkcast.duckdb
+__pycache__/
+*.pyc

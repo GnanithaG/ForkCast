@@ -1,0 +1,117 @@
+{
+  "config": "{\"version\": \"5.43\", \"activeSectionIndex\": 0, \"linguisticSchemaSyncVersion\": 0, \"objects\": {\"outspacePane\": [{\"properties\": {\"expanded\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Live Service",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectiona1be11c0c2375af6",
+      "ordinal": 0,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Executive Overview",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSection8066d59ae47c5a1d",
+      "ordinal": 1,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "KPI Scorecard",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionf15dbf9aada151a5",
+      "ordinal": 2,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "OKR Tracker",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionc9ca26343f7d53c7",
+      "ordinal": 3,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Pain Points",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSection2dd4e79dd0735b02",
+      "ordinal": 4,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Revenue Flow",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionf518c1a3fc7f5c4b",
+      "ordinal": 5,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Floor & Capacity",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionaea303b5c35b5225",
+      "ordinal": 6,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Labor & Costs",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSection326bb16c1ad65719",
+      "ordinal": 7,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Menu Engineering",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionedfc40879f075b5d",
+      "ordinal": 8,
+      "visualContainers": [],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Forecast",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSection5bb024281be35269",
+      "ordinal": 9,
+      "visualContainers": [],
+      "width": 1280
+    }
+  ]
+}
